@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listing Aggregator Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --accent-hover: #0284c7;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --badge-bg: #0284c720;
+            --badge-text: #38bdf8;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg); color: var(--text-main); padding: 30px 20px; line-height: 1.5; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+        h1 { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+        .badge-count { background: var(--badge-bg); color: var(--badge-text); padding: 6px 14px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; }
+        .search-bar { width: 100%; padding: 14px 18px; font-size: 1rem; border-radius: 10px; border: 1px solid var(--border); background: var(--card-bg); color: var(--text-main); margin-bottom: 25px; outline: none; }
+        .search-bar:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2); }
+        .table-container { overflow-x: auto; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3); }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; }
+        th { background: #090d16; padding: 16px 20px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); }
+        td { padding: 16px 20px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background: rgba(255, 255, 255, 0.02); }
+        .job-title { font-weight: 600; font-size: 1.05rem; color: #ffffff; margin-bottom: 4px; }
+        .company-name { color: var(--text-muted); font-size: 0.88rem; display: flex; align-items: center; gap: 6px; }
+        .location-badge { display: inline-block; background: rgba(56, 189, 248, 0.1); color: var(--accent); padding: 4px 10px; border-radius: 6px; font-size: 0.82rem; font-weight: 500; }
+        .apply-btn { display: inline-block; background: var(--accent); color: #090d16; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.88rem; transition: all 0.2s ease; }
+        .apply-btn:hover { background: var(--accent-hover); color: #ffffff; transform: translateY(-1px); }
+        .print-btn { background: transparent; border: 1px solid var(--border); color: var(--text-main); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: 500; transition: 0.2s; }
+        .print-btn:hover { background: var(--card-bg); border-color: var(--accent); }
+        @media print {
+            body { background: #ffffff; color: #000000; padding: 0; }
+            .search-bar, .print-btn { display: none; }
+            .table-container { box-shadow: none; border: 1px solid #ccc; }
+            th { background: #f1f5f9; color: #000000; }
+            td { border-bottom: 1px solid #e2e8f0; color: #000000; }
+            .job-title { color: #000000; }
+            .apply-btn { background: #0284c7; color: #ffffff; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1>🎯 Job Listing Aggregator</h1>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">Aggregated Job Results Report</p>
+            </div>
+            <div style="display: flex; gap: 12px; align-items: center;">
+                <span class="badge-count" id="job-count">10 Jobs Found</span>
+                <button class="print-btn" onclick="window.print()">🖨️ Export PDF / Print</button>
+            </div>
+        </header>
+
+        <input type="text" class="search-bar" id="search-input" placeholder="🔍 Search by job title, company, or location..." onkeyup="filterJobs()">
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 35%;">Job Title & Company</th>
+                        <th style="width: 20%;">Location</th>
+                        <th style="width: 30%;">Requirements</th>
+                        <th style="width: 15%; text-align: center;">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="job-table-body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const jobs = [{"title": "Jobs search", "company": "Quik Hire Staffing", "location": "Remote", "requirements": "Remote\n                \n                \n                    Filter by Remote", "link": "https://www.linkedin.com/jobs/view/4442567600/?eBP=BUDGET_EXHAUSTED_JOB&refId=qBLzhuETKeTeE4AV%2Bsp22g%3D%3D&trackingId=%2BTS7avnorBYTKeyRqGXQNQ%3D%3D&trk=flagship3_search_srp_jobs"}, {"title": "FrontEnd Web Developer (Remote)", "company": NaN, "location": "Remote", "requirements": NaN, "link": "https://www.linkedin.com/jobs/view/4442582108/?eBP=NOT_ELIGIBLE_FOR_CHARGING&refId=qBLzhuETKeTeE4AV%2Bsp22g%3D%3D&trackingId=04f7uh2oBui%2FNiMOh7fwVQ%3D%3D&trk=flagship3_search_srp_jobs"}, {"title": "Junior React Developer", "company": NaN, "location": "Remote", "requirements": NaN, "link": "https://www.linkedin.com/jobs/view/4442075365/?eBP=NOT_ELIGIBLE_FOR_CHARGING&refId=qBLzhuETKeTeE4AV%2Bsp22g%3D%3D&trackingId=lAhdLQjZPC3FqCQ8p0A4aw%3D%3D&trk=flagship3_search_srp_jobs"}, {"title": "Junior Software Engineer - Guaranteed Hours Contract Available", "company": NaN, "location": "Remote", "requirements": NaN, "link": "https://www.linkedin.com/jobs/view/4365239253/?eBP=NOT_ELIGIBLE_FOR_CHARGING&refId=qBLzhuETKeTeE4AV%2Bsp22g%3D%3D&trackingId=Rk2wEY768hP3WpUXK23KUQ%3D%3D&trk=flagship3_search_srp_jobs"}, {"title": "Javascript Developer - Remote", "company": NaN, "location": "Remote", "requirements": NaN, "link": "https://www.linkedin.com/jobs/view/4437945393/?eBP=NOT_ELIGIBLE_FOR_CHARGING&refId=qBLzhuETKeTeE4AV%2Bsp22g%3D%3D&trackingId=pMk1g1%2Bs1LkhvPDMeOFneQ%3D%3D&trk=flagship3_search_srp_jobs"}, {"title": "Full Stack Developer | Remote", "company": NaN, "location": "Remote", "requirements": NaN, "link": "https://www.linkedin.com/jobs/view/4422517182/?eBP=NOT_ELIGIBLE_FOR_CHARGING&refId=qBLzhuETKeTeE4AV%2Bsp22g%3D%3D&trackingId=Uinc4lNBA%2FvkpZGgUzdthg%3D%3D&trk=flagship3_search_srp_jobs"}, {"title": "Software Support Engineer", "company": NaN, "location": "Remote", "requirements": NaN, "link": "https://www.linkedin.com/jobs/view/4434726056/?eBP=NOT_ELIGIBLE_FOR_CHARGING&refId=qBLzhuETKeTeE4AV%2Bsp22g%3D%3D&trackingId=oOqY%2F3SShmaYegg5%2Fmoplw%3D%3D&trk=flagship3_search_srp_jobs"}, {"title": "Are these results helpful?", "company": NaN, "location": "Remote", "requirements": "Your feedback helps us improve search results.", "link": NaN}, {"title": "Job search faster with Premium", "company": NaN, "location": "Remote", "requirements": "Access company insights like strategic priorities, headcount trends, and more", "link": "http://www.linkedin.com/premium/products/?upsellOrderOrigin=Tracking%3Av1%3Apremium_job_details_how_you_match_upsell%3AJob+Seeker%3AIn-Product&utype=job&referenceId=xShKFiUsR9aidHLuqZH1hw%3D%3D&isSS=false&upsellSlotId=JOB_DETAILS_HOW_YOU_MATCH&destRedirectURL=https%3A%2F%2Fwww.linkedin.com%2Fjobs%2Fsearch%2F%3FcurrentJobId%3D4442567600%26f_WT%3D2%26keywords%3DReact%2520Developer"}, {"title": "About the company", "company": "11-50 employees", "location": "Remote", "requirements": "Quik Hire Staffing Solutions is dedicated to helping businesses hire smarter, faster, and more efficiently. We specialize in providing high-quality staffing and recruitment solutions tailored to the unique needs of each organization. Whether you're scaling quickly, filling urgent roles, or seeking long-term talent partnerships, we deliver a seamless hiring experience designed for today’s competitive market.\n\nAt Quik Hire, our mission is simple: bridge the gap between exceptional talent and forward-thinking companies.\n\nWe combine industry expertise, modern recruitment tools, and a people-first approach to ensure every match is the right fit.\n\nWhat we offer:\n• Rapid and reliable staffing solutions\n• Skilled and vetted candidate placements\n• Temporary, permanent, and contract hiring\n• Customized recruitment strategies\n• Dedicated support from start to finish\n\nIf you're ready to accelerate your hiring or explore new career opportunities, let’s connect.\n\nQuik Hire Staffing Solutions — Fast. Focused. Future-Ready.\n…\nshow more", "link": "https://www.linkedin.com/company/quik-hire-staffing/life/"}];
+
+        function renderJobs(data) {
+            const tbody = document.getElementById("job-table-body");
+            tbody.innerHTML = "";
+            document.getElementById("job-count").innerText = `${data.length} Jobs Found`;
+
+            if (data.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; padding: 40px; color: var(--text-muted);">No job listings match your search.</td></tr>`;
+                return;
+            }
+
+            data.forEach(job => {
+                const tr = document.createElement("tr");
+                
+                const titleCompany = `
+                    <div>
+                        <div class="job-title">${escapeHtml(job.title || 'N/A')}</div>
+                        <div class="company-name">🏢 ${escapeHtml(job.company || 'N/A')}</div>
+                    </div>
+                `;
+
+                const location = `
+                    <span class="location-badge">📍 ${escapeHtml(job.location || 'Remote')}</span>
+                `;
+
+                const reqs = `
+                    <div style="color: var(--text-muted); font-size: 0.88rem; max-width: 350px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                        ${escapeHtml(job.requirements || 'N/A')}
+                    </div>
+                `;
+
+                const applyBtn = job.link && job.link !== 'N/A' 
+                    ? `<a href="${job.link}" target="_blank" class="apply-btn">Apply Now ↗</a>` 
+                    : `<span style="color: var(--text-muted);">N/A</span>`;
+
+                tr.innerHTML = `
+                    <td>${titleCompany}</td>
+                    <td>${location}</td>
+                    <td>${reqs}</td>
+                    <td style="text-align: center;">${applyBtn}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function filterJobs() {
+            const query = document.getElementById("search-input").value.toLowerCase();
+            const filtered = jobs.filter(j => 
+                (j.title && j.title.toLowerCase().includes(query)) ||
+                (j.company && j.company.toLowerCase().includes(query)) ||
+                (j.location && j.location.toLowerCase().includes(query))
+            );
+            renderJobs(filtered);
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;");
+        }
+
+        // Initial render
+        renderJobs(jobs);
+    </script>
+</body>
+</html>
