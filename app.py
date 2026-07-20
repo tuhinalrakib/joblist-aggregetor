@@ -28,9 +28,25 @@ OUTPUT_JSON = BASE_DIR / "jobs_output.json"
 OUTPUT_HTML = BASE_DIR / "jobs_output.html"
 OUTPUT_PDF = BASE_DIR / "jobs_output.pdf"
 
+EXP_LEVEL_MAP = {
+    "1": "1",
+    "2": "2",
+    "3": "3",
+    "4": "4",
+    "5": "5",
+    "6": "6",
+    "internship": "1",
+    "entry": "2",
+    "associate": "3",
+    "mid_senior": "4",
+    "director": "5",
+    "executive": "6",
+}
+
 class ScrapeRequest(BaseModel):
     keyword: str = "React Developer"
     location: str = "Remote"
+    experience_level: Optional[str] = "all"
     max_pages: int = 2
     url: Optional[str] = None
     auth_file: Optional[str] = "auth.json"
@@ -51,9 +67,14 @@ def trigger_scrape(req: ScrapeRequest):
         encoded_kw = urllib.parse.quote(req.keyword)
         encoded_loc = urllib.parse.quote(req.location)
         target_url = f"https://www.linkedin.com/jobs/search/?keywords={encoded_kw}&location={encoded_loc}"
+        
+        # Add Experience Level filter if specified
+        exp_code = EXP_LEVEL_MAP.get(str(req.experience_level).lower())
+        if exp_code:
+            target_url += f"&f_E={exp_code}"
 
     print(f"\n[+] API Scraping Triggered:")
-    print(f"    Keyword: '{req.keyword}' | Location: '{req.location}' | Pages: {req.max_pages}")
+    print(f"    Keyword: '{req.keyword}' | Location: '{req.location}' | Experience Level: '{req.experience_level}' | Pages: {req.max_pages}")
     print(f"    Target URL: {target_url}")
 
     scraper = JobScraper(
