@@ -96,17 +96,18 @@ class JobScraper:
                 )
                 location = location_elem.inner_text().strip() if location_elem else self.location
 
-                # Extract requirements / snippet / date / benefits
+                # Extract posted date
+                time_elem = card.query_selector("time.job-search-card__listdate, time, .job-search-card__listdate, [class*='date']")
+                date_posted = time_elem.inner_text().strip() if time_elem else "Recently"
+
+                # Extract requirements / snippet / benefits
                 req_elem = card.query_selector(
-                    ".job-search-card__snippet, time.job-search-card__listdate, .result-benefits__text, .job-snippet, .summary, .description, .requirements, p.detail, p"
+                    ".job-search-card__snippet, .result-benefits__text, .job-snippet, .summary, .description, .requirements, p.detail"
                 )
                 if req_elem and req_elem.inner_text().strip():
                     requirements = req_elem.inner_text().strip()
                 else:
-                    # Fallback metadata if snippet is absent
-                    time_elem = card.query_selector("time")
-                    time_str = time_elem.inner_text().strip() if time_elem else ""
-                    requirements = f"Posted: {time_str}" if time_str else "Click 'Apply Now' for full details"
+                    requirements = f"Posted: {date_posted}" if date_posted != "Recently" else "Click 'Apply Now' for full details"
 
                 # Extract job link
                 link_elem = card.query_selector(
@@ -124,6 +125,7 @@ class JobScraper:
                         "title": title,
                         "company": company,
                         "location": location,
+                        "date_posted": date_posted,
                         "requirements": requirements,
                         "link": link
                     })

@@ -131,16 +131,30 @@ class JobDataHandler:
             </div>
         </header>
 
-        <input type="text" class="search-bar" id="search-input" placeholder="🔍 Search by job title, company, or location..." onkeyup="filterJobs()">
+        <div style="display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; align-items: center;">
+            <input type="text" class="search-bar" id="search-input" style="flex: 1; margin-bottom: 0;" placeholder="🔍 Search by job title, company, or location..." onkeyup="applyFilterAndSort()">
+            
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <label for="sort-select" style="font-weight: 600; font-size: 0.88rem; color: var(--text-muted); white-space: nowrap;">Sort By:</label>
+                <select id="sort-select" onchange="applyFilterAndSort()" style="padding: 12px 16px; border-radius: 10px; background: var(--card-bg); color: var(--text-main); border: 1px solid var(--border); font-size: 0.95rem; cursor: pointer; outline: none;">
+                    <option value="newest" selected>⏱️ Most Recent First (Default)</option>
+                    <option value="title_asc">🔤 Job Title (A → Z)</option>
+                    <option value="title_desc">🔤 Job Title (Z → A)</option>
+                    <option value="company_asc">🏢 Company Name (A → Z)</option>
+                    <option value="location_asc">📍 Location (A → Z)</option>
+                </select>
+            </div>
+        </div>
 
         <div class="table-container">
             <table>
                 <thead>
-                    <tr>
-                        <th style="width: 35%;">Job Title & Company</th>
-                        <th style="width: 20%;">Location</th>
-                        <th style="width: 30%;">Requirements</th>
-                        <th style="width: 15%; text-align: center;">Action</th>
+                    <tr style="user-select: none;">
+                        <th style="width: 32%; cursor: pointer;" onclick="toggleSortHeader('title')">Job Title & Company ↕</th>
+                        <th style="width: 18%; cursor: pointer;" onclick="toggleSortHeader('location')">Location ↕</th>
+                        <th style="width: 15%; cursor: pointer;" onclick="toggleSortHeader('date')">Date Posted ↕</th>
+                        <th style="width: 23%;">Requirements</th>
+                        <th style="width: 12%; text-align: center;">Action</th>
                     </tr>
                 </thead>
                 <tbody id="job-table-body">
@@ -150,7 +164,7 @@ class JobDataHandler:
     </div>
 
     <script>
-        const jobs = {jobs_json_str};
+        const rawJobs = {jobs_json_str};
 
         function renderJobs(data) {{
             const tbody = document.getElementById("job-table-body");
@@ -158,7 +172,7 @@ class JobDataHandler:
             document.getElementById("job-count").innerText = `${{data.length}} Jobs Found`;
 
             if (data.length === 0) {{
-                tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; padding: 40px; color: var(--text-muted);">No job listings match your search.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 40px; color: var(--text-muted);">No job listings match your search.</td></tr>`;
                 return;
             }}
 
@@ -176,8 +190,10 @@ class JobDataHandler:
                     <span class="location-badge">📍 ${{escapeHtml(job.location || 'Remote')}}</span>
                 `;
 
+                const dateBadge = `<span style="display:inline-block; background:rgba(56, 189, 248, 0.1); color:var(--accent); padding:4px 10px; border-radius:6px; font-size:0.82rem; font-weight:600;">🕒 ${{escapeHtml(job.date_posted || 'Recently')}}</span>`;
+
                 const reqs = `
-                    <div style="color: var(--text-muted); font-size: 0.88rem; max-width: 350px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                    <div style="color: var(--text-muted); font-size: 0.88rem; max-width: 280px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                         ${{escapeHtml(job.requirements || 'N/A')}}
                     </div>
                 `;
@@ -189,6 +205,7 @@ class JobDataHandler:
                 tr.innerHTML = `
                     <td>${{titleCompany}}</td>
                     <td>${{location}}</td>
+                    <td>${{dateBadge}}</td>
                     <td>${{reqs}}</td>
                     <td style="text-align: center;">${{applyBtn}}</td>
                 `;
@@ -196,13 +213,39 @@ class JobDataHandler:
             }});
         }}
 
-        function filterJobs() {{
+        function toggleSortHeader(field) {{
+            const selectElem = document.getElementById("sort-select");
+            if (field === 'title') {{
+                selectElem.value = (selectElem.value === 'title_asc') ? 'title_desc' : 'title_asc';
+            }} else if (field === 'location') {{
+                selectElem.value = 'location_asc';
+            }} else if (field === 'date') {{
+                selectElem.value = 'newest';
+            }}
+            applyFilterAndSort();
+        }}
+
+        function applyFilterAndSort() {{
             const query = document.getElementById("search-input").value.toLowerCase();
-            const filtered = jobs.filter(j => 
+            const sortOption = document.getElementById("sort-select").value;
+
+            let filtered = rawJobs.filter(j => 
                 (j.title && j.title.toLowerCase().includes(query)) ||
                 (j.company && j.company.toLowerCase().includes(query)) ||
-                (j.location && j.location.toLowerCase().includes(query))
+                (j.location && j.location.toLowerCase().includes(query)) ||
+                (j.date_posted && j.date_posted.toLowerCase().includes(query))
             );
+
+            if (sortOption === "title_asc") {{
+                filtered.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
+            }} else if (sortOption === "title_desc") {{
+                filtered.sort((a, b) => (b.title || "").localeCompare(a.title || ""));
+            }} else if (sortOption === "company_asc") {{
+                filtered.sort((a, b) => (a.company || "").localeCompare(b.company || ""));
+            }} else if (sortOption === "location_asc") {{
+                filtered.sort((a, b) => (a.location || "").localeCompare(b.location || ""));
+            }}
+
             renderJobs(filtered);
         }}
 
@@ -215,7 +258,7 @@ class JobDataHandler:
         }}
 
         // Initial render
-        renderJobs(jobs);
+        applyFilterAndSort();
     </script>
 </body>
 </html>

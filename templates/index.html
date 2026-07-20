@@ -348,16 +348,36 @@
                 </div>
             </div>
 
-            <input type="text" class="filter-input" id="filter-input" placeholder="🔍 Instant search inside results by title, company, or location..." onkeyup="filterResults()">
+            <div style="display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; align-items: center;">
+                <input type="text" class="filter-input" id="filter-input" style="flex: 1; min-width: 280px; margin-bottom: 0;" placeholder="🔍 Search inside results by title, company, or location..." onkeyup="filterResults()">
+                
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <label for="sort-select" style="font-weight: 600; font-size: 0.88rem; color: var(--text-muted); white-space: nowrap;">Sort By:</label>
+                    <select id="sort-select" onchange="applySortingAndRender()" style="padding: 10px 14px; border-radius: 10px; background: var(--input-bg); color: var(--text-main); border: 1px solid var(--card-border); font-size: 0.9rem; cursor: pointer;">
+                        <option value="newest" selected>⏱️ Most Recent First (Default)</option>
+                        <option value="title_asc">🔤 Job Title (A → Z)</option>
+                        <option value="title_desc">🔤 Job Title (Z → A)</option>
+                        <option value="company_asc">🏢 Company Name (A → Z)</option>
+                        <option value="location_asc">📍 Location (A → Z)</option>
+                    </select>
+                </div>
+            </div>
 
             <div class="table-wrapper">
                 <table>
                     <thead>
-                        <tr>
-                            <th style="width: 38%;">Job Title & Company</th>
-                            <th style="width: 22%;">Location</th>
-                            <th style="width: 26%;">Snippet / Requirements</th>
-                            <th style="width: 14%; text-align: center;">Apply</th>
+                        <tr style="user-select: none;">
+                            <th style="width: 32%; cursor: pointer;" onclick="toggleSortHeader('title')">
+                                Job Title & Company <span id="sort-icon-title">↕</span>
+                            </th>
+                            <th style="width: 18%; cursor: pointer;" onclick="toggleSortHeader('location')">
+                                Location <span id="sort-icon-location">↕</span>
+                            </th>
+                            <th style="width: 15%; cursor: pointer;" onclick="toggleSortHeader('date')">
+                                Date Posted <span id="sort-icon-date">↕</span>
+                            </th>
+                            <th style="width: 23%;">Snippet / Requirements</th>
+                            <th style="width: 12%; text-align: center;">Apply</th>
                         </tr>
                     </thead>
                     <tbody id="jobs-table-body">
@@ -369,6 +389,8 @@
 
     <script>
         let currentJobs = [];
+        let currentSortField = "newest";
+        let sortAscending = true;
 
         async function handleScrape(e) {
             e.preventDefault();
@@ -402,7 +424,7 @@
 
                 if (data.success) {
                     currentJobs = data.jobs || [];
-                    renderJobs(currentJobs);
+                    applySortingAndRender();
                     dashboard.style.display = "block";
                 } else {
                     alert("Scraping Warning: " + (data.message || "No jobs found."));
@@ -415,6 +437,58 @@
             }
         }
 
+        function sortJobList(jobsList, sortOption) {
+            let sorted = [...jobsList];
+            if (sortOption === "newest") {
+                // Keep recent scraped order (reverse if index given or preserve latest first)
+                return sorted;
+            } else if (sortOption === "title_asc") {
+                sorted.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
+            } else if (sortOption === "title_desc") {
+                sorted.sort((a, b) => (b.title || "").localeCompare(a.title || ""));
+            } else if (sortOption === "company_asc") {
+                sorted.sort((a, b) => (a.company || "").localeCompare(b.company || ""));
+            } else if (sortOption === "location_asc") {
+                sorted.sort((a, b) => (a.location || "").localeCompare(b.location || ""));
+            } else if (sortOption === "date_asc") {
+                sorted.sort((a, b) => (a.date_posted || "").localeCompare(b.date_posted || ""));
+            }
+            return sorted;
+        }
+
+        function toggleSortHeader(field) {
+            const selectElem = document.getElementById("sort-select");
+            if (field === 'title') {
+                selectElem.value = (selectElem.value === 'title_asc') ? 'title_desc' : 'title_asc';
+            } else if (field === 'location') {
+                selectElem.value = 'location_asc';
+            } else if (field === 'date') {
+                selectElem.value = 'newest';
+            }
+            applySortingAndRender();
+        }
+
+        function applySortingAndRender() {
+            const sortOption = document.getElementById("sort-select").value;
+            const filtered = getFilteredJobs();
+            const sorted = sortJobList(filtered, sortOption);
+            renderJobs(sorted);
+        }
+
+        function getFilteredJobs() {
+            const query = document.getElementById("filter-input").value.toLowerCase();
+            return currentJobs.filter(j => 
+                (j.title && j.title.toLowerCase().includes(query)) ||
+                (j.company && j.company.toLowerCase().includes(query)) ||
+                (j.location && j.location.toLowerCase().includes(query)) ||
+                (j.date_posted && j.date_posted.toLowerCase().includes(query))
+            );
+        }
+
+        function filterResults() {
+            applySortingAndRender();
+        }
+
         function renderJobs(jobs) {
             const tbody = document.getElementById("jobs-table-body");
             const countElem = document.getElementById("results-count");
@@ -423,7 +497,7 @@
             countElem.innerText = `${jobs.length} Jobs Collected`;
 
             if (jobs.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; padding:40px; color:var(--text-muted);">No job listings matching your criteria.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:40px; color:var(--text-muted);">No job listings matching your criteria.</td></tr>`;
                 return;
             }
 
@@ -439,10 +513,11 @@
                 `;
 
                 const loc = `<span class="badge-loc">📍 ${escapeHtml(job.location || 'Remote')}</span>`;
+                const dateBadge = `<span style="display:inline-block; background:rgba(129, 140, 248, 0.12); color:var(--accent-purple); padding:4px 10px; border-radius:6px; font-size:0.82rem; font-weight:600;">🕒 ${escapeHtml(job.date_posted || 'Recently')}</span>`;
 
                 const reqText = (job.requirements && job.requirements !== 'N/A') ? job.requirements : "Click 'Apply Now' for details";
                 const reqs = `
-                    <div style="color:var(--text-muted); font-size:0.88rem; max-width:300px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    <div style="color:var(--text-muted); font-size:0.88rem; max-width:280px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
                         ${escapeHtml(reqText)}
                     </div>
                 `;
@@ -454,21 +529,12 @@
                 tr.innerHTML = `
                     <td>${titleCompany}</td>
                     <td>${loc}</td>
+                    <td>${dateBadge}</td>
                     <td>${reqs}</td>
                     <td style="text-align:center;">${apply}</td>
                 `;
                 tbody.appendChild(tr);
             });
-        }
-
-        function filterResults() {
-            const query = document.getElementById("filter-input").value.toLowerCase();
-            const filtered = currentJobs.filter(j => 
-                (j.title && j.title.toLowerCase().includes(query)) ||
-                (j.company && j.company.toLowerCase().includes(query)) ||
-                (j.location && j.location.toLowerCase().includes(query))
-            );
-            renderJobs(filtered);
         }
 
         function escapeHtml(str) {

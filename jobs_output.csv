@@ -1,579 +1,104 @@
-﻿title,company,location,requirements,link
-Reactjs Developer,Infosys,"Pune Division, Maharashtra, India",1 day ago,https://in.linkedin.com/jobs/view/reactjs-developer-at-infosys-4433462994?position=1&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=8J69k0u%2BhzYPiT%2Bj%2FJ2BhA%3D%3D
-Frontend React developer,Deloitte,"Delhi, India",5 days ago,https://in.linkedin.com/jobs/view/frontend-react-developer-at-deloitte-4438408525?position=2&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=xh245uLjfPrCe3ACHgbu6A%3D%3D
-ReactJS developer,Infosys,"Pune Division, Maharashtra, India",6 days ago,https://in.linkedin.com/jobs/view/reactjs-developer-at-infosys-4439492592?position=3&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=SlnYoYPzdO%2BR1UXiAqlSOw%3D%3D
-React JS Developer,Infosys,"Bengaluru, Karnataka, India",1 week ago,https://in.linkedin.com/jobs/view/react-js-developer-at-infosys-4438307100?position=4&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=d%2FRsX9uwhOb8EEEdNL5dLQ%3D%3D
-Front End Developer,PVH Corp.,"Bengaluru, Karnataka, India",2 weeks ago,https://in.linkedin.com/jobs/view/front-end-developer-at-pvh-corp-4436772262?position=5&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=E%2BuUiFMs1dd23hd0oyttcA%3D%3D
-React JS Developer,Infosys,"Pune District, Maharashtra, India",1 week ago,https://in.linkedin.com/jobs/view/react-js-developer-at-infosys-4437994777?position=6&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=zX07Z00n4pNV0iU1Fi3nEA%3D%3D
-Front end Developer,UCFBD,"Dhaka, Dhaka, Bangladesh",Posted: 14 hours ago,https://bd.linkedin.com/jobs/view/front-end-developer-at-ucfbd-4442566379?position=7&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=5wdo123LZVBR9ve34x%2BOCg%3D%3D
-Java Reactjs Developer,Infosys,"Bengaluru East, Karnataka, India",1 day ago,https://in.linkedin.com/jobs/view/java-reactjs-developer-at-infosys-4433467892?position=8&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=Y0HDFwM1ZxZHJQMe7H%2BELQ%3D%3D
-React JS Developer,Infosys,"Hyderabad, Telangana, India",1 week ago,https://in.linkedin.com/jobs/view/react-js-developer-at-infosys-4437996761?position=9&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=c8OB39CuUxYK93kcNQW4fA%3D%3D
-Front End Developer Middle,PT. INFOMEDIA NUSANTARA,"Jakarta, Jakarta, Indonesia",5 days ago,https://id.linkedin.com/jobs/view/front-end-developer-middle-at-pt-infomedia-nusantara-4440898085?position=10&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=wYkuhKRgnKALEReYtRLREA%3D%3D
-Junior Front-End Developer (Remote),PulseMediaNL,"Tabūk, Tabuk, Saudi Arabia",3 days ago,https://sa.linkedin.com/jobs/view/junior-front-end-developer-remote-at-pulsemedianl-4442510112?position=11&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=nterXzWWLQFnMkJtt69%2Fhg%3D%3D
-Frontend Developer,ILA Online,"Gurgaon, Haryana, India",3 days ago,https://in.linkedin.com/jobs/view/frontend-developer-at-ila-online-4441175142?position=12&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=dYnvZ52IKBnNVkm6a5DVwA%3D%3D
-React frontend developer,Capco,"Bengaluru, Karnataka, India",3 weeks ago,https://in.linkedin.com/jobs/view/react-frontend-developer-at-capco-4432959982?position=13&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=6N7ZEoTL9k1Xr%2FYcY6%2FHjw%3D%3D
-Frontend Developer,Deccan AI,"Hyderabad, Telangana, India",2 weeks ago,https://in.linkedin.com/jobs/view/frontend-developer-at-deccan-ai-4437149490?position=14&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=MqVLKObKLTg7X8SnhjiQYg%3D%3D
-Front-end developer,Lenovo,"Petaling Jaya, Selangor, Malaysia",5 days ago,https://my.linkedin.com/jobs/view/front-end-developer-at-lenovo-4439890758?position=15&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=%2BTjCxtmlFtgNrXtikVYtgA%3D%3D
-React.js Developer,Infosys,"Hyderabad, Telangana, India",1 day ago,https://in.linkedin.com/jobs/view/react-js-developer-at-infosys-4433471833?position=16&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=VzHjJ%2B6HDcVOFWDJ4n5rTQ%3D%3D
-Junior React Developer,NxtWave,"Hyderabad, Telangana, India",2 weeks ago,https://in.linkedin.com/jobs/view/junior-react-developer-at-nxtwave-4435447370?position=17&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=WmVxO464CrWlpmV%2B70fxRQ%3D%3D
-Frontend Developer (React) - Freelancer,Lingaro,Poland,1 week ago,https://pl.linkedin.com/jobs/view/frontend-developer-react-freelancer-at-lingaro-4440034749?position=18&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=VZZkDPyk%2BMJ03I9Rcr3FSA%3D%3D
-Frontend Developer,Insense,"Cairo, Cairo, Egypt",1 day ago,https://eg.linkedin.com/jobs/view/frontend-developer-at-insense-4441735847?position=19&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=Z%2BXByOS5yQDl52JA6uO0UA%3D%3D
-React Developer,hackajob,"Pune Division, Maharashtra, India",2 weeks ago,https://in.linkedin.com/jobs/view/react-developer-at-hackajob-4435263484?position=20&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=eu4QmU304%2FqEA%2FsI1NU4ow%3D%3D
-Desenvolvedor (a) Front-end - Júnior (React.js),Cakto,"Balneário Camboriú, Santa Catarina, Brazil",1 week ago,https://br.linkedin.com/jobs/view/desenvolvedor-a-front-end-j%C3%BAnior-react-js-at-cakto-4438543652?position=21&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=9XPwT0ITKM7y%2B3xgccDNow%3D%3D
-Frontend Developer,Codeyoung,"Bengaluru, Karnataka, India",1 week ago,https://in.linkedin.com/jobs/view/frontend-developer-at-codeyoung-4438173931?position=22&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=H9I3Ift20m%2B%2FzT7QvqlS0A%3D%3D
-React JS Developer,Infosys,"Bengaluru East, Karnataka, India",2 days ago,https://in.linkedin.com/jobs/view/react-js-developer-at-infosys-4441339802?position=23&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=M%2Bmf15Jf%2BBv1tDyMGDetew%3D%3D
-Front End Developer - ReactJS,BNP Paribas,"Chennai, Tamil Nadu, India",1 week ago,https://in.linkedin.com/jobs/view/front-end-developer-reactjs-at-bnp-paribas-4429590805?position=24&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=Pk8EkfQlSRHzSiA3bDXUgA%3D%3D
-Frontend Developer (React),Codekeeper,Romania,6 days ago,https://ro.linkedin.com/jobs/view/frontend-developer-react-at-codekeeper-4440562509?position=25&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=ENQEdTQzwJjTVOYYOxzyTg%3D%3D
-Junior Frontend Developer,Rempact,"Bengaluru, Karnataka, India",1 week ago,https://in.linkedin.com/jobs/view/junior-frontend-developer-at-rempact-4437061268?position=26&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=GipWhev6Ijx0Oy9FWFOcQQ%3D%3D
-React JS Developer,Infosys,"Chennai, Tamil Nadu, India",1 week ago,https://in.linkedin.com/jobs/view/react-js-developer-at-infosys-4437997748?position=27&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=tfzhO2mT701UzSITyUvNfA%3D%3D
-Full Stack Developer,Deloitte,"Bengaluru, Karnataka, India",1 week ago,https://in.linkedin.com/jobs/view/full-stack-developer-at-deloitte-4435955804?position=28&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=xeD9PE%2B8ajH38pjV7ZOyig%3D%3D
-ReactJs Developer,Deqode,"Navi Mumbai, Maharashtra, India",6 months ago,https://in.linkedin.com/jobs/view/reactjs-developer-at-deqode-4352604064?position=29&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=CwKwToN5BvmEpQxckyhElw%3D%3D
-Front-end Developer,MOC Group,"Kelapa Gading, Jakarta, Indonesia",1 week ago,https://id.linkedin.com/jobs/view/front-end-developer-at-moc-group-4438282087?position=30&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=x%2FX8K%2BEyXLg8%2B62yqK1ykg%3D%3D
-Front End Developer,Accenture in India,"Kochi, Kerala, India",2 weeks ago,https://in.linkedin.com/jobs/view/front-end-developer-at-accenture-in-india-4436453175?position=31&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=jJhMnIverFfkMhmWa%2Bj7wg%3D%3D
-Frontend Developer,Capco,"Pune City, Maharashtra, India",1 week ago,https://in.linkedin.com/jobs/view/frontend-developer-at-capco-4437367652?position=32&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=DafisKYVWqNU7SO3Lc1QVA%3D%3D
-Desarrollador Frontend Jr.,Prestamype,"Lima, Peru",5 days ago,https://pe.linkedin.com/jobs/view/desarrollador-frontend-jr-at-prestamype-4438068254?position=33&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=SIIi0oV6naqCNQL7e0HDtQ%3D%3D
-Front End Developer,Accenture in India,"Kochi, Kerala, India",2 weeks ago,https://in.linkedin.com/jobs/view/front-end-developer-at-accenture-in-india-4436434965?position=34&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=xYV0zhJ59AJv7VYxE0QBfg%3D%3D
-Frontend Developer,Insense,"Cape Town, Western Cape, South Africa",1 day ago,https://za.linkedin.com/jobs/view/frontend-developer-at-insense-4441750326?position=35&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=H3fXUc2h%2BUD6jzqOBfQm4A%3D%3D
-Frontend Engineer (React and Javascript),Arbisoft,"Lahore, Punjab, Pakistan",4 days ago,https://pk.linkedin.com/jobs/view/frontend-engineer-react-and-javascript-at-arbisoft-4440695248?position=36&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=K2hR0K8FuxlKZR%2FFPYPQ%2Bw%3D%3D
-Front End Developer,Accenture in India,"Kochi, Kerala, India",2 weeks ago,https://in.linkedin.com/jobs/view/front-end-developer-at-accenture-in-india-4436446489?position=37&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=Qtp%2BSBa8e1Ii2wWnHzwZTg%3D%3D
-FRONTEND DEVELOPER,nCircle Tech Careers,"Pune Division, Maharashtra, India",6 days ago,https://in.linkedin.com/jobs/view/frontend-developer-at-ncircle-tech-careers-4440568277?position=38&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=OWnLvm%2FuaUMOpi0ihLXHtQ%3D%3D
-Front End Developer,BIG HAPPY,"Panchkula, Haryana, India",1 month ago,https://in.linkedin.com/jobs/view/front-end-developer-at-big-happy-4437410902?position=39&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=GrmSj1PhFfmGpsmWprelqg%3D%3D
-Junior React Developer,Arabian Private Holdings,"Sharjah, Sharjah Emirate, United Arab Emirates",Posted: 4 hours ago,https://ae.linkedin.com/jobs/view/junior-react-developer-at-arabian-private-holdings-4442075365?position=40&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=iXs1gR%2BYNPEAMMJ6Terw6g%3D%3D
-Frontend Developer (React Js),DecodeUp (P) Limited,"Chorasi, Gujarat, India",11 months ago,https://in.linkedin.com/jobs/view/frontend-developer-react-js-at-decodeup-p-limited-4287321907?position=41&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=4w3mbhQM%2FJxMmI5VUEXK3Q%3D%3D
-React Developer - Fully Remote | Upto $75/hr,Mercor,"New York, NY",2 weeks ago,https://www.linkedin.com/jobs/view/react-developer-fully-remote-upto-%2475-hr-at-mercor-4431927269?position=42&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=MI8Nn%2BgKPKuJFyR4KIUkBQ%3D%3D
-Frontend Developer (ReactJS & JavaScript),Unison Group,"Singapore, Singapore",Posted: 6 hours ago,https://sg.linkedin.com/jobs/view/frontend-developer-reactjs-javascript-at-unison-group-4442589862?position=43&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=z1iACttZQaK%2BbAMO3lm3oQ%3D%3D
-Frontend Developer,HCLTech,"Pune District, Maharashtra, India",1 week ago,https://in.linkedin.com/jobs/view/frontend-developer-at-hcltech-4435977848?position=44&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=u0c%2FetcMarBh9zMOvRlsaQ%3D%3D
-Front-End Developer React - Genova,Gruppo FOS,"Genoa, Liguria, Italy",Posted: 5 hours ago,https://it.linkedin.com/jobs/view/front-end-developer-react-genova-at-gruppo-fos-4442703504?position=45&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=q4uXUDM6dVmkPX3akZYH4A%3D%3D
-Front End Web Developer,CBTS,"Chennai, Tamil Nadu, India",6 days ago,https://in.linkedin.com/jobs/view/front-end-web-developer-at-cbts-4439442848?position=46&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=NKZt7us8UW8uKQkcv58OzA%3D%3D
-React/Next.JS Front-End Developer,Frontline Data Solutions,Pakistan,Posted: 2 hours ago,https://pk.linkedin.com/jobs/view/react-next-js-front-end-developer-at-frontline-data-solutions-4442729686?position=47&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=LZkVqyIsxj5Mem%2FmqzTnPA%3D%3D
-Frontend Developer (React),STYLZ,"Hyderabad, Telangana, India",2 months ago,https://in.linkedin.com/jobs/view/frontend-developer-react-at-stylz-4415499437?position=48&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=tjj3BQfUy6Vy%2FVPDg18iPg%3D%3D
-Junior JavaScript Developer - Remote work | REF#296620,BairesDev,"Bengaluru, Karnataka, India",2 weeks ago,https://in.linkedin.com/jobs/view/junior-javascript-developer-remote-work-ref%23296620-at-bairesdev-4435329894?position=49&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=mV19a06b34yfss%2B0i9DfhQ%3D%3D
-AI Frontend Engineer - Associate,PwC Middle East,"Riyadh, Riyadh, Saudi Arabia",Posted: 12 hours ago,https://sa.linkedin.com/jobs/view/ai-frontend-engineer-associate-at-pwc-middle-east-4442566734?position=50&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=aGD%2FHYl3Y7Z3xNHTohSW0g%3D%3D
-React GenAI Developer,Infosys,"Bengaluru East, Karnataka, India",1 week ago,https://in.linkedin.com/jobs/view/react-genai-developer-at-infosys-4436593794?position=51&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=YVbwBcNK7btvan8Rd2b%2BSw%3D%3D
-Front-End Developer,Somewhere,India,5 days ago,https://in.linkedin.com/jobs/view/front-end-developer-at-somewhere-4440231345?position=52&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=lJTx27GhOflk0Ah14ji8Rw%3D%3D
-React JS Developer,Capgemini,"Bengaluru, Karnataka, India",4 days ago,https://in.linkedin.com/jobs/view/react-js-developer-at-capgemini-4437475691?position=53&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=SUM4v78LOhkZKKoCGgfJMA%3D%3D
-React developer,M8,"Coimbatore, Tamil Nadu, India",9 months ago,https://in.linkedin.com/jobs/view/react-developer-at-m8-4306131126?position=54&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=cOijUw90jLF4vz6HmUf6Yw%3D%3D
-Front-end Developer,ALGOTEQUE Innovation Hub,"Prague, Prague, Czechia",6 days ago,https://cz.linkedin.com/jobs/view/front-end-developer-at-algoteque-innovation-hub-4440390669?position=55&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=SbzGoI5otFIM7QQrMngY7Q%3D%3D
-Junior Frontend Developer,RecruitGo Careers,"Quezon City, National Capital Region, Philippines",1 week ago,https://ph.linkedin.com/jobs/view/junior-frontend-developer-at-recruitgo-careers-4436806193?position=56&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=lT8Bw09aCpjfSB29j3fV0w%3D%3D
-Graduate Frontend Developer,Braun Management,"Johannesburg, Gauteng, South Africa",Posted: 20 hours ago,https://za.linkedin.com/jobs/view/graduate-frontend-developer-at-braun-management-4441791512?position=57&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=S%2F7kqnsW%2F2pY2VCPanPEew%3D%3D
-Front End Developer in Delhi,QPe,"Delhi, India",1 week ago,https://in.linkedin.com/jobs/view/front-end-developer-in-delhi-at-qpe-4437487808?position=58&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=QRnYKkNxRRYrO3Pmb0zCvA%3D%3D
-Front End Developer in Mumbai,SaffireTech,Mumbai Metropolitan Region,1 week ago,https://in.linkedin.com/jobs/view/front-end-developer-in-mumbai-at-saffiretech-4438114364?position=59&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=emx2mCXPdF5f0AsaDBmbTQ%3D%3D
-Frontend Developer,Datamatics Technologies,"Bengaluru, Karnataka, India",1 week ago,https://in.linkedin.com/jobs/view/frontend-developer-at-datamatics-technologies-4435955354?position=60&pageNum=0&refId=xDUD%2B1k5BGBaejjE7SCcQw%3D%3D&trackingId=tKN2Xchq84M%2FgLAjd9L3vg%3D%3D
-Seniority level,N/A,Remote,"Primary skills:Technology->Reactive Programming->react JS,Technology->UI & Markup Language->TypeScript
+﻿title,company,location,date_posted,requirements,link
+Python Developer,Infosys,"Bengaluru, Karnataka, India",3 months ago,Posted: 3 months ago,https://in.linkedin.com/jobs/view/python-developer-at-infosys-4323369504?position=1&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=LrgBFp66B9bdQdTvkc4ETg%3D%3D
+Software Engineer - I - Python,Devsinc,"Lahore, Punjab, Pakistan",1 week ago,Posted: 1 week ago,https://pk.linkedin.com/jobs/view/software-engineer-i-python-at-devsinc-4440394688?position=2&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=aZpYTA%2B3tm1aPHvQBQ%2FDtQ%3D%3D
+Freelance Python Programmer (NumPy/SciPy),Vivid Resourcing,European Union,6 days ago,Posted: 6 days ago,https://www.linkedin.com/jobs/view/freelance-python-programmer-numpy-scipy-at-vivid-resourcing-4440576235?position=3&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=6f2qTEdRa9rFggiwmTS%2BVA%3D%3D
+Python Developer,Infosys,"Bengaluru East, Karnataka, India",5 days ago,Posted: 5 days ago,https://in.linkedin.com/jobs/view/python-developer-at-infosys-4439959297?position=4&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=LzZ9iP4yn0VR8VFT%2BbMCvA%3D%3D
+Associate - Python Data Engineer - GDC,PwC India,"Kolkata, West Bengal, India",4 days ago,Posted: 4 days ago,https://in.linkedin.com/jobs/view/associate-python-data-engineer-gdc-at-pwc-india-4291069034?position=5&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=Z0ixDdYm9iuaGpwrzeLFgQ%3D%3D
+Python Developer,Infosys,"Chennai, Tamil Nadu, India",2 weeks ago,Posted: 2 weeks ago,https://in.linkedin.com/jobs/view/python-developer-at-infosys-4436057378?position=6&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=BY%2B0ndVPGadcGSQ0m3Umqg%3D%3D
+DESARROLLADOR/A PYTHON (HIBRIDO),IRIUM,"Madrid, Community of Madrid, Spain",1 week ago,Posted: 1 week ago,https://es.linkedin.com/jobs/view/desarrollador-a-python-hibrido-at-irium-4439785817?position=7&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=H84VaLpUYWJ%2BDEtnysBEqA%3D%3D
+Python GenAI developer,Deloitte,"Gurugram, Haryana, India",5 days ago,Posted: 5 days ago,https://in.linkedin.com/jobs/view/python-genai-developer-at-deloitte-4438099810?position=8&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=t78S3vLYWA63so4lBmjj7Q%3D%3D
+Python Developer,Infosys,"Chennai, Tamil Nadu, India",2 days ago,Posted: 2 days ago,https://in.linkedin.com/jobs/view/python-developer-at-infosys-4441341570?position=9&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=7BdfeXdvHES7%2FdZpEcyhww%3D%3D
+Python Developer,Atos,"Phoenix, AZ",6 days ago,Posted: 6 days ago,https://www.linkedin.com/jobs/view/python-developer-at-atos-4437608828?position=10&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=cBm8EknbTuRfxjAelr0TPA%3D%3D
+Python Developer,Euphoric Thought Technologies Pvt. Ltd.,"Noida, Uttar Pradesh, India",6 days ago,Posted: 6 days ago,https://in.linkedin.com/jobs/view/python-developer-at-euphoric-thought-technologies-pvt-ltd-4438003066?position=11&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=gEqkX%2FxHczAvHzIYjY8PTA%3D%3D
+Python Developer,Capco,"Bengaluru, Karnataka, India",3 weeks ago,Posted: 3 weeks ago,https://in.linkedin.com/jobs/view/python-developer-at-capco-4432163187?position=12&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=NjFQmlHqhpr2r%2FpULZU%2BPw%3D%3D
+Python Developer,Infosys,"Bucharest, Bucharest, Romania",1 week ago,Posted: 1 week ago,https://ro.linkedin.com/jobs/view/python-developer-at-infosys-4437290610?position=13&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=a%2F7zCJvo9gls%2FvxMrWwL1Q%3D%3D
+Python Developer,TEKsystems,"Milwaukee, WI",6 days ago,Posted: 6 days ago,https://www.linkedin.com/jobs/view/python-developer-at-teksystems-4440389982?position=14&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=TBAxBbryRF%2FmKofR1NPHjA%3D%3D
+Python Gen AI Developer,Infosys,"Bengaluru East, Karnataka, India",1 week ago,Posted: 1 week ago,https://in.linkedin.com/jobs/view/python-gen-ai-developer-at-infosys-4436806212?position=15&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=qHsI%2BaKapzc%2B86GA%2BthWlQ%3D%3D
+Python Developer,hackajob,"Bengaluru, Karnataka, India",4 days ago,Posted: 4 days ago,https://in.linkedin.com/jobs/view/python-developer-at-hackajob-4406216776?position=16&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=xc965ZW5o7y9motw8hiX8Q%3D%3D
+Python Developer,Infosys,"Hyderabad, Telangana, India",1 day ago,Posted: 1 day ago,https://in.linkedin.com/jobs/view/python-developer-at-infosys-4441743376?position=17&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=Nzjb%2FuIZKTn8ThXuFwmf2A%3D%3D
+Backend Developer (Python),Amphora Logistics,"Barcelona, Catalonia, Spain",5 days ago,Posted: 5 days ago,https://es.linkedin.com/jobs/view/backend-developer-python-at-amphora-logistics-4439920031?position=18&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=p3KyyTGfJYIvChJcJ4%2Fycw%3D%3D
+Python Developer,Qloron Pvt Ltd,Mumbai Metropolitan Region,6 days ago,Posted: 6 days ago,https://in.linkedin.com/jobs/view/python-developer-at-qloron-pvt-ltd-4439496285?position=19&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=wxVy7DO8o4MwaRyi%2B7mP%2Bg%3D%3D
+Python developer,Distillery,Latin America,1 week ago,Posted: 1 week ago,https://www.linkedin.com/jobs/view/python-developer-at-distillery-4440077705?position=20&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=WLeO5ia5uxWPzgwNgHmLrw%3D%3D
+Python Gen AI Developer,Infosys,"Pune Division, Maharashtra, India",1 week ago,Posted: 1 week ago,https://in.linkedin.com/jobs/view/python-gen-ai-developer-at-infosys-4436810101?position=21&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=0Cdy%2FvLWEGQFi8sMWxTrrA%3D%3D
+Python Developer,Ubiquity,"Taguig, National Capital Region, Philippines",6 days ago,Posted: 6 days ago,https://ph.linkedin.com/jobs/view/python-developer-at-ubiquity-4439842505?position=22&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=2JZGDZRoV94n9VNnzsj1OA%3D%3D
+Sr Python Software Engineer,BridgeView,"Broomfield, CO",6 days ago,Posted: 6 days ago,https://www.linkedin.com/jobs/view/sr-python-software-engineer-at-bridgeview-4440334355?position=23&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=hBLnL4538B0hEtcwaOQ7ZQ%3D%3D
+Python Developer,Envision Technology Solutions,"Malvern, PA",6 days ago,Posted: 6 days ago,https://www.linkedin.com/jobs/view/python-developer-at-envision-technology-solutions-4439472649?position=24&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=I9rcwWS%2B%2F8DeIO9PzXCi0g%3D%3D
+Python & FastAPI Developer,Shakers,"Madrid, Community of Madrid, Spain",1 week ago,Posted: 1 week ago,https://es.linkedin.com/jobs/view/python-fastapi-developer-at-shakers-4437281565?position=25&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=MCFWuo0%2FbS1Eq228VTOHpQ%3D%3D
+Python Core Engineer,AISLE™,"Prague, Prague, Czechia",6 days ago,Posted: 6 days ago,https://cz.linkedin.com/jobs/view/python-core-engineer-at-aisle%E2%84%A2-4440377392?position=26&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=Ko1VfrYcCi%2BvMgnvOuF7AQ%3D%3D
+Senior Associate - Python Data Engineer - GDC,PwC India,"Kolkata, West Bengal, India",5 days ago,Posted: 5 days ago,https://in.linkedin.com/jobs/view/senior-associate-python-data-engineer-gdc-at-pwc-india-4291064725?position=27&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=5%2Bol0biNDZR35lG6K8u6qw%3D%3D
+Python Developer,Nicoll Curtin,"Singapore, Singapore",6 days ago,Posted: 6 days ago,https://sg.linkedin.com/jobs/view/python-developer-at-nicoll-curtin-4439828013?position=28&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=QyKVq3cUwKq0zj47%2FQ2OLg%3D%3D
+Python Backend Developer,Capco,"Bengaluru, Karnataka, India",2 weeks ago,Posted: 2 weeks ago,https://in.linkedin.com/jobs/view/python-backend-developer-at-capco-4436715706?position=29&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=XT1etmEVYmUqC5TxdGS2cA%3D%3D
+Python Developer,Capco,"Bengaluru, Karnataka, India",1 week ago,Posted: 1 week ago,https://in.linkedin.com/jobs/view/python-developer-at-capco-4436507922?position=30&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=yaYCcQR11KCo1pmPQSrUAw%3D%3D
+Python _GenAI/ML Developer,Infosys,"Bengaluru East, Karnataka, India",1 week ago,Posted: 1 week ago,https://in.linkedin.com/jobs/view/python-genai-ml-developer-at-infosys-4418297755?position=31&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=W0W%2Fnh8BAKpL8KDuNC106w%3D%3D
+Python Developer,Wipro,"Hyderabad, Telangana, India",2 weeks ago,Posted: 2 weeks ago,https://in.linkedin.com/jobs/view/python-developer-at-wipro-4436487253?position=32&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=%2F24vR%2BKzC%2F%2BYQZlIMpCeeg%3D%3D
+Python API Developer,Saransh Inc,"Charlotte, NC",6 days ago,Posted: 6 days ago,https://www.linkedin.com/jobs/view/python-api-developer-at-saransh-inc-4439864460?position=33&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=jsuosQ9eRmYP01rdqWonuA%3D%3D
+Python Developer,Adecco,"Dublin, County Dublin, Ireland",6 days ago,Posted: 6 days ago,https://ie.linkedin.com/jobs/view/python-developer-at-adecco-4437654550?position=34&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=XQDtErRFy5MM56Wil9Bxaw%3D%3D
+Python Developer,Oliver Bernard,"London Area, United Kingdom",6 days ago,Posted: 6 days ago,https://uk.linkedin.com/jobs/view/python-developer-at-oliver-bernard-4437697652?position=35&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=yZNiF63dWip0N3ApVY%2FvKA%3D%3D
+Python Test Engineer,Infosys,"Bengaluru East, Karnataka, India",1 day ago,Posted: 1 day ago,https://in.linkedin.com/jobs/view/python-test-engineer-at-infosys-4433468870?position=36&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=lDEOsy%2BOYDXJdeZlP3UIsA%3D%3D
+Backend Python Developer,Rose International,"Rutherford, NJ",6 days ago,Posted: 6 days ago,https://www.linkedin.com/jobs/view/backend-python-developer-at-rose-international-4437621128?position=37&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=T6%2BGPrDYbGk2mAjz4Sakmg%3D%3D
+Software Engineer (Python),Audatic,"Berlin, Germany",1 week ago,Posted: 1 week ago,https://de.linkedin.com/jobs/view/software-engineer-python-at-audatic-4439414435?position=38&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=dBAUFVT78fuj8JaShxdGLA%3D%3D
+Python Developer,Tap Growth ai,"Taguig, National Capital Region, Philippines",6 days ago,Posted: 6 days ago,https://ph.linkedin.com/jobs/view/python-developer-at-tap-growth-ai-4439831730?position=39&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=gE8F9IdIQE0iNzf%2BO%2FfFtg%3D%3D
+Python Developer,Persistent Systems,"Bengaluru, Karnataka, India",6 days ago,Posted: 6 days ago,https://in.linkedin.com/jobs/view/python-developer-at-persistent-systems-4437672549?position=40&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=ZP4wqnn1dx4OkB9pL0byGA%3D%3D
+Python Developer - Remote,YO IT Consulting,Thailand,6 days ago,Posted: 6 days ago,https://th.linkedin.com/jobs/view/python-developer-remote-at-yo-it-consulting-4439491743?position=41&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=%2BYe2G4LqddTDVUJ9BUZBEQ%3D%3D
+Python AWS Developer,Infosys,"Bengaluru East, Karnataka, India",1 week ago,Posted: 1 week ago,https://in.linkedin.com/jobs/view/python-aws-developer-at-infosys-4438353286?position=42&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=%2BWBfKPpAU47ohn6UKVDJDQ%3D%3D
+Python Gen AI Developer,Infosys,"Chennai, Tamil Nadu, India",1 week ago,Posted: 1 week ago,https://in.linkedin.com/jobs/view/python-gen-ai-developer-at-infosys-4436591880?position=43&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=IJF%2BnPgw1CkA%2BDNubJH7zQ%3D%3D
+Python Developer,Tower Research Capital,"Gurgaon, Haryana, India",2 weeks ago,Posted: 2 weeks ago,https://in.linkedin.com/jobs/view/python-developer-at-tower-research-capital-4387271287?position=44&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=vkQE%2FChZiCM4MfH2Y1csWA%3D%3D
+Desarrollador de Python,Aubay Spain,"Madrid, Community of Madrid, Spain",1 week ago,Posted: 1 week ago,https://es.linkedin.com/jobs/view/desarrollador-de-python-at-aubay-spain-4437259625?position=45&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=cv9rTA46zpgeIgu6KeHscw%3D%3D
+IN-Senior Associate_ Python Developers _Advisory Corporate_ Bangalore,PwC India,"Bengaluru, Karnataka, India",3 hours ago,Posted: 3 hours ago,https://in.linkedin.com/jobs/view/in-senior-associate-python-developers-advisory-corporate-bangalore-at-pwc-india-4292875116?position=46&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=um%2BnxHqrIRQs9KJ0hGgGaA%3D%3D
+Python Backend Developer IRC297068,GlobalLogic,"Bengaluru, Karnataka, India",1 week ago,Posted: 1 week ago,https://in.linkedin.com/jobs/view/python-backend-developer-irc297068-at-globallogic-4430384592?position=47&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=V2L%2F3DL7VdK0r9Z2yH%2FrRw%3D%3D
+Python Developer,IQVIA India,"Bengaluru, Karnataka, India",1 week ago,Posted: 1 week ago,https://in.linkedin.com/jobs/view/python-developer-at-iqvia-india-4436522241?position=48&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=A7YJNAQ1woxcXU12001lOA%3D%3D
+Python Developer - Fully Remote | Upto $50/hr,Mercor,"London, England, United Kingdom",2 weeks ago,Posted: 2 weeks ago,https://uk.linkedin.com/jobs/view/python-developer-fully-remote-upto-%2450-hr-at-mercor-4431933173?position=49&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=iG%2BMvMHUTSE5u0utNa9OBA%3D%3D
+Python Developer - Fully Remote | Upto $50/hr,Mercor,India,6 days ago,Posted: 6 days ago,https://in.linkedin.com/jobs/view/python-developer-fully-remote-upto-%2450-hr-at-mercor-4432090310?position=50&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=VRHVVnvfv%2BhWeZVumZG45w%3D%3D
+Python Developer - Remote,YO IT Consulting,Romania,6 days ago,Posted: 6 days ago,https://ro.linkedin.com/jobs/view/python-developer-remote-at-yo-it-consulting-4439494683?position=51&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=%2FDnA%2BJwU7KIOXOhUjrtyJw%3D%3D
+Python AI Engineer,CoreTek Labs,"Cleveland, OH",6 days ago,Posted: 6 days ago,https://www.linkedin.com/jobs/view/python-ai-engineer-at-coretek-labs-4439873082?position=52&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=w%2FTiiC5%2F%2Ft9gojCpgSrU%2BQ%3D%3D
+Python Engineer,Virtusa,"Andhra Pradesh, India",1 week ago,Posted: 1 week ago,https://in.linkedin.com/jobs/view/python-engineer-at-virtusa-4408429111?position=53&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=%2BR6fMiA5dpezNCCj0WvHVA%3D%3D
+Python Developer,Deqode,"Bengaluru, Karnataka, India",11 months ago,Posted: 11 months ago,https://in.linkedin.com/jobs/view/python-developer-at-deqode-4276256807?position=54&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=kG6PPhDYmQi6GximhIPLtA%3D%3D
+Python AI Engineer,Rose International,"Mississauga, Ontario, Canada",6 days ago,Posted: 6 days ago,https://ca.linkedin.com/jobs/view/python-ai-engineer-at-rose-international-4437616263?position=55&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=aZbpUfyH%2BpvsCK408ThUOA%3D%3D
+Junior Python Developer,RSM UK,"Greater London, England, United Kingdom",6 days ago,Posted: 6 days ago,https://uk.linkedin.com/jobs/view/junior-python-developer-at-rsm-uk-4439473426?position=56&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=BYQJCo9ciTi7gbHhYaIRqw%3D%3D
+Desenvolvedor(a) Python (Desenvolvimento),Omie,Brazil,2 weeks ago,Posted: 2 weeks ago,https://br.linkedin.com/jobs/view/desenvolvedor-a-python-desenvolvimento-at-omie-4433714533?position=57&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=qfT06AA62GK80ByVmu9NNQ%3D%3D
+Python Software Engineer,Macquarie Group,"Gurugram, Haryana, India",1 week ago,Posted: 1 week ago,https://in.linkedin.com/jobs/view/python-software-engineer-at-macquarie-group-4437273234?position=58&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=vwEZWPoFIHE0O1w2PGHzsQ%3D%3D
+Fullstack (React+Python) Developer,Infosys,"Bengaluru East, Karnataka, India",3 days ago,Posted: 3 days ago,https://in.linkedin.com/jobs/view/fullstack-react%2Bpython-developer-at-infosys-4432955395?position=59&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=lQrJk4YZ4umtxz7aW00HiA%3D%3D
+Python Developer,Persistent Systems,"Bengaluru, Karnataka, India",6 days ago,Posted: 6 days ago,https://in.linkedin.com/jobs/view/python-developer-at-persistent-systems-4437694443?position=60&pageNum=0&refId=L1ZYYRc5m%2BAZhbi031%2BvNg%3D%3D&trackingId=aeLYq61MBlFnUc7ES7KRLg%3D%3D
+Geeta Shah,Working at Infosys as Talent Acquisition,Remote,Recently,"Direct message the job poster from Infosys
+
+Geeta Shah
+Geeta Shah
+Working at Infosys as Talent Acquisition
+
+Educational Requirements
+
+Bachelor of Engineering,BCA,BSc,MTech,MCA,MSc
+
+Service Line
+
+Engineering Services
+
+Responsibilities
+
+A day in the life of an Infoscion • As part of the Infosys delivery team, your primary role would be to interface with the client for quality assurance, issue resolution and ensuring high customer satisfaction. • You will understand requirements, create and review designs, validate the architecture and ensure high levels of service offerings to clients in the technology domain. • You will participate in project estimation, provide inputs for solution delivery, conduct technical risk planning, perform code reviews and unit test plan reviews. • You will lead and guide your teams towards developing optimized high quality code deliverables, continual knowledge management and adherence to the organizational guidelines and processes. • You would be a key contributor to building efficient programs/ systems and if you think you fit right in to help our clients navigate their next in their digital transformation journey, this is the place for you! If you think you fit right in to help our clients navigate their next in their digital transformation journey, this is the place for you!
+
+Additional Responsibilities:
+
+• Knowledge of more than one technology • Basics of Architecture and Design fundamentals • Knowledge of Testing tools • Knowledge of agile methodologies • Understanding of Project life cycle activities on development and maintenance projects • Understanding of one or more Estimation methodologies, Knowledge of Quality processes • Basics of business domain to understand the business requirements • Analytical abilities, Strong Technical Skills, Good communication skills • Good understanding of the technology and domain • Ability to demonstrate a sound understanding of software quality assurance principles, SOLID design principles and modelling methods • Awareness of latest technologies and trends • Excellent problem solving, analytical and debugging skills
+
+Technical and Professional Requirements:
+
+• Primary skills:Technology->OpenSystem->Python - OpenSystem
+
+Preferred Skills:
+
+Technology->OpenSystem->Python - OpenSystem
 
 
-A day in the life of an Infoscion
 
 
-As part of the Infosys delivery team, your primary role would be to ensure effective Design, Development, Validation and Support activities, to assure that our clients are satisfied with the high levels of service in the technology domain.
-You will gather the requirements and specifications to understand the client requirements in a detailed manner and translate the same into system requirements.
-You will play a key role in the overall estimation of work requirements to provide the right information on project estimations to Technology Leads and Project Managers.
-You would be a key contributor to building efficient programs/ systems and if you think you fit right in to help our clients navigate their next in their digital transformation journey, this is the place for you! If you think you fit right in to help our clients navigate their next in their digital transformation journey, this is the place for you!
-K
-n
-o
-w
-l
-e
-d
-g
-e
-o
-f
-d
-e
-s
-i
-g
-n
-p
-r
-i
-n
-c
-i
-p
-l
-e
-s
-a
-n
-d
-f
-u
-n
-d
-a
-m
-e
-n
-t
-a
-l
-s
-o
-f
-a
-r
-c
-h
-i
-t
-e
-c
-t
-u
-r
-e
-U
-n
-d
-e
-r
-s
-t
-a
-n
-d
-i
-n
-g
-o
-f
-p
-e
-r
-f
-o
-r
-m
-a
-n
-c
-e
-e
-n
-g
-i
-n
-e
-e
-r
-i
-n
-g
-K
-n
-o
-w
-l
-e
-d
-g
-e
-o
-f
-q
-u
-a
-l
-i
-t
-y
-p
-r
-o
-c
-e
-s
-s
-e
-s
-a
-n
-d
-e
-s
-t
-i
-m
-a
-t
-i
-o
-n
-t
-e
-c
-h
-n
-i
-q
-u
-e
-s
-B
-a
-s
-i
-c
-u
-n
-d
-e
-r
-s
-t
-a
-n
-d
-i
-n
-g
-o
-f
-p
-r
-o
-j
-e
-c
-t
-d
-o
-m
-a
-i
-n
-A
-b
-i
-l
-i
-t
-y
-t
-o
-t
-r
-a
-n
-s
-l
-a
-t
-e
-f
-u
-n
-c
-t
-i
-o
-n
-a
-l
-/
-n
-o
-n
-f
-u
-n
-c
-t
-i
-o
-n
-a
-l
-r
-e
-q
-u
-i
-r
-e
-m
-e
-n
-t
-s
-t
-o
-s
-y
-s
-t
-e
-m
-s
-r
-e
-q
-u
-i
-r
-e
-m
-e
-n
-t
-s
-A
-b
-i
-l
-i
-t
-y
-t
-o
-d
-e
-s
-i
-g
-n
-a
-n
-d
-c
-o
-d
-e
-c
-o
-m
-p
-l
-e
-x
-p
-r
-o
-g
-r
-a
-m
-s
-A
-b
-i
-l
-i
-t
-y
-t
-o
-w
-r
-i
-t
-e
-t
-e
-s
-t
-c
-a
-s
-e
-s
-a
-n
-d
-s
-c
-e
-n
-a
-r
-i
-o
-s
-b
-a
-s
-e
-d
-o
-n
-t
-h
-e
-s
-p
-e
-c
-i
-f
-i
-c
-a
-t
-i
-o
-n
-s
-G
-o
-o
-d
-u
-n
-d
-e
-r
-s
-t
-a
-n
-d
-i
-n
-g
-o
-f
-S
-D
-L
-C
-a
-n
-d
-a
-g
-i
-l
-e
-m
-e
-t
-h
-o
-d
-o
-l
-o
-g
-i
-e
-s
-A
-w
-a
-r
-e
-n
-e
-s
-s
-o
-f
-l
-a
-t
-e
-s
-t
-t
-e
-c
-h
-n
-o
-l
-o
-g
-i
-e
-s
-a
-n
-d
-t
-r
-e
-n
-d
-s
-L
-o
-g
-i
-c
-a
-l
-t
-h
-i
-n
-k
-i
-n
-g
-a
-n
-d
-p
-r
-o
-b
-l
-e
-m
-s
-o
-l
-v
-i
-n
-g
-s
-k
-i
-l
-l
-s
-a
-l
-o
-n
-g
-w
-i
-t
-h
-a
-n
-a
-b
-i
-l
-i
-t
-y
-t
-o
-c
-o
-l
-l
-a
-b
-o
-r
-a
-t
-e
 Show more 
 Seniority level
-Not Applicable
+Mid-Senior level
 Employment type
 Full-time
 Job function
-Engineering and Information Technology
+Information Technology
 Industries
-IT Services and IT Consulting",https://www.linkedin.com/login?session_redirect=https%3A%2F%2Fwww%2Elinkedin%2Ecom%2Fsearch%2Fresults%2Fpeople%2F%3FfacetCurrentCompany%3D1283&emailAddress=&fromSignIn=&trk=public_jobs_find-a-referral-cta
-Seniority level,N/A,Remote,Click 'Apply Now' for full details,N/A
+IT Services and IT Consulting",https://in.linkedin.com/in/geetashah23
+Seniority level,N/A,Remote,Recently,Click 'Apply Now' for full details,N/A
