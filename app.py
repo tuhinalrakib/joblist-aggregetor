@@ -9,9 +9,11 @@ Run Server:
 uvicorn app:app --reload --port 8000
 """
 
+import time
+import json
 import urllib.parse
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Dict, Any
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse, FileResponse
 from pydantic import BaseModel
@@ -27,6 +29,10 @@ OUTPUT_CSV = BASE_DIR / "jobs_output.csv"
 OUTPUT_JSON = BASE_DIR / "jobs_output.json"
 OUTPUT_HTML = BASE_DIR / "jobs_output.html"
 OUTPUT_PDF = BASE_DIR / "jobs_output.pdf"
+
+# Search Query Cache with TTL (10 minutes)
+CACHE_TTL_SECONDS = 600
+SEARCH_CACHE: Dict[str, Dict[str, Any]] = {}
 
 EXP_LEVEL_MAP = {
     "1": "1",
@@ -61,7 +67,22 @@ def get_dashboard():
 
 @app.post("/api/scrape")
 def trigger_scrape(req: ScrapeRequest):
-    """Execute Playwright job scraper asynchronously based on parameters."""
+    """Execute Playwright job scraper with caching and fast response time."""
+    cache_key = f"{req.keyword.strip().lower()}|{req.location.strip().lower()}|{req.experience_level}|{req.max_pages}|{req.url or ''}"
+    now = time.time()
+
+    # Check TTL cache for instant return
+    if cache_key in SEARCH_CACHE:
+        cached_item = SEARCH_CACHE[cache_key]
+        if now - cached_item["timestamp"] < CACHE_TTL_SECONDS:
+            print(f"[+] Serving cached search results for query key: {cache_key}")
+            return {
+                "success": True,
+                "count": cached_item["count"],
+                "jobs": cached_item["jobs"],
+                "from_cache": True
+            }
+
     target_url = req.url
     if not target_url or not target_url.strip():
         encoded_kw = urllib.parse.quote(req.keyword)
@@ -88,22 +109,30 @@ def trigger_scrape(req: ScrapeRequest):
     raw_jobs = scraper.scrape_url(target_url)
 
     if not raw_jobs:
-        return {"success": False, "message": "No jobs found.", "jobs": []}
+        return {"success": False, "message": "No jobs found.", "jobs": [], "from_cache": False}
 
     handler = JobDataHandler(raw_jobs)
     cleaned_df = handler.clean_data()
     jobs_list = cleaned_df.to_dict(orient="records")
 
-    # Export to CSV, JSON, HTML, and PDF
+    # Export to CSV, JSON, and HTML immediately (fast)
     handler.save_to_csv(str(OUTPUT_CSV))
     handler.save_to_json(str(OUTPUT_JSON))
     handler.save_to_html(str(OUTPUT_HTML))
-    handler.save_to_pdf(str(OUTPUT_PDF), str(OUTPUT_HTML))
+
+    # Note: PDF generation is deferred to on-demand download endpoint (/api/download/pdf)
+    # Store results in cache
+    SEARCH_CACHE[cache_key] = {
+        "timestamp": now,
+        "count": len(jobs_list),
+        "jobs": jobs_list
+    }
 
     return {
         "success": True,
         "count": len(jobs_list),
-        "jobs": jobs_list
+        "jobs": jobs_list,
+        "from_cache": False
     }
 
 @app.get("/api/download/csv")
@@ -115,9 +144,18 @@ def download_csv():
 
 @app.get("/api/download/pdf")
 def download_pdf():
-    """Download scraped jobs as PDF."""
-    if not OUTPUT_PDF.exists():
-        raise HTTPException(status_code=404, detail="No PDF output file found. Run a search first.")
+    """Download scraped jobs as PDF (rendered on-demand if required)."""
+    if not OUTPUT_JSON.exists():
+        raise HTTPException(status_code=404, detail="No search data found. Run a job search first.")
+    
+    # If PDF is missing or stale compared to JSON, generate it on demand
+    if not OUTPUT_PDF.exists() or OUTPUT_PDF.stat().st_mtime < OUTPUT_JSON.stat().st_mtime:
+        print("[+] Generating PDF report on-demand...")
+        with open(OUTPUT_JSON, "r", encoding="utf-8") as f:
+            jobs_data = json.load(f)
+        handler = JobDataHandler(jobs_data)
+        handler.save_to_pdf(str(OUTPUT_PDF), str(OUTPUT_HTML))
+
     return FileResponse(path=str(OUTPUT_PDF), media_type="application/pdf", filename="scraped_jobs.pdf")
 
 @app.get("/api/download/json")
@@ -130,3 +168,4 @@ def download_json():
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True)
+

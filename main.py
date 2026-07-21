@@ -25,7 +25,10 @@ from scraper import JobScraper
 from data_handler import JobDataHandler
 
 def main():
-    parser = argparse.ArgumentParser(description="Python Playwright Job Listing Aggregator")
+    parser = argparse.ArgumentParser(
+        description="Python Playwright Job Listing Aggregator"
+        )
+    
     parser.add_argument("--save-session", action="store_true", help="Launch browser to manually log in and save session to auth.json")
     parser.add_argument("--keyword", type=str, default="Python Developer", help="Job search keyword")
     parser.add_argument("--location", type=str, default="Remote", help="Job location")

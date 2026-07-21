@@ -351,7 +351,7 @@
             <div class="dashboard-header">
                 <div>
                     <div class="results-count" id="results-count">0 Jobs Found</div>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Cleaned & Deduplicated Results</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;" id="results-status">Cleaned & Deduplicated Results</p>
                 </div>
                 <div class="export-actions">
                     <a href="/api/download/csv" class="btn-export">📥 Download CSV</a>
@@ -383,13 +383,13 @@
                                 Job Title & Company <span id="sort-icon-title">↕</span>
                             </th>
                             <th style="width: 18%; cursor: pointer;" onclick="toggleSortHeader('location')">
-                                Location <span id="sort-icon-location">↕</span>
+                                Location <span id="sort-icon-loc">↕</span>
                             </th>
                             <th style="width: 15%; cursor: pointer;" onclick="toggleSortHeader('date')">
                                 Date Posted <span id="sort-icon-date">↕</span>
                             </th>
-                            <th style="width: 23%;">Snippet / Requirements</th>
-                            <th style="width: 12%; text-align: center;">Apply</th>
+                            <th style="width: 23%;">Requirements</th>
+                            <th style="width: 12%; text-align: center;">Action</th>
                         </tr>
                     </thead>
                     <tbody id="jobs-table-body">
@@ -410,6 +410,7 @@
             const submitBtn = document.getElementById("btn-submit");
             const loadingBox = document.getElementById("loading-box");
             const dashboard = document.getElementById("dashboard");
+            const statusElem = document.getElementById("results-status");
 
             const keyword = document.getElementById("keyword").value;
             const location = document.getElementById("location").value;
@@ -420,6 +421,7 @@
             submitBtn.disabled = true;
             loadingBox.style.display = "block";
             dashboard.style.display = "none";
+            const startTime = performance.now();
 
             try {
                 const response = await fetch("/api/scrape", {
@@ -435,10 +437,18 @@
                 });
 
                 const data = await response.json();
+                const durationSec = ((performance.now() - startTime) / 1000).toFixed(2);
 
                 if (data.success) {
                     currentJobs = data.jobs || [];
                     applySortingAndRender();
+                    
+                    if (data.from_cache) {
+                        statusElem.innerHTML = `⚡ <span style="color:var(--accent-green); font-weight:600;">Instant Cache Hit</span> (${durationSec}s)`;
+                    } else {
+                        statusElem.innerHTML = `⚡ Scraped & Cleaned in <span style="color:var(--primary); font-weight:600;">${durationSec}s</span>`;
+                    }
+
                     dashboard.style.display = "block";
                 } else {
                     alert("Scraping Warning: " + (data.message || "No jobs found."));

@@ -138,8 +138,8 @@ class JobScraper:
     def auto_scroll(self, page: Page, max_scrolls: int = 4):
         """Scroll down smoothly to trigger lazy-loaded cards."""
         for _ in range(max_scrolls):
-            page.evaluate("window.scrollBy(0, 500);")
-            time.sleep(0.5)
+            page.evaluate("window.scrollBy(0, 800);")
+            time.sleep(0.15)
 
     def scrape_url(self, target_url: str) -> List[Dict[str, Any]]:
         """Run Playwright scraper over target URL with pagination."""
@@ -149,14 +149,35 @@ class JobScraper:
             context = browser.new_context(**context_opts)
             page = context.new_page()
 
+            # Abort heavy resources (images, fonts, media, analytics) to accelerate load times
+            def route_interceptor(route):
+                req = route.request
+                if req.resource_type in ["image", "media", "font"]:
+                    route.abort()
+                elif any(domain in req.url for domain in ["google-analytics", "doubleclick", "facebook", "analytics", "telemetry"]):
+                    route.abort()
+                else:
+                    route.continue_()
+
+            page.route("**/*", route_interceptor)
+
             current_page_num = 1
             current_url = target_url
 
             while current_page_num <= self.max_pages:
                 print(f"\n[+] Navigating to page {current_page_num}: {current_url}")
                 try:
-                    page.goto(current_url, wait_until="domcontentloaded", timeout=30000)
-                    time.sleep(2)  # Allow dynamic content to load
+                    page.goto(current_url, wait_until="domcontentloaded", timeout=25000)
+                    
+                    # Dynamically wait for job list container or fall back to short delay
+                    try:
+                        page.wait_for_selector(
+                            ".job-card-container, .base-card, .job-search-card, div[data-job-id], ul.jobs-search__results-list",
+                            timeout=3000
+                        )
+                    except Exception:
+                        time.sleep(0.5)
+
                     self.auto_scroll(page)
 
                     # Extract listings
@@ -182,7 +203,7 @@ class JobScraper:
                                 continue
                             else:
                                 next_button.click()
-                                time.sleep(3)
+                                time.sleep(0.5)
                                 current_page_num += 1
                                 continue
 
@@ -198,3 +219,4 @@ class JobScraper:
 
         print(f"\n[✔] Scraping complete! Total jobs collected: {len(self.scraped_jobs)}")
         return self.scraped_jobs
+
