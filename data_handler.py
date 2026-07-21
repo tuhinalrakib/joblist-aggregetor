@@ -107,6 +107,16 @@ class JobDataHandler:
         .apply-btn:hover {{ background: var(--accent-hover); color: #ffffff; transform: translateY(-1px); }}
         .print-btn {{ background: transparent; border: 1px solid var(--border); color: var(--text-main); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: 500; transition: 0.2s; }}
         .print-btn:hover {{ background: var(--card-bg); border-color: var(--accent); }}
+        @media (max-width: 768px) {{
+            body {{ padding: 16px 12px; }}
+            header {{ flex-direction: column; align-items: flex-start; gap: 12px; }}
+            .table-container {{ background: transparent; border: none; box-shadow: none; overflow: visible; }}
+            table, thead, tbody, th, td, tr {{ display: block; width: 100%; }}
+            thead tr {{ position: absolute; top: -9999px; left: -9999px; }}
+            tbody tr {{ background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 14px; padding: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }}
+            td {{ border: none; padding: 6px 0; }}
+            .apply-btn {{ display: block; width: 100%; text-align: center; padding: 10px; margin-top: 8px; }}
+        }}
         @media print {{
             body {{ background: #ffffff; color: #000000; padding: 0; }}
             .search-bar, .print-btn {{ display: none; }}

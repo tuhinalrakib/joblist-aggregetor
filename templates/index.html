@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>JobFlow - Professional Job Listing Aggregator</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -104,6 +104,7 @@
             font-size: 0.98rem;
             outline: none;
             transition: all 0.2s ease;
+            width: 100%;
         }
         input:focus, select:focus {
             border-color: var(--primary);
@@ -125,6 +126,7 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
+            width: 100%;
         }
         .btn-submit:hover {
             transform: translateY(-2px);
@@ -179,10 +181,12 @@
         .export-actions {
             display: flex;
             gap: 12px;
+            flex-wrap: wrap;
         }
         .btn-export {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--card-border);
@@ -210,13 +214,27 @@
             color: #ffffff;
         }
 
-        /* Filter input */
-        .filter-input {
-            width: 100%;
+        /* Filter Controls */
+        .controls-row {
+            display: flex;
+            gap: 16px;
             margin-bottom: 20px;
+            flex-wrap: wrap;
+            align-items: center;
         }
 
-        /* Table Styling */
+        .filter-input {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .sort-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Table Styling Desktop */
         .table-wrapper {
             background: var(--card-bg);
             backdrop-filter: blur(12px);
@@ -277,11 +295,115 @@
             font-size: 0.88rem;
             text-decoration: none;
             transition: all 0.2s;
+            text-align: center;
         }
         .btn-apply:hover {
             background: #0284c7;
             color: #ffffff;
             transform: translateY(-1px);
+        }
+
+        /* ==========================================
+           MOBILE & TABLET RESPONSIVE MEDIA QUERIES 
+           ========================================== */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 12px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            p.subtitle {
+                font-size: 0.95rem;
+            }
+            .search-card {
+                padding: 20px 16px;
+                border-radius: 16px;
+                margin-bottom: 24px;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .dashboard-header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 14px;
+            }
+            .export-actions {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+                width: 100%;
+            }
+            .export-actions .btn-pdf {
+                grid-column: 1 / -1;
+            }
+            .btn-export {
+                width: 100%;
+                padding: 12px;
+                font-size: 0.88rem;
+            }
+            .controls-row {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+            .filter-input {
+                width: 100%;
+                min-width: 100%;
+            }
+            .sort-group {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .sort-group select {
+                flex: 1;
+            }
+
+            /* Responsive Mobile Card View for Tables */
+            .table-wrapper {
+                background: transparent;
+                border: none;
+                box-shadow: none;
+                overflow: visible;
+            }
+            table, thead, tbody, th, td, tr {
+                display: block;
+                width: 100%;
+            }
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            tbody tr {
+                background: var(--card-bg);
+                backdrop-filter: blur(12px);
+                border: 1px solid var(--card-border);
+                border-radius: 16px;
+                margin-bottom: 16px;
+                padding: 18px 16px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            }
+            td {
+                padding: 8px 0;
+                border-bottom: none;
+                text-align: left !important;
+            }
+            td:last-child {
+                padding-top: 14px;
+            }
+            .job-title-text {
+                font-size: 1.1rem;
+            }
+            .btn-apply {
+                display: block;
+                width: 100%;
+                padding: 12px;
+                font-size: 0.95rem;
+                margin-top: 4px;
+            }
         }
     </style>
 </head>
@@ -289,9 +411,9 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <div class="brand-badge">⚡ JobFlow Web Platform v2.0</div>
+            <div class="brand-badge">⚡ JobFlow Mobile & Desktop Ready</div>
             <h1>Job Listing Aggregator</h1>
-            <p class="subtitle">Search, aggregate, filter, and export job listings with automated browser session persistence.</p>
+            <p class="subtitle">Fast concurrent search, instant filtering, and mobile-friendly job aggregation.</p>
         </header>
 
         <!-- Search Form Card -->
@@ -321,10 +443,10 @@
                     <div class="form-group">
                         <label for="pages">Max Pages</label>
                         <select id="pages">
-                            <option value="1">1 Page (Fast)</option>
-                            <option value="2" selected>2 Pages</option>
-                            <option value="3">3 Pages</option>
-                            <option value="5">5 Pages</option>
+                            <option value="1">1 Page (Fastest ~2s)</option>
+                            <option value="2" selected>2 Pages (Parallel ~3s)</option>
+                            <option value="3">3 Pages (Parallel ~4s)</option>
+                            <option value="5">5 Pages (Parallel ~5s)</option>
                         </select>
                     </div>
                     <div class="form-group" style="grid-column: 1 / -1;">
@@ -342,8 +464,8 @@
         <!-- Loading Indicator -->
         <div class="loading-box" id="loading-box">
             <div class="spinner"></div>
-            <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 6px;">Search Automation Active...</h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem;" id="loading-status">Navigating job portal, parsing listings, and handling pagination...</p>
+            <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 6px;">Concurrent Scraping Active...</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;" id="loading-status">Parallel tabs running, fetching job cards instantly...</p>
         </div>
 
         <!-- Live Dashboard Results -->
@@ -354,22 +476,22 @@
                     <p style="color: var(--text-muted); font-size: 0.9rem;" id="results-status">Cleaned & Deduplicated Results</p>
                 </div>
                 <div class="export-actions">
-                    <a href="/api/download/csv" class="btn-export">📥 Download CSV</a>
-                    <a href="/api/download/json" class="btn-export">📁 Download JSON</a>
+                    <a href="/api/download/csv" class="btn-export">📥 CSV</a>
+                    <a href="/api/download/json" class="btn-export">📁 JSON</a>
                     <a href="/api/download/pdf" class="btn-export btn-pdf">📄 Download PDF</a>
                 </div>
             </div>
 
-            <div style="display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; align-items: center;">
-                <input type="text" class="filter-input" id="filter-input" style="flex: 1; min-width: 280px; margin-bottom: 0;" placeholder="🔍 Search inside results by title, company, or location..." onkeyup="filterResults()">
+            <div class="controls-row">
+                <input type="text" class="filter-input" id="filter-input" placeholder="🔍 Search by title, company, or location..." onkeyup="filterResults()">
                 
-                <div style="display: flex; align-items: center; gap: 8px;">
+                <div class="sort-group">
                     <label for="sort-select" style="font-weight: 600; font-size: 0.88rem; color: var(--text-muted); white-space: nowrap;">Sort By:</label>
-                    <select id="sort-select" onchange="applySortingAndRender()" style="padding: 10px 14px; border-radius: 10px; background: var(--input-bg); color: var(--text-main); border: 1px solid var(--card-border); font-size: 0.9rem; cursor: pointer;">
-                        <option value="newest" selected>⏱️ Most Recent First (Default)</option>
-                        <option value="title_asc">🔤 Job Title (A → Z)</option>
-                        <option value="title_desc">🔤 Job Title (Z → A)</option>
-                        <option value="company_asc">🏢 Company Name (A → Z)</option>
+                    <select id="sort-select" onchange="applySortingAndRender()">
+                        <option value="newest" selected>⏱️ Most Recent</option>
+                        <option value="title_asc">🔤 Title (A → Z)</option>
+                        <option value="title_desc">🔤 Title (Z → A)</option>
+                        <option value="company_asc">🏢 Company (A → Z)</option>
                         <option value="location_asc">📍 Location (A → Z)</option>
                     </select>
                 </div>
@@ -401,8 +523,6 @@
 
     <script>
         let currentJobs = [];
-        let currentSortField = "newest";
-        let sortAscending = true;
 
         async function handleScrape(e) {
             e.preventDefault();
@@ -464,7 +584,6 @@
         function sortJobList(jobsList, sortOption) {
             let sorted = [...jobsList];
             if (sortOption === "newest") {
-                // Keep recent scraped order (reverse if index given or preserve latest first)
                 return sorted;
             } else if (sortOption === "title_asc") {
                 sorted.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
@@ -474,8 +593,6 @@
                 sorted.sort((a, b) => (a.company || "").localeCompare(b.company || ""));
             } else if (sortOption === "location_asc") {
                 sorted.sort((a, b) => (a.location || "").localeCompare(b.location || ""));
-            } else if (sortOption === "date_asc") {
-                sorted.sort((a, b) => (a.date_posted || "").localeCompare(b.date_posted || ""));
             }
             return sorted;
         }
@@ -537,11 +654,11 @@
                 `;
 
                 const loc = `<span class="badge-loc">📍 ${escapeHtml(job.location || 'Remote')}</span>`;
-                const dateBadge = `<span style="display:inline-block; background:rgba(129, 140, 248, 0.12); color:var(--accent-purple); padding:4px 10px; border-radius:6px; font-size:0.82rem; font-weight:600;">🕒 ${escapeHtml(job.date_posted || 'Recently')}</span>`;
+                const dateBadge = `<span style="display:inline-block; background:rgba(129, 140, 248, 0.12); color:var(--accent-purple); padding:4px 10px; border-radius:6px; font-size:0.82rem; font-weight:600; margin-top:4px;">🕒 ${escapeHtml(job.date_posted || 'Recently')}</span>`;
 
                 const reqText = (job.requirements && job.requirements !== 'N/A') ? job.requirements : "Click 'Apply Now' for details";
                 const reqs = `
-                    <div style="color:var(--text-muted); font-size:0.88rem; max-width:280px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    <div style="color:var(--text-muted); font-size:0.88rem; margin-top:4px;">
                         ${escapeHtml(reqText)}
                     </div>
                 `;
