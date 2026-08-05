@@ -72,6 +72,8 @@ class JobScraper:
                 ".job-card-container", ".base-card", ".job-search-card",
                 ".job_seen_beacon", "div[data-job-id]", "div.job",
                 "div[class*='job']", "li[class*='job']", ".job-tile",
+                "[data-test*='job']", "[class*='jobListing']", "[class*='JobCard']",
+                "[class*='jobListItem']", ".JobCard_jobCardContainer",
                 ".card-outline", "article", "li.job-result", "div.job-item",
                 "tr.job-row", "td.company-col"
             ];
@@ -83,15 +85,15 @@ class JobScraper:
                 if (!card.querySelector("h1, h2, h3, h4, a")) return;
 
                 // Title
-                const titleElem = card.querySelector("h2, h3, h4, .job-card-list__title, .base-card__title, .job-title, a[class*='title'], a[title]");
+                const titleElem = card.querySelector("h2, h3, h4, [data-test*='title'], [class*='JobTitle'], .job-card-list__title, .base-card__title, .job-title, a[class*='title'], a[title]");
                 const title = titleElem ? titleElem.innerText.trim() : "";
 
                 // Company
-                const companyElem = card.querySelector("h4.base-search-card__subtitle, a.hidden-nested-link, .job-search-card__subtitle, .base-card__subtitle, .job-card-container__company-name, [data-tracking-control-name*='subtitle'], .company-name, [data-test*='company'], .company, [class*='company'], h4, span.info");
+                const companyElem = card.querySelector("[data-test*='employer'], [data-test*='company'], [class*='EmployerName'], h4.base-search-card__subtitle, a.hidden-nested-link, .job-search-card__subtitle, .base-card__subtitle, .job-card-container__company-name, [data-tracking-control-name*='subtitle'], .company-name, .company, [class*='company'], h4, span.info");
                 const company = companyElem ? companyElem.innerText.trim() : "Featured Employer";
 
                 // Location
-                const locationElem = card.querySelector("span.job-search-card__location, .job-card-container__metadata-item, .job-search-card__location, .location, [data-test*='location'], .job-location, [class*='location']");
+                const locationElem = card.querySelector("[data-test*='location'], [class*='Location'], span.job-search-card__location, .job-card-container__metadata-item, .job-search-card__location, .location, .job-location, [class*='location']");
                 let location = locationElem ? locationElem.innerText.trim() : "";
                 if (!location) location = fallbackLocation;
 

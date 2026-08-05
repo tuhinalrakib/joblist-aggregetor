@@ -1,962 +1,250 @@
 [
     {
-        "title":"Python Developer",
-        "company":"Infosys",
-        "location":"Bengaluru East, Karnataka, India",
-        "date_posted":"6 days ago",
-        "requirements":"Posted: 6 days ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-developer-at-infosys-4439959297?position=1&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=ctioLtaEXyCey8C71m25sA%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Infosys",
-        "location":"Chennai, Tamil Nadu, India",
-        "date_posted":"2 weeks ago",
-        "requirements":"Posted: 2 weeks ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-developer-at-infosys-4436057378?position=2&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=3Rg6tBgBqwgMQniDxXfrbw%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Infosys",
-        "location":"Chennai, Tamil Nadu, India",
-        "date_posted":"3 days ago",
-        "requirements":"Posted: 3 days ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-developer-at-infosys-4441341570?position=3&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=CaI0y40X6HXLxi7w%2B56i4Q%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Infosys",
-        "location":"Bucharest, Bucharest, Romania",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/ro.linkedin.com\/jobs\/view\/python-developer-at-infosys-4437290610?position=4&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=8jLXIocJCeziO760oF12vg%3D%3D"
-    },
-    {
-        "title":"Software Developer",
-        "company":"Adani Enterprises Limited",
-        "location":"Ahmedabad, Gujarat, India",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/software-developer-at-adani-enterprises-limited-4440010830?position=5&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=psYFB6b69Gbnvo0IJpDNYg%3D%3D"
-    },
-    {
-        "title":"Python Gen AI Developer",
-        "company":"Infosys",
-        "location":"Bengaluru East, Karnataka, India",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-gen-ai-developer-at-infosys-4436806212?position=6&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=ya96c6dJ%2FxYsuij3lK9IQA%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"TEKsystems",
-        "location":"Milwaukee, WI",
-        "date_posted":"6 days ago",
-        "requirements":"Posted: 6 days ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/python-developer-at-teksystems-4440389982?position=7&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=JwkcROkA%2FC9Ff9StV7oYhA%3D%3D"
-    },
-    {
-        "title":"Python Gen AI Developer",
-        "company":"Infosys",
-        "location":"Pune Division, Maharashtra, India",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-gen-ai-developer-at-infosys-4436810101?position=8&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=WXQCkHjnri9%2BAYXGWYOKkw%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Ubiquity",
-        "location":"Taguig, National Capital Region, Philippines",
-        "date_posted":"6 days ago",
-        "requirements":"Posted: 6 days ago",
-        "link":"https:\/\/ph.linkedin.com\/jobs\/view\/python-developer-at-ubiquity-4439842505?position=9&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=8gnaL%2BjtUk1OF77XRwt3lw%3D%3D"
-    },
-    {
-        "title":"Python Backend Developer",
-        "company":"Capco",
-        "location":"Bengaluru, Karnataka, India",
-        "date_posted":"2 weeks ago",
-        "requirements":"Posted: 2 weeks ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-backend-developer-at-capco-4436715706?position=10&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=okBiQZxetwf1d%2BRqX6EDiQ%3D%3D"
-    },
-    {
-        "title":"Python Backend Developer",
-        "company":"Infosys",
-        "location":"Bengaluru East, Karnataka, India",
-        "date_posted":"9 hours ago",
-        "requirements":"Posted: 9 hours ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-backend-developer-at-infosys-4442218570?position=11&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=LTEQR1NOHKvy10ypgYG3lg%3D%3D"
-    },
-    {
-        "title":"Python Test Engineer",
-        "company":"Infosys",
-        "location":"Bengaluru East, Karnataka, India",
-        "date_posted":"1 day ago",
-        "requirements":"Posted: 1 day ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-test-engineer-at-infosys-4433468870?position=12&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=%2FrOicX%2FJwkYuVTLl0Ycrxg%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Tap Growth ai",
-        "location":"Taguig, National Capital Region, Philippines",
-        "date_posted":"6 days ago",
-        "requirements":"Posted: 6 days ago",
-        "link":"https:\/\/ph.linkedin.com\/jobs\/view\/python-developer-at-tap-growth-ai-4439831730?position=13&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=MxEgYnqmxNaDJCtNCVgv0Q%3D%3D"
-    },
-    {
-        "title":"Software Engineer (Python)",
-        "company":"Audatic",
-        "location":"Berlin, Germany",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/de.linkedin.com\/jobs\/view\/software-engineer-python-at-audatic-4439414435?position=14&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=sbKCYxak%2FZJ6fsRvdsH9mg%3D%3D"
-    },
-    {
-        "title":"Python AWS Developer",
-        "company":"Infosys",
-        "location":"Bengaluru East, Karnataka, India",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-aws-developer-at-infosys-4438353286?position=15&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=jQgZ8FG9JyBOugy9zEqkLQ%3D%3D"
-    },
-    {
-        "title":"Python Gen AI Developer",
-        "company":"Infosys",
-        "location":"Chennai, Tamil Nadu, India",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-gen-ai-developer-at-infosys-4436591880?position=16&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=ubR%2BI7%2BYsrX19%2BRfHbaQUg%3D%3D"
-    },
-    {
-        "title":"Junior Full Stack Engineer ($250k - $300k salary)",
-        "company":"Baton Corporation",
-        "location":"New York, NY",
-        "date_posted":"5 months ago",
-        "requirements":"Posted: 5 months ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/junior-full-stack-engineer-%24250k-%24300k-salary-at-baton-corporation-4373590558?position=17&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=DKjbooEb7FylJ%2BcELwZfug%3D%3D"
-    },
-    {
-        "title":"Python Engineer",
-        "company":"The Goodyear Tire & Rubber Company",
-        "location":"Greater Hyderabad Area",
-        "date_posted":"2 days ago",
-        "requirements":"Posted: 2 days ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-engineer-at-the-goodyear-tire-rubber-company-4414490884?position=18&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=eX0Qz1GxExCq9fwj8vIF6w%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"trg.",
-        "location":"Greater London, England, United Kingdom",
-        "date_posted":"6 days ago",
-        "requirements":"Posted: 6 days ago",
-        "link":"https:\/\/uk.linkedin.com\/jobs\/view\/python-developer-at-trg-4437671508?position=19&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=tYaO%2Fu4u0p3rQGO0f%2FBMcg%3D%3D"
-    },
-    {
-        "title":"Python Developer \/ Backend Developer",
-        "company":"MishiPay",
-        "location":"Bengaluru, Karnataka, India",
-        "date_posted":"2 weeks ago",
-        "requirements":"Posted: 2 weeks ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-developer-backend-developer-at-mishipay-4432384298?position=20&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=GayY7Hi9apUVu%2FgMj2KBaw%3D%3D"
-    },
-    {
-        "title":"Python ML Engineer",
-        "company":"Infosys",
-        "location":"Bengaluru East, Karnataka, India",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-ml-engineer-at-infosys-4430367502?position=21&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=30BccMal8xi7AzkqfazPAg%3D%3D"
-    },
-    {
-        "title":"Backend Python Developer",
-        "company":"Playo",
-        "location":"Bengaluru, Karnataka, India",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/backend-python-developer-at-playo-4439155046?position=22&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=angibhl4TMZnNcN%2B4FV8yQ%3D%3D"
-    },
-    {
-        "title":"Python Engineer",
-        "company":"Ciklum",
-        "location":"Ukraine",
-        "date_posted":"6 days ago",
-        "requirements":"Posted: 6 days ago",
-        "link":"https:\/\/ua.linkedin.com\/jobs\/view\/python-engineer-at-ciklum-4440531094?position=23&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=8%2B37b60439qfSVkDabT08Q%3D%3D"
-    },
-    {
-        "title":"Python Engineer",
-        "company":"EXL",
-        "location":"Gurugram, Haryana, India",
-        "date_posted":"2 weeks ago",
-        "requirements":"Posted: 2 weeks ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-engineer-at-exl-4436056828?position=24&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=GDJ2Mn9exb0jw5BwFTI%2BTw%3D%3D"
-    },
-    {
-        "title":"Junior Python Developer \/ Senior Python Developer - Chennai",
-        "company":"ELK Education Consultants Pvt Ltd",
-        "location":"Chennai, Tamil Nadu, India",
-        "date_posted":"1 month ago",
-        "requirements":"Posted: 1 month ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/junior-python-developer-senior-python-developer-chennai-at-elk-education-consultants-pvt-ltd-4422782262?position=25&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=4VkndNeaUTROTwxZI5Lu4g%3D%3D"
-    },
-    {
-        "title":"Python Engineer",
-        "company":"Ciklum",
-        "location":"Poland",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/pl.linkedin.com\/jobs\/view\/python-engineer-at-ciklum-4440049620?position=26&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=rVHdoVKf3nDGBZGuIr9WmA%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Infosys",
-        "location":"Jersey City, NJ",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/python-developer-at-infosys-4435940579?position=27&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=gI9qD2i0mPdwDPfZo049HQ%3D%3D"
-    },
-    {
         "title":"Junior Developer - Python & Go",
         "company":"Buyers Edge Platform",
-        "location":"United States",
-        "date_posted":"2 days ago",
-        "requirements":"Posted: 2 days ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/junior-developer-python-go-at-buyers-edge-platform-4441735959?position=28&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=d3eDuZCMkPIUY4B2lnvkuA%3D%3D"
-    },
-    {
-        "title":"Backend Python Developer (Open to Fresh Graduates)",
-        "company":"EX.IO",
-        "location":"Hong Kong, Hong Kong SAR",
-        "date_posted":"10 months ago",
-        "requirements":"Posted: 10 months ago",
-        "link":"https:\/\/hk.linkedin.com\/jobs\/view\/backend-python-developer-open-to-fresh-graduates-at-ex-io-4296422154?position=29&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=KP%2BMHl2Ibx53e16eWyQdBw%3D%3D"
-    },
-    {
-        "title":"Software Engineer (Entry-Level) - Python",
-        "company":"Akuna Capital",
-        "location":"Chicago, IL",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/software-engineer-entry-level-python-at-akuna-capital-4440098689?position=30&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=i%2BrXuyblAE7FLz4ipe%2FakQ%3D%3D"
-    },
-    {
-        "title":"Web Developer – Fresher",
-        "company":"GNH India Pharmaceuticals Limited",
-        "location":"Mumbai Metropolitan Region",
-        "date_posted":"2 weeks ago",
-        "requirements":"Posted: 2 weeks ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/web-developer-%E2%80%93-fresher-at-gnh-india-pharmaceuticals-limited-4435115646?position=31&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=BSJI8TmBZBKiZ2nypnnTTg%3D%3D"
-    },
-    {
-        "title":"Entry-Level Python \/ AI Engineer [32869]",
-        "company":"Stealth Startup",
-        "location":"San Francisco, CA",
-        "date_posted":"6 days ago",
-        "requirements":"Posted: 6 days ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/entry-level-python-ai-engineer-32869-at-stealth-startup-4437660390?position=32&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=yirZkBK1eKLeBwwAVsnCqQ%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Infosys",
-        "location":"Charlotte, NC",
-        "date_posted":"1 day ago",
-        "requirements":"Posted: 1 day ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/python-developer-at-infosys-4411188667?position=33&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=LboE%2BhzqqxjgSazkySzYWg%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"InnoWave",
-        "location":"Bengaluru, Karnataka, India",
-        "date_posted":"3 weeks ago",
-        "requirements":"Posted: 3 weeks ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-developer-at-innowave-4433632617?position=34&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=EPItOeRaG8TbAek0cMskwA%3D%3D"
-    },
-    {
-        "title":"Full Stack Python Developer",
-        "company":"Golden Opportunities",
-        "location":"Chennai, Tamil Nadu, India",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/full-stack-python-developer-at-golden-opportunities-4439425289?position=35&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=jwjqKC9bhXZeOasKRUUboQ%3D%3D"
-    },
-    {
-        "title":"Python automation test engineer",
-        "company":"Infosys",
-        "location":"Bengaluru East, Karnataka, India",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-automation-test-engineer-at-infosys-4436846438?position=36&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=7fVxCSk9gkAfKlnocrbC%2Bg%3D%3D"
-    },
-    {
-        "title":"Python, ETL Developer_Truist",
-        "company":"Infosys",
-        "location":"Hyderabad, Telangana, India",
-        "date_posted":"2 days ago",
-        "requirements":"Posted: 2 days ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-etl-developer-truist-at-infosys-4441749312?position=37&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=L27KCPVysh%2FQ9rgUDqbzRg%3D%3D"
-    },
-    {
-        "title":"Associate Developer, Python LN",
-        "company":"International Medical Corps",
-        "location":"Islamabad, Islāmābād, Pakistan",
-        "date_posted":"6 days ago",
-        "requirements":"Posted: 6 days ago",
-        "link":"https:\/\/pk.linkedin.com\/jobs\/view\/associate-developer-python-ln-at-international-medical-corps-4440511679?position=38&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=W5tqNrloBJ%2FHHM4%2FJFuIlA%3D%3D"
-    },
-    {
-        "title":"Python - Associate Software Engineer",
-        "company":"Capgemini",
-        "location":"Cairo, Cairo, Egypt",
-        "date_posted":"1 month ago",
-        "requirements":"Posted: 1 month ago",
-        "link":"https:\/\/eg.linkedin.com\/jobs\/view\/python-associate-software-engineer-at-capgemini-4424197221?position=39&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=wrDYp4BBaQiyj6OkmeBBMQ%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Intellect Outsource",
-        "location":"Thrissur, Kerala, India",
-        "date_posted":"2 months ago",
-        "requirements":"Posted: 2 months ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-developer-at-intellect-outsource-4405807871?position=40&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=bWV3%2FLL7nxaPFIee4Kzr0g%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Intellect Outsource",
-        "location":"Thrissur, Kerala, India",
-        "date_posted":"2 months ago",
-        "requirements":"Posted: 2 months ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python%0A-developer-at-intellect-outsource-4405814674?position=41&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=ZrmJiEE%2BL2w5QY%2BRH26hEg%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Atem Corp",
-        "location":"Dallas, TX",
-        "date_posted":"6 days ago",
-        "requirements":"Posted: 6 days ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/python-developer-at-atem-corp-4440812886?position=42&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=VMtT6t9vVgrNm240EkFA4g%3D%3D"
-    },
-    {
-        "title":"Programador Python Júnior",
-        "company":"BR MotorSport",
-        "location":"Barueri, São Paulo, Brazil",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/br.linkedin.com\/jobs\/view\/programador-python-j%C3%BAnior-at-br-motorsport-4439484458?position=43&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=98jh5tTkwAXsxHw5%2FNxWwg%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"hackajob",
-        "location":"New York, NY",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/python-developer-at-hackajob-4438905317?position=44&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=q6dVohZtH8VXn7PMnfcJmA%3D%3D"
-    },
-    {
-        "title":"Desenvolvedor Back-end Júnior",
-        "company":"Housi",
-        "location":"Brazil",
-        "date_posted":"2 weeks ago",
-        "requirements":"Posted: 2 weeks ago",
-        "link":"https:\/\/br.linkedin.com\/jobs\/view\/desenvolvedor-back-end-j%C3%BAnior-at-housi-4436834474?position=45&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=UFy5LhY4qtUtIvYYDp7fJA%3D%3D"
-    },
-    {
-        "title":"Software Engineer - Python",
-        "company":"ArteraAI",
-        "location":"United States",
-        "date_posted":"2 weeks ago",
-        "requirements":"Posted: 2 weeks ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/software-engineer-python-at-arteraai-4414765336?position=46&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=GFxv2ZOMHtsA0fKLOLrm8A%3D%3D"
-    },
-    {
-        "title":"Software Engineer (Python)",
-        "company":"Accenture",
-        "location":"Ho Chi Minh City, Vietnam",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/vn.linkedin.com\/jobs\/view\/software-engineer-python-at-accenture-4370240395?position=47&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=0pKEPmLd%2BeshtVY7TiD2%2BA%3D%3D"
-    },
-    {
-        "title":"Data Engineer – Python, SQL, DBT",
-        "company":"Infosys",
-        "location":"Hyderabad, Telangana, India",
-        "date_posted":"2 weeks ago",
-        "requirements":"Posted: 2 weeks ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/data-engineer-%E2%80%93-python-sql-dbt-at-infosys-4435700982?position=48&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=rQ1C7yMrHinK%2Bb0aP%2FyGSA%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Infosys",
-        "location":"Phoenix, AZ",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/python-developer-at-infosys-4436626802?position=49&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=Z9ATvYHtBlDox0cKNyBapA%3D%3D"
-    },
-    {
-        "title":"Python\/Django Developer",
-        "company":"IDEAL IT TECHNO",
-        "location":"Indore, Madhya Pradesh, India",
-        "date_posted":"11 months ago",
-        "requirements":"Posted: 11 months ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-django-developer-at-ideal-it-techno-4283680951?position=50&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=3HeG%2FQ3BTXg3U%2BqakFfkTQ%3D%3D"
-    },
-    {
-        "title":"Junior Software Engineer (Python \/ Microservices)",
-        "company":"IQVIA",
-        "location":"São Paulo, São Paulo, Brazil",
-        "date_posted":"4 days ago",
-        "requirements":"Posted: 4 days ago",
-        "link":"https:\/\/br.linkedin.com\/jobs\/view\/junior-software-engineer-python-microservices-at-iqvia-4441114438?position=51&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=oa55KVb5BtXdrdhxgNRmHQ%3D%3D"
-    },
-    {
-        "title":"Web Developer KE",
-        "company":"Core Code io",
-        "location":"Nairobi, Nairobi County, Kenya",
-        "date_posted":"1 month ago",
-        "requirements":"Posted: 1 month ago",
-        "link":"https:\/\/ke.linkedin.com\/jobs\/view\/web-developer-ke-at-core-code-io-4422084190?position=52&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=9exEM4HxnBOcDF0m7GYKNg%3D%3D"
+        "location":"Waltham, MA",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/junior-developer-python-go-buyers-edge-platform-JV_IC1154703_KO0,26_KE27,47.htm?jl=1010171665728"
     },
     {
         "title":"Junior Python Developer",
-        "company":"Hire'in Solutions",
-        "location":"Austin, TX",
-        "date_posted":"2 weeks ago",
-        "requirements":"Posted: 2 weeks ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/junior-python-developer-at-hire-in-solutions-4426607950?position=53&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=kNmmTmRhPx0d4r3QrL8NXA%3D%3D"
+        "company":"Leidos",
+        "location":"Columbia, MD",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/junior-python-developer-leidos-JV_IC1153546_KO0,23_KE24,30.htm?jl=1010155112654"
     },
     {
-        "title":"Data Engineer (SQL & Python)",
-        "company":"Tap Growth ai",
-        "location":"Taguig, National Capital Region, Philippines",
-        "date_posted":"6 days ago",
-        "requirements":"Posted: 6 days ago",
-        "link":"https:\/\/ph.linkedin.com\/jobs\/view\/data-engineer-sql-python-at-tap-growth-ai-4439827606?position=54&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=V0TULFIva8WFwnCoixc5qg%3D%3D"
-    },
-    {
-        "title":"Software Engineer - Python",
-        "company":"Devsinc",
-        "location":"Lahore, Punjab, Pakistan",
-        "date_posted":"3 months ago",
-        "requirements":"Posted: 3 months ago",
-        "link":"https:\/\/pk.linkedin.com\/jobs\/view\/software-engineer-python-at-devsinc-4410516362?position=55&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=gNJXJBoLF%2FYeHXn9J53luQ%3D%3D"
-    },
-    {
-        "title":"Python Aircraft Data Model Developer - Loads & Dynamics",
-        "company":"SOGECLAIR",
-        "location":"Montreal, Quebec, Canada",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/ca.linkedin.com\/jobs\/view\/python-aircraft-data-model-developer-loads-dynamics-at-sogeclair-4440096320?position=56&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=SDDZnYMtOi3s35FGIIigtQ%3D%3D"
-    },
-    {
-        "title":"2022年校招-Python工程师",
-        "company":"Learnings 乐信圣文",
-        "location":"Beijing, Beijing, China",
-        "date_posted":"2 years ago",
-        "requirements":"Posted: 2 years ago",
-        "link":"https:\/\/cn.linkedin.com\/jobs\/view\/2022%E5%B9%B4%E6%A0%A1%E6%8B%9B-python%E5%B7%A5%E7%A8%8B%E5%B8%88-at-learnings-%E4%B9%90%E4%BF%A1%E5%9C%A3%E6%96%87-3885634257?position=57&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=sqDAkg6mOV0k3gVtkhkuuw%3D%3D"
-    },
-    {
-        "title":"Python&SQL Developer",
-        "company":"VMC Soft Technologies, Inc",
-        "location":"Bengaluru, Karnataka, India",
-        "date_posted":"5 months ago",
-        "requirements":"Posted: 5 months ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-sql-developer-at-vmc-soft-technologies-inc-4360502077?position=58&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=xZ2EjiKCIDp1HqjjNW5FGA%3D%3D"
-    },
-    {
-        "title":"Software Engineer - Python",
-        "company":"Applied Intuition",
-        "location":"Sunnyvale, CA",
-        "date_posted":"5 days ago",
-        "requirements":"Posted: 5 days ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/software-engineer-python-at-applied-intuition-4423959813?position=59&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=yVkGsz1QR6z2KO7O5Gpx1g%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Talan",
-        "location":"London, England, United Kingdom",
-        "date_posted":"1 month ago",
-        "requirements":"Posted: 1 month ago",
-        "link":"https:\/\/uk.linkedin.com\/jobs\/view\/python-developer-at-talan-4427043090?position=60&pageNum=0&refId=emrpaTOPd46dwJkYaYwYGQ%3D%3D&trackingId=%2FSLmA%2BLWprPs903Kc7aFeg%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Infosys",
-        "location":"Bengaluru East, Karnataka, India",
-        "date_posted":"6 days ago",
-        "requirements":"Posted: 6 days ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-developer-at-infosys-4439959297?position=1&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=E15O0hT1xStGhD1OcisJGQ%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Infosys",
-        "location":"Chennai, Tamil Nadu, India",
-        "date_posted":"2 weeks ago",
-        "requirements":"Posted: 2 weeks ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-developer-at-infosys-4436057378?position=2&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=SO5QxO%2BAj8Z%2BlTeEcGHaSA%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Infosys",
-        "location":"Chennai, Tamil Nadu, India",
-        "date_posted":"3 days ago",
-        "requirements":"Posted: 3 days ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-developer-at-infosys-4441341570?position=3&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=%2BUum2PRfftfJx1kvgW67QA%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Infosys",
-        "location":"Bucharest, Bucharest, Romania",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/ro.linkedin.com\/jobs\/view\/python-developer-at-infosys-4437290610?position=4&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=PDrhOT9mLJ1txijVMjTzAw%3D%3D"
-    },
-    {
-        "title":"Software Developer",
-        "company":"Adani Enterprises Limited",
-        "location":"Ahmedabad, Gujarat, India",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/software-developer-at-adani-enterprises-limited-4440010830?position=5&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=N794l75%2Fttsk%2BQE%2B7kZBEA%3D%3D"
-    },
-    {
-        "title":"Python Gen AI Developer",
-        "company":"Infosys",
-        "location":"Bengaluru East, Karnataka, India",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-gen-ai-developer-at-infosys-4436806212?position=6&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=OwyzwCd8wji49X%2BlguQVSg%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"TEKsystems",
-        "location":"Milwaukee, WI",
-        "date_posted":"6 days ago",
-        "requirements":"Posted: 6 days ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/python-developer-at-teksystems-4440389982?position=7&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=pEMntMSwjNu2let8j4fomQ%3D%3D"
-    },
-    {
-        "title":"Python Gen AI Developer",
-        "company":"Infosys",
-        "location":"Pune Division, Maharashtra, India",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-gen-ai-developer-at-infosys-4436810101?position=8&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=zqJNeSsjNuzBKXPmHCtNyQ%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Ubiquity",
-        "location":"Taguig, National Capital Region, Philippines",
-        "date_posted":"6 days ago",
-        "requirements":"Posted: 6 days ago",
-        "link":"https:\/\/ph.linkedin.com\/jobs\/view\/python-developer-at-ubiquity-4439842505?position=9&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=WCWJOQwzvnBVBHV4jB7ytw%3D%3D"
-    },
-    {
-        "title":"Python Backend Developer",
-        "company":"Capco",
-        "location":"Bengaluru, Karnataka, India",
-        "date_posted":"2 weeks ago",
-        "requirements":"Posted: 2 weeks ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-backend-developer-at-capco-4436715706?position=10&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=EcPx3dDmtkNKBerbWritng%3D%3D"
-    },
-    {
-        "title":"Python Backend Developer",
-        "company":"Infosys",
-        "location":"Bengaluru East, Karnataka, India",
-        "date_posted":"9 hours ago",
-        "requirements":"Posted: 9 hours ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-backend-developer-at-infosys-4442218570?position=11&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=SbXgxcgyJokT0NkmnQOFdA%3D%3D"
-    },
-    {
-        "title":"Python Test Engineer",
-        "company":"Infosys",
-        "location":"Bengaluru East, Karnataka, India",
-        "date_posted":"1 day ago",
-        "requirements":"Posted: 1 day ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-test-engineer-at-infosys-4433468870?position=12&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=Ztyqod3F03Fs%2FYoX4eDS1g%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Tap Growth ai",
-        "location":"Taguig, National Capital Region, Philippines",
-        "date_posted":"6 days ago",
-        "requirements":"Posted: 6 days ago",
-        "link":"https:\/\/ph.linkedin.com\/jobs\/view\/python-developer-at-tap-growth-ai-4439831730?position=13&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=3rCH4OBbwjKOu6naBZ%2Bogg%3D%3D"
-    },
-    {
-        "title":"Software Engineer (Python)",
-        "company":"Audatic",
-        "location":"Berlin, Germany",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/de.linkedin.com\/jobs\/view\/software-engineer-python-at-audatic-4439414435?position=14&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=4rld%2FnqxJTr5D42HpuimKA%3D%3D"
-    },
-    {
-        "title":"Python AWS Developer",
-        "company":"Infosys",
-        "location":"Bengaluru East, Karnataka, India",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-aws-developer-at-infosys-4438353286?position=15&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=WFlrOFQOnlTOFb9FdPGy%2BA%3D%3D"
-    },
-    {
-        "title":"Python Gen AI Developer",
-        "company":"Infosys",
-        "location":"Chennai, Tamil Nadu, India",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-gen-ai-developer-at-infosys-4436591880?position=16&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=DnzHet1kBaxgZH3z4%2BfAjg%3D%3D"
-    },
-    {
-        "title":"Junior Full Stack Engineer ($250k - $300k salary)",
-        "company":"Baton Corporation",
-        "location":"New York, NY",
-        "date_posted":"5 months ago",
-        "requirements":"Posted: 5 months ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/junior-full-stack-engineer-%24250k-%24300k-salary-at-baton-corporation-4373590558?position=17&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=dyFOROj2%2BLJIKhlrJX8rcQ%3D%3D"
-    },
-    {
-        "title":"Python Engineer",
-        "company":"The Goodyear Tire & Rubber Company",
-        "location":"Greater Hyderabad Area",
-        "date_posted":"2 days ago",
-        "requirements":"Posted: 2 days ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-engineer-at-the-goodyear-tire-rubber-company-4414490884?position=18&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=auA8pQ%2BaL3HexB2lYQGF7w%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"trg.",
-        "location":"Greater London, England, United Kingdom",
-        "date_posted":"6 days ago",
-        "requirements":"Posted: 6 days ago",
-        "link":"https:\/\/uk.linkedin.com\/jobs\/view\/python-developer-at-trg-4437671508?position=19&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=HJwuhZPP1VUdcgIzIp4DFg%3D%3D"
-    },
-    {
-        "title":"Python Developer \/ Backend Developer",
-        "company":"MishiPay",
-        "location":"Bengaluru, Karnataka, India",
-        "date_posted":"2 weeks ago",
-        "requirements":"Posted: 2 weeks ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-developer-backend-developer-at-mishipay-4432384298?position=20&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=D%2Fpp8EeAawWcDW90gz6Kng%3D%3D"
-    },
-    {
-        "title":"Python ML Engineer",
-        "company":"Infosys",
-        "location":"Bengaluru East, Karnataka, India",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-ml-engineer-at-infosys-4430367502?position=21&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=n%2FHaf6gbuAGzXodDBJQ6HA%3D%3D"
-    },
-    {
-        "title":"Backend Python Developer",
-        "company":"Playo",
-        "location":"Bengaluru, Karnataka, India",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/backend-python-developer-at-playo-4439155046?position=22&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=R%2Fe41GsPmNT66f0T9sqC8g%3D%3D"
-    },
-    {
-        "title":"Python Engineer",
-        "company":"Ciklum",
-        "location":"Ukraine",
-        "date_posted":"6 days ago",
-        "requirements":"Posted: 6 days ago",
-        "link":"https:\/\/ua.linkedin.com\/jobs\/view\/python-engineer-at-ciklum-4440531094?position=23&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=BjCD3StbsPYbj08j7O3MIg%3D%3D"
-    },
-    {
-        "title":"Python Engineer",
-        "company":"EXL",
-        "location":"Gurugram, Haryana, India",
-        "date_posted":"2 weeks ago",
-        "requirements":"Posted: 2 weeks ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-engineer-at-exl-4436056828?position=24&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=khv7gKuXaU3JjL43JAWO6g%3D%3D"
-    },
-    {
-        "title":"Junior Python Developer \/ Senior Python Developer - Chennai",
-        "company":"ELK Education Consultants Pvt Ltd",
-        "location":"Chennai, Tamil Nadu, India",
-        "date_posted":"1 month ago",
-        "requirements":"Posted: 1 month ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/junior-python-developer-senior-python-developer-chennai-at-elk-education-consultants-pvt-ltd-4422782262?position=25&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=%2B8JtEOtSejr%2F8wY8W0Q%2BVg%3D%3D"
-    },
-    {
-        "title":"Python Engineer",
-        "company":"Ciklum",
-        "location":"Poland",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/pl.linkedin.com\/jobs\/view\/python-engineer-at-ciklum-4440049620?position=26&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=FUI6MpBPuFs%2F7VFTuINZ3A%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Infosys",
+        "title":"Senior Python Developer",
+        "company":"Deloitte",
         "location":"Jersey City, NJ",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/python-developer-at-infosys-4435940579?position=27&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=n3AUZ8byZ%2BuQncNdKZQJpQ%3D%3D"
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/senior-python-developer-deloitte-JV_IC1126819_KO0,23_KE24,32.htm?jl=1010195782599"
     },
     {
-        "title":"Junior Developer - Python & Go",
-        "company":"Buyers Edge Platform",
+        "title":"Senior Automation Engineer",
+        "company":"Deloitte",
+        "location":"Costa Mesa, CA",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/senior-automation-engineer-deloitte-JV_IC1146769_KO0,26_KE27,35.htm?jl=1010171906820"
+    },
+    {
+        "title":"Senior Software Engineer - Backend\/Machine Learning (Remote)",
+        "company":"The Home Depot",
+        "location":"Atlanta, GA",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/senior-software-engineer-backend-machine-learning-remote-the-home-depot-JV_IC1155583_KO0,56_KE57,71.htm?jl=1010199847970"
+    },
+    {
+        "title":"Senior Software Engineer - Marketing Technology (Remote)",
+        "company":"The Home Depot",
+        "location":"Atlanta, GA",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/senior-software-engineer-marketing-technology-remote-the-home-depot-JV_IC1155583_KO0,52_KE53,67.htm?jl=1010178477720"
+    },
+    {
+        "title":"Staff Software Engineer - Enterprise Data Warehouse (Remote)",
+        "company":"The Home Depot",
+        "location":"Atlanta, GA",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/staff-software-engineer-enterprise-data-warehouse-remote-the-home-depot-JV_IC1155583_KO0,56_KE57,71.htm?jl=1010117234828"
+    },
+    {
+        "title":"Software Dev Engineer II, Lambda MicroVMs, Serverless Compute",
+        "company":"Amazon Web Services",
+        "location":"Seattle, WA",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/software-dev-engineer-ii-lambda-microvms-serverless-compute-amazon-web-services-JV_IC1150505_KO0,59_KE60,79.htm?jl=1010203431652"
+    },
+    {
+        "title":"Jr. Software Development Engineer - Santa Barbara, CA, Jr. Developer Program",
+        "company":"Amazon",
+        "location":"Santa Barbara, CA",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/jr-software-development-engineer-santa-barbara-ca-jr-developer-program-amazon-JV_IC1147473_KO0,70_KE71,77.htm?jl=1010187205683"
+    },
+    {
+        "title":"Software Dev Engineer - Test, eero",
+        "company":"Amazon",
+        "location":"Los Gatos, CA",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/software-dev-engineer-test-eero-amazon-JV_IC1147427_KO0,31_KE32,38.htm?jl=1010172270217"
+    },
+    {
+        "title":"Ring CS - Salesforce Developer, Ring\/Blink CS Technology Enablement",
+        "company":"Amazon",
+        "location":"Hawthorne, CA",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/ring-cs-salesforce-developer-ring-blink-cs-technology-enablement-amazon-JV_IC1146793_KO0,64_KE65,71.htm?jl=1010187205794"
+    },
+    {
+        "title":"Security Engineer, Amazon Photos",
+        "company":"Amazon",
+        "location":"Seattle, WA",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/security-engineer-amazon-photos-amazon-JV_IC1150505_KO0,31_KE32,38.htm?jl=1010207318793"
+    },
+    {
+        "title":"Delivery Excellence - Tech Enablement - Senior Developer - Manager",
+        "company":"PwC",
         "location":"United States",
-        "date_posted":"2 days ago",
-        "requirements":"Posted: 2 days ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/junior-developer-python-go-at-buyers-edge-platform-4441735959?position=28&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=975x93J%2FdtUj5IvvgVTr%2Bw%3D%3D"
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/delivery-excellence-tech-enablement-senior-developer-manager-pwc-JV_KO0,60_KE61,64.htm?jl=1010161469922"
     },
     {
-        "title":"Backend Python Developer (Open to Fresh Graduates)",
-        "company":"EX.IO",
-        "location":"Hong Kong, Hong Kong SAR",
-        "date_posted":"10 months ago",
-        "requirements":"Posted: 10 months ago",
-        "link":"https:\/\/hk.linkedin.com\/jobs\/view\/backend-python-developer-open-to-fresh-graduates-at-ex-io-4296422154?position=29&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=CBNNdDF83kNtf6TVAovFDQ%3D%3D"
-    },
-    {
-        "title":"Software Engineer (Entry-Level) - Python",
-        "company":"Akuna Capital",
-        "location":"Chicago, IL",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/software-engineer-entry-level-python-at-akuna-capital-4440098689?position=30&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=bHJWq4YdYd21fVhYbNJFIw%3D%3D"
-    },
-    {
-        "title":"Web Developer – Fresher",
-        "company":"GNH India Pharmaceuticals Limited",
-        "location":"Mumbai Metropolitan Region",
-        "date_posted":"2 weeks ago",
-        "requirements":"Posted: 2 weeks ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/web-developer-%E2%80%93-fresher-at-gnh-india-pharmaceuticals-limited-4435115646?position=31&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=lH%2Foz7%2FUj5DVb1d%2BqGR2Ng%3D%3D"
-    },
-    {
-        "title":"Entry-Level Python \/ AI Engineer [32869]",
-        "company":"Stealth Startup",
-        "location":"San Francisco, CA",
-        "date_posted":"6 days ago",
-        "requirements":"Posted: 6 days ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/entry-level-python-ai-engineer-32869-at-stealth-startup-4437660390?position=32&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=mU%2F4RsYoVKglJ74GHkxOSw%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Infosys",
-        "location":"Charlotte, NC",
-        "date_posted":"1 day ago",
-        "requirements":"Posted: 1 day ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/python-developer-at-infosys-4411188667?position=33&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=KgM4ucSTT%2FvFY5e1T0MOWQ%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"InnoWave",
-        "location":"Bengaluru, Karnataka, India",
-        "date_posted":"3 weeks ago",
-        "requirements":"Posted: 3 weeks ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-developer-at-innowave-4433632617?position=34&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=HncouDOwNEFY5JUJSjelbQ%3D%3D"
-    },
-    {
-        "title":"Full Stack Python Developer",
-        "company":"Golden Opportunities",
-        "location":"Chennai, Tamil Nadu, India",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/full-stack-python-developer-at-golden-opportunities-4439425289?position=35&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=TmIMPuq%2B75XEuUx9HF6Gkw%3D%3D"
-    },
-    {
-        "title":"Python automation test engineer",
-        "company":"Infosys",
-        "location":"Bengaluru East, Karnataka, India",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-automation-test-engineer-at-infosys-4436846438?position=36&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=CoYy7jIrh2sfOa8rO0Mt9w%3D%3D"
-    },
-    {
-        "title":"Python, ETL Developer_Truist",
-        "company":"Infosys",
-        "location":"Hyderabad, Telangana, India",
-        "date_posted":"2 days ago",
-        "requirements":"Posted: 2 days ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-etl-developer-truist-at-infosys-4441749312?position=37&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=CwyzAoWsGyMFAM1uHO1ZAA%3D%3D"
-    },
-    {
-        "title":"Associate Developer, Python LN",
-        "company":"International Medical Corps",
-        "location":"Islamabad, Islāmābād, Pakistan",
-        "date_posted":"6 days ago",
-        "requirements":"Posted: 6 days ago",
-        "link":"https:\/\/pk.linkedin.com\/jobs\/view\/associate-developer-python-ln-at-international-medical-corps-4440511679?position=38&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=EN8dHEu13MqXAy0dK1HLmA%3D%3D"
-    },
-    {
-        "title":"Python - Associate Software Engineer",
-        "company":"Capgemini",
-        "location":"Cairo, Cairo, Egypt",
-        "date_posted":"1 month ago",
-        "requirements":"Posted: 1 month ago",
-        "link":"https:\/\/eg.linkedin.com\/jobs\/view\/python-associate-software-engineer-at-capgemini-4424197221?position=39&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=mNVKtZnEThr06V%2FECX%2BIew%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Intellect Outsource",
-        "location":"Thrissur, Kerala, India",
-        "date_posted":"2 months ago",
-        "requirements":"Posted: 2 months ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-developer-at-intellect-outsource-4405807871?position=40&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=CBabpFU8QM%2F%2BVbQ0YVQ64Q%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Intellect Outsource",
-        "location":"Thrissur, Kerala, India",
-        "date_posted":"2 months ago",
-        "requirements":"Posted: 2 months ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python%0A-developer-at-intellect-outsource-4405814674?position=41&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=4GZkvIdYACcUtZmpW12l1g%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Atem Corp",
-        "location":"Dallas, TX",
-        "date_posted":"6 days ago",
-        "requirements":"Posted: 6 days ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/python-developer-at-atem-corp-4440812886?position=42&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=YUo1NfDx9IlGtbJoQ%2FOfzg%3D%3D"
-    },
-    {
-        "title":"Programador Python Júnior",
-        "company":"BR MotorSport",
-        "location":"Barueri, São Paulo, Brazil",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/br.linkedin.com\/jobs\/view\/programador-python-j%C3%BAnior-at-br-motorsport-4439484458?position=43&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=u7CjmUkdsZZAlGzLKZPGig%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"hackajob",
+        "title":"Acceleration Center- Agentic AI and Machine Learning Developer- Senior Associate",
+        "company":"PwC",
         "location":"New York, NY",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/python-developer-at-hackajob-4438905317?position=44&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=vf4gcGEnBSNL8F9VUKasnw%3D%3D"
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/acceleration-center-agentic-ai-and-machine-learning-developer-senior-associate-pwc-JV_IC1132348_KO0,78_KE79,82.htm?jl=1010212889929"
     },
     {
-        "title":"Desenvolvedor Back-end Júnior",
-        "company":"Housi",
-        "location":"Brazil",
-        "date_posted":"2 weeks ago",
-        "requirements":"Posted: 2 weeks ago",
-        "link":"https:\/\/br.linkedin.com\/jobs\/view\/desenvolvedor-back-end-j%C3%BAnior-at-housi-4436834474?position=45&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=5SBBC%2Frc%2BHnEgHmeFsniUQ%3D%3D"
+        "title":"Early Career: IT Security Engineer",
+        "company":"Texas Instruments",
+        "location":"Dallas, TX",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/early-career-it-security-engineer-texas-instruments-JV_IC1139977_KO0,33_KE34,51.htm?jl=1010214762886"
     },
     {
-        "title":"Software Engineer - Python",
-        "company":"ArteraAI",
+        "title":"Lead Business Intelligence Engineer",
+        "company":"Markel",
+        "location":"Glen Allen, VA",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/lead-business-intelligence-engineer-markel-JV_IC1130160_KO0,35_KE36,42.htm?jl=1010215011120"
+    },
+    {
+        "title":"Senior Software Engineer (Backend)",
+        "company":"Panda Restaurant Group",
+        "location":"Rosemead, CA",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/senior-software-engineer-backend-panda-restaurant-group-JV_IC1146861_KO0,32_KE33,55.htm?jl=1009768272480"
+    },
+    {
+        "title":"Experience Research Vice President-Personalization & Insights",
+        "company":"JPMorganChase",
+        "location":"Plano, TX",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/experience-research-vice-president-personalization-insights-jpmorgan-chase-co-JV_IC1140045_KO0,59_KE60,77.htm?jl=1010215142177"
+    },
+    {
+        "title":"Staff Engineer",
+        "company":"The TJX Companies, Inc.",
+        "location":"Framingham, MA",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/staff-engineer-the-tjx-companies-inc-JV_IC1154571_KO0,14_KE15,36.htm?jl=1010095862024"
+    },
+    {
+        "title":"Application Software Developers\/Engineer",
+        "company":"One Federal Solution",
+        "location":"Beltsville, MD",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/application-software-developers-engineer-one-federal-solution-JV_IC1153815_KO0,40_KE41,61.htm?jl=1010215081311"
+    },
+    {
+        "title":"Senior Engineer (Remote)",
+        "company":"Tenet Healthcare",
+        "location":"Frisco, TX",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/senior-engineer-remote-tenet-healthcare-JV_IC1139994_KO0,22_KE23,39.htm?jl=1010041540628"
+    },
+    {
+        "title":"Data Scientist, Mid",
+        "company":"Booz Allen Hamilton",
+        "location":"Springfield, VA",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/data-scientist-mid-booz-allen-hamilton-JV_IC1130409_KO0,18_KE19,38.htm?jl=1010183877411"
+    },
+    {
+        "title":"Gaming Experience Full Stack Developer",
+        "company":"Booz Allen Hamilton",
+        "location":"Washington, DC",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/gaming-experience-full-stack-developer-booz-allen-hamilton-JV_IC1138213_KO0,38_KE39,58.htm?jl=1010188382968"
+    },
+    {
+        "title":"Software Engineer and Developer",
+        "company":"Booz Allen Hamilton",
+        "location":"Dayton, OH",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/software-engineer-and-developer-booz-allen-hamilton-JV_IC1145937_KO0,31_KE32,51.htm?jl=1010191915642"
+    },
+    {
+        "title":"Staff Software Engineer (Frontend Developer)",
+        "company":"Lockheed Martin",
+        "location":"Colorado Springs, CO",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/staff-software-engineer-frontend-developer-lockheed-martin-JV_IC1148136_KO0,42_KE43,58.htm?jl=1010171765381"
+    },
+    {
+        "title":"Senior AI Engineer",
+        "company":"Chemours",
         "location":"United States",
-        "date_posted":"2 weeks ago",
-        "requirements":"Posted: 2 weeks ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/software-engineer-python-at-arteraai-4414765336?position=46&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=6TtwOOJRmWAtyeKBhrSlaA%3D%3D"
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/senior-ai-engineer-chemours-JV_KO0,18_KE19,27.htm?jl=1010188629730"
     },
     {
-        "title":"Software Engineer (Python)",
-        "company":"Accenture",
-        "location":"Ho Chi Minh City, Vietnam",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/vn.linkedin.com\/jobs\/view\/software-engineer-python-at-accenture-4370240395?position=47&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=lmgAXLjI9Ca31Sg%2FKwA4ag%3D%3D"
+        "title":"Robot Application Developer",
+        "company":"Bright Vision Technologies",
+        "location":"Remote",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/robot-application-developer-bright-vision-technologies-JV_KO0,27_KE28,54.htm?jl=1010212768480"
     },
     {
-        "title":"Data Engineer – Python, SQL, DBT",
-        "company":"Infosys",
-        "location":"Hyderabad, Telangana, India",
-        "date_posted":"2 weeks ago",
-        "requirements":"Posted: 2 weeks ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/data-engineer-%E2%80%93-python-sql-dbt-at-infosys-4435700982?position=48&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=lRXhGGo4CCCUWVqK4BRHJg%3D%3D"
+        "title":"Kafka Engineer",
+        "company":"Bright Vision Technologies",
+        "location":"Remote",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/kafka-engineer-bright-vision-technologies-JV_KO0,14_KE15,41.htm?jl=1010212768387"
     },
     {
-        "title":"Python Developer",
-        "company":"Infosys",
-        "location":"Phoenix, AZ",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/python-developer-at-infosys-4436626802?position=49&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=I5PXoYLLBFLs42I1MysuCQ%3D%3D"
+        "title":"Kafka Platform Engineer",
+        "company":"Bright Vision Technologies",
+        "location":"Remote",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/kafka-platform-engineer-bright-vision-technologies-JV_KO0,23_KE24,50.htm?jl=1010212768388"
     },
     {
-        "title":"Python\/Django Developer",
-        "company":"IDEAL IT TECHNO",
-        "location":"Indore, Madhya Pradesh, India",
-        "date_posted":"11 months ago",
-        "requirements":"Posted: 11 months ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-django-developer-at-ideal-it-techno-4283680951?position=50&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=6aZEkXVsLetYxImKOyVYGA%3D%3D"
+        "title":"FinTech Software Developer",
+        "company":"Bright Vision Technologies",
+        "location":"Remote",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/job-listing\/fintech-software-developer-bright-vision-technologies-JV_KO0,26_KE27,53.htm?jl=1010211093095"
     },
     {
-        "title":"Junior Software Engineer (Python \/ Microservices)",
-        "company":"IQVIA",
-        "location":"São Paulo, São Paulo, Brazil",
-        "date_posted":"4 days ago",
-        "requirements":"Posted: 4 days ago",
-        "link":"https:\/\/br.linkedin.com\/jobs\/view\/junior-software-engineer-python-microservices-at-iqvia-4441114438?position=51&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=51PJspJdeg6xUcFIAtujIg%3D%3D"
-    },
-    {
-        "title":"Web Developer KE",
-        "company":"Core Code io",
-        "location":"Nairobi, Nairobi County, Kenya",
-        "date_posted":"1 month ago",
-        "requirements":"Posted: 1 month ago",
-        "link":"https:\/\/ke.linkedin.com\/jobs\/view\/web-developer-ke-at-core-code-io-4422084190?position=52&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=0SFDZkeXdmNMSCn%2Bh6wObw%3D%3D"
-    },
-    {
-        "title":"Junior Python Developer",
-        "company":"Hire'in Solutions",
-        "location":"Austin, TX",
-        "date_posted":"2 weeks ago",
-        "requirements":"Posted: 2 weeks ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/junior-python-developer-at-hire-in-solutions-4426607950?position=53&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=n4MgN5Xmdm1ix1kBolRUbA%3D%3D"
-    },
-    {
-        "title":"Data Engineer (SQL & Python)",
-        "company":"Tap Growth ai",
-        "location":"Taguig, National Capital Region, Philippines",
-        "date_posted":"6 days ago",
-        "requirements":"Posted: 6 days ago",
-        "link":"https:\/\/ph.linkedin.com\/jobs\/view\/data-engineer-sql-python-at-tap-growth-ai-4439827606?position=54&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=CG4bLuyjq41KlmIqN0OvzQ%3D%3D"
-    },
-    {
-        "title":"Software Engineer - Python",
-        "company":"Devsinc",
-        "location":"Lahore, Punjab, Pakistan",
-        "date_posted":"3 months ago",
-        "requirements":"Posted: 3 months ago",
-        "link":"https:\/\/pk.linkedin.com\/jobs\/view\/software-engineer-python-at-devsinc-4410516362?position=55&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=wSLVLAIiN%2FaQPZYOZVsAwg%3D%3D"
-    },
-    {
-        "title":"Python Aircraft Data Model Developer - Loads & Dynamics",
-        "company":"SOGECLAIR",
-        "location":"Montreal, Quebec, Canada",
-        "date_posted":"1 week ago",
-        "requirements":"Posted: 1 week ago",
-        "link":"https:\/\/ca.linkedin.com\/jobs\/view\/python-aircraft-data-model-developer-loads-dynamics-at-sogeclair-4440096320?position=56&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=UEDR1yr7Y3PTqJ8RvxuXPg%3D%3D"
-    },
-    {
-        "title":"2022年校招-Python工程师",
-        "company":"Learnings 乐信圣文",
-        "location":"Beijing, Beijing, China",
-        "date_posted":"2 years ago",
-        "requirements":"Posted: 2 years ago",
-        "link":"https:\/\/cn.linkedin.com\/jobs\/view\/2022%E5%B9%B4%E6%A0%A1%E6%8B%9B-python%E5%B7%A5%E7%A8%8B%E5%B8%88-at-learnings-%E4%B9%90%E4%BF%A1%E5%9C%A3%E6%96%87-3885634257?position=57&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=tGSP3GRmU5zuxIYRLlb4BQ%3D%3D"
-    },
-    {
-        "title":"Python&SQL Developer",
-        "company":"VMC Soft Technologies, Inc",
-        "location":"Bengaluru, Karnataka, India",
-        "date_posted":"5 months ago",
-        "requirements":"Posted: 5 months ago",
-        "link":"https:\/\/in.linkedin.com\/jobs\/view\/python-sql-developer-at-vmc-soft-technologies-inc-4360502077?position=58&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=VND1UBG9xwE9SizOwdwa1w%3D%3D"
-    },
-    {
-        "title":"Software Engineer - Python",
-        "company":"Applied Intuition",
-        "location":"Sunnyvale, CA",
-        "date_posted":"5 days ago",
-        "requirements":"Posted: 5 days ago",
-        "link":"https:\/\/www.linkedin.com\/jobs\/view\/software-engineer-python-at-applied-intuition-4423959813?position=59&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=XVHko2pI%2FRAaFrM7VvaxgA%3D%3D"
-    },
-    {
-        "title":"Python Developer",
-        "company":"Talan",
-        "location":"London, England, United Kingdom",
-        "date_posted":"1 month ago",
-        "requirements":"Posted: 1 month ago",
-        "link":"https:\/\/uk.linkedin.com\/jobs\/view\/python-developer-at-talan-4427043090?position=60&pageNum=0&refId=1%2FkJNJlQZMAn0nWBMq4guQ%3D%3D&trackingId=LvxlhPqsXIccJMDxE7rATg%3D%3D"
+        "title":"Buyers Edge Platform\n4.0\nJunior Developer - Python & Go\nWaltham, MA\n$67K - $108K (Glassdoor est.)\nSign in to apply",
+        "company":"Buyers Edge Platform",
+        "location":"Waltham, MA\n$67K - $108K (Glassdoor est.)",
+        "date_posted":"Recently",
+        "requirements":"Click 'Apply Now' for full details",
+        "link":"https:\/\/www.glassdoor.com\/Overview\/Working-at-Buyers-Edge-Platform-EI_IE2940257.11,31.htm"
     }
 ]

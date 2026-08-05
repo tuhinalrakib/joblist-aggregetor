@@ -14,13 +14,49 @@ import json
 import pandas as pd
 from playwright.sync_api import sync_playwright
 
+import re
+
+def parse_relative_hours(date_str: Any) -> float:
+    if not date_str or not isinstance(date_str, str):
+        return 999999.0
+    s = date_str.lower().strip()
+    if any(k in s for k in ["just now", "recently", "moment", "second"]):
+        return 0.0
+    match = re.search(r"(\d+)\s*(minute|min|hour|hr|day|week|month|year)", s)
+    if match:
+        val = int(match.group(1))
+        unit = match.group(2)
+        if unit.startswith("min"):
+            return val / 60.0
+        elif unit.startswith("hour") or unit.startswith("hr"):
+            return float(val)
+        elif unit.startswith("day"):
+            return val * 24.0
+        elif unit.startswith("week"):
+            return val * 24.0 * 7.0
+        elif unit.startswith("month"):
+            return val * 24.0 * 30.0
+        elif unit.startswith("year"):
+            return val * 24.0 * 365.0
+    if "hour" in s or "hr" in s:
+        return 1.0
+    if "day" in s:
+        return 24.0
+    if "week" in s:
+        return 168.0
+    if "month" in s:
+        return 720.0
+    if "year" in s:
+        return 8760.0
+    return 999999.0
+
 class JobDataHandler:
     def __init__(self, raw_jobs: List[Dict[str, Any]]):
         self.raw_jobs = raw_jobs
         self.df = pd.DataFrame(raw_jobs) if raw_jobs else pd.DataFrame()
 
-    def clean_data(self) -> pd.DataFrame:
-        """Clean raw scraped data: remove empty rows, strip whitespace, deduplicate."""
+    def clean_data(self, experience_level: Optional[str] = "all") -> pd.DataFrame:
+        """Clean raw scraped data: remove empty rows, strip whitespace, deduplicate, and filter experience mismatches."""
         if self.df.empty:
             print("[!] No job listings found to clean.")
             return self.df
@@ -40,6 +76,23 @@ class JobDataHandler:
         deduped_count = len(self.df)
         if initial_count != deduped_count:
             print(f"[+] Removed {initial_count - deduped_count} duplicate job listings.")
+
+        # Experience level strict filtering by job title
+        exp_str = str(experience_level).lower().strip() if experience_level else "all"
+        if exp_str in ["entry", "internship", "associate", "1", "2", "3"]:
+            if "title" in self.df.columns:
+                senior_pattern = r"\b(senior|sr|lead|staff|principal|architect|manager|director|head|vp)\b"
+                mask = self.df["title"].astype(str).str.lower().str.contains(senior_pattern, regex=True)
+                filtered_out = mask.sum()
+                if filtered_out > 0:
+                    print(f"[+] Strict Filter: Removed {filtered_out} Senior/Lead job titles for Entry-Level selection.")
+                    self.df = self.df[~mask]
+
+        # Sort by relative date (most recent first)
+        if "date_posted" in self.df.columns:
+            self.df["_sort_hours"] = self.df["date_posted"].apply(parse_relative_hours)
+            self.df.sort_values(by="_sort_hours", ascending=True, inplace=True)
+            self.df.drop(columns=["_sort_hours"], inplace=True)
 
         return self.df
 

@@ -422,11 +422,15 @@
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="keyword">Job Keyword</label>
-                        <input type="text" id="keyword" value="React Developer" placeholder="e.g. Python Developer, React, Data Engineer" required>
+                        <input type="text" id="keyword" placeholder="e.g. React Developer, Python Developer, Data Engineer" required>
                     </div>
                     <div class="form-group">
                         <label for="location">Location</label>
-                        <input type="text" id="location" value="Remote" placeholder="e.g. Remote, Dhaka, New York" required>
+                        <select id="location">
+                            <option value="On-site">On-site</option>
+                            <option value="Remote" selected>Remote</option>
+                            <option value="Hybrid">Hybrid</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="experience">Experience Level</label>
@@ -449,9 +453,18 @@
                             <option value="5">5 Pages (Parallel ~5s)</option>
                         </select>
                     </div>
-                    <div class="form-group" style="grid-column: 1 / -1;">
-                        <label for="url">Target Search URL (Optional Override)</label>
-                        <input type="text" id="url" placeholder="Leave empty for automated LinkedIn search, or paste custom URL">
+                    <div class="form-group">
+                        <label for="platform">Target Job Site / Platform</label>
+                        <select id="platform" onchange="toggleCustomUrlGroup()">
+                            <option value="linkedin" selected>LinkedIn Jobs (Default)</option>
+                            <option value="glassdoor">Glassdoor Jobs</option>
+                            <option value="indeed">Indeed Jobs</option>
+                            <option value="custom">Custom Search URL (Paste Link)</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="custom-url-group" style="display: none;">
+                        <label for="url">Custom Search URL</label>
+                        <input type="text" id="url" placeholder="https://example.com/jobs?q=python">
                     </div>
                 </div>
 
@@ -524,6 +537,17 @@
     <script>
         let currentJobs = [];
 
+        function toggleCustomUrlGroup() {
+            const platform = document.getElementById("platform").value;
+            const customGroup = document.getElementById("custom-url-group");
+            if (platform === "custom") {
+                customGroup.style.display = "block";
+            } else {
+                customGroup.style.display = "none";
+                document.getElementById("url").value = "";
+            }
+        }
+
         async function handleScrape(e) {
             e.preventDefault();
 
@@ -536,6 +560,7 @@
             const location = document.getElementById("location").value;
             const experience = document.getElementById("experience").value;
             const pages = parseInt(document.getElementById("pages").value);
+            const platform = document.getElementById("platform").value;
             const customUrl = document.getElementById("url").value;
 
             submitBtn.disabled = true;
@@ -552,7 +577,8 @@
                         location: location,
                         experience_level: experience,
                         max_pages: pages,
-                        url: customUrl || null
+                        platform: platform,
+                        url: (platform === "custom" && customUrl) ? customUrl : null
                     })
                 });
 
@@ -581,10 +607,35 @@
             }
         }
 
+        function parseRelativeHours(dateStr) {
+            if (!dateStr || typeof dateStr !== 'string') return 999999;
+            const str = dateStr.toLowerCase().trim();
+            if (str.includes('just now') || str.includes('recently') || str.includes('moment') || str.includes('second')) {
+                return 0;
+            }
+            const match = str.match(/(\d+)\s*(minute|min|hour|hr|day|week|month|year)/);
+            if (match) {
+                const val = parseInt(match[1], 10);
+                const unit = match[2];
+                if (unit.startsWith('min')) return val / 60;
+                if (unit.startsWith('hour') || unit.startsWith('hr')) return val;
+                if (unit.startsWith('day')) return val * 24;
+                if (unit.startsWith('week')) return val * 24 * 7;
+                if (unit.startsWith('month')) return val * 24 * 30;
+                if (unit.startsWith('year')) return val * 24 * 365;
+            }
+            if (str.includes('hour') || str.includes('hr')) return 1;
+            if (str.includes('day')) return 24;
+            if (str.includes('week')) return 168;
+            if (str.includes('month')) return 720;
+            if (str.includes('year')) return 8760;
+            return 999999;
+        }
+
         function sortJobList(jobsList, sortOption) {
             let sorted = [...jobsList];
             if (sortOption === "newest") {
-                return sorted;
+                sorted.sort((a, b) => parseRelativeHours(a.date_posted) - parseRelativeHours(b.date_posted));
             } else if (sortOption === "title_asc") {
                 sorted.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
             } else if (sortOption === "title_desc") {
@@ -618,12 +669,21 @@
 
         function getFilteredJobs() {
             const query = document.getElementById("filter-input").value.toLowerCase();
-            return currentJobs.filter(j => 
-                (j.title && j.title.toLowerCase().includes(query)) ||
-                (j.company && j.company.toLowerCase().includes(query)) ||
-                (j.location && j.location.toLowerCase().includes(query)) ||
-                (j.date_posted && j.date_posted.toLowerCase().includes(query))
-            );
+            const expLevel = document.getElementById("experience").value;
+            const isEntryOrIntern = ['entry', 'internship', 'associate', '1', '2', '3'].includes(expLevel);
+            const seniorRegex = /\b(senior|sr|lead|staff|principal|architect|manager|director|head|vp)\b/i;
+
+            return currentJobs.filter(j => {
+                if (isEntryOrIntern && j.title && seniorRegex.test(j.title)) {
+                    return false;
+                }
+                return (
+                    (j.title && j.title.toLowerCase().includes(query)) ||
+                    (j.company && j.company.toLowerCase().includes(query)) ||
+                    (j.location && j.location.toLowerCase().includes(query)) ||
+                    (j.date_posted && j.date_posted.toLowerCase().includes(query))
+                );
+            });
         }
 
         function filterResults() {

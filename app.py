@@ -34,6 +34,13 @@ OUTPUT_PDF = BASE_DIR / "jobs_output.pdf"
 CACHE_TTL_SECONDS = 600
 SEARCH_CACHE: Dict[str, Dict[str, Any]] = {}
 
+WORKPLACE_MAP = {
+    "onsite": "1",
+    "on-site": "1",
+    "remote": "2",
+    "hybrid": "3",
+}
+
 EXP_LEVEL_MAP = {
     "1": "1",
     "2": "2",
@@ -54,6 +61,7 @@ class ScrapeRequest(BaseModel):
     location: str = "Remote"
     experience_level: Optional[str] = "all"
     max_pages: int = 2
+    platform: Optional[str] = "linkedin"
     url: Optional[str] = None
     auth_file: Optional[str] = "auth.json"
 
@@ -68,7 +76,8 @@ def get_dashboard():
 @app.post("/api/scrape")
 def trigger_scrape(req: ScrapeRequest):
     """Execute Playwright job scraper with caching and fast response time."""
-    cache_key = f"{req.keyword.strip().lower()}|{req.location.strip().lower()}|{req.experience_level}|{req.max_pages}|{req.url or ''}"
+    platform_name = (req.platform or "linkedin").strip().lower()
+    cache_key = f"{req.keyword.strip().lower()}|{req.location.strip().lower()}|{req.experience_level}|{req.max_pages}|{platform_name}|{req.url or ''}"
     now = time.time()
 
     # Check TTL cache for instant return
@@ -87,12 +96,23 @@ def trigger_scrape(req: ScrapeRequest):
     if not target_url or not target_url.strip():
         encoded_kw = urllib.parse.quote(req.keyword)
         encoded_loc = urllib.parse.quote(req.location)
-        target_url = f"https://www.linkedin.com/jobs/search/?keywords={encoded_kw}&location={encoded_loc}"
-        
-        # Add Experience Level filter if specified
-        exp_code = EXP_LEVEL_MAP.get(str(req.experience_level).lower())
-        if exp_code:
-            target_url += f"&f_E={exp_code}"
+
+        if platform_name == "glassdoor":
+            target_url = f"https://www.glassdoor.com/Job/jobs.htm?sc.keyword={encoded_kw}&locKeyword={encoded_loc}"
+        elif platform_name == "indeed":
+            target_url = f"https://www.indeed.com/jobs?q={encoded_kw}&l={encoded_loc}"
+        else: # Default: LinkedIn
+            target_url = f"https://www.linkedin.com/jobs/search/?keywords={encoded_kw}&location={encoded_loc}&sortBy=DD"
+            
+            # Add Workplace Type filter (f_WT: 1=On-site, 2=Remote, 3=Hybrid)
+            wt_code = WORKPLACE_MAP.get(str(req.location).strip().lower())
+            if wt_code:
+                target_url += f"&f_WT={wt_code}"
+
+            # Add Experience Level filter if specified
+            exp_code = EXP_LEVEL_MAP.get(str(req.experience_level).lower())
+            if exp_code:
+                target_url += f"&f_E={exp_code}"
 
     print(f"\n[+] API Scraping Triggered:")
     print(f"    Keyword: '{req.keyword}' | Location: '{req.location}' | Experience Level: '{req.experience_level}' | Pages: {req.max_pages}")
@@ -112,7 +132,7 @@ def trigger_scrape(req: ScrapeRequest):
         return {"success": False, "message": "No jobs found.", "jobs": [], "from_cache": False}
 
     handler = JobDataHandler(raw_jobs)
-    cleaned_df = handler.clean_data()
+    cleaned_df = handler.clean_data(experience_level=req.experience_level)
     jobs_list = cleaned_df.to_dict(orient="records")
 
     # Export to CSV, JSON, and HTML immediately (fast)

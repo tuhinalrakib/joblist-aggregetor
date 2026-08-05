@@ -53,7 +53,7 @@ def main():
         encoded_kw = urllib.parse.quote(args.keyword)
         encoded_loc = urllib.parse.quote(args.location)
         # Default to public job search URL (LinkedIn jobs search)
-        target_url = f"https://www.linkedin.com/jobs/search/?keywords={encoded_kw}&location={encoded_loc}"
+        target_url = f"https://www.linkedin.com/jobs/search/?keywords={encoded_kw}&location={encoded_loc}&sortBy=DD"
         print(f"[i] No custom URL specified. Searching LinkedIn Jobs for '{args.keyword}' in '{args.location}':")
         print(f"    {target_url}")
 
