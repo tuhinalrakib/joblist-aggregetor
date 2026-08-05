@@ -8,7 +8,7 @@ Handles cleaning, filtering, deduplicating, and saving scraped job listings to:
 - PDF Report (via Playwright rendering)
 """
 
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from pathlib import Path
 import json
 import pandas as pd
