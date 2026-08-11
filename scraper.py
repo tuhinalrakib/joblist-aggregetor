@@ -97,6 +97,10 @@ class JobScraper:
                 let location = locationElem ? locationElem.innerText.trim() : "";
                 if (!location) location = fallbackLocation;
 
+                // Workplace Type (Remote, On-site, Hybrid)
+                const wpElem = card.querySelector(".job-search-card__workplace-type, [class*='workplace-type'], [class*='workplaceType'], .job-card-container__metadata-item--workplace-type");
+                let workplace_type = wpElem ? wpElem.innerText.trim() : "";
+
                 // Date
                 const timeElem = card.querySelector("time.job-search-card__listdate, time, .job-search-card__listdate, [class*='date']");
                 const date_posted = timeElem ? timeElem.innerText.trim() : "Recently";
@@ -116,7 +120,7 @@ class JobScraper:
                 }}
 
                 if (title && title.length > 2 && !["home", "jobs", "about", "contact"].includes(title.toLowerCase())) {{
-                    results.push({{ title, company, location, date_posted, requirements, link }});
+                    results.push({{ title, company, location, workplace_type, date_posted, requirements, link }});
                 }}
             }});
             return results;

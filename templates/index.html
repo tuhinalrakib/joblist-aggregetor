@@ -425,10 +425,15 @@
                         <input type="text" id="keyword" placeholder="e.g. React Developer, Python Developer, Data Engineer" required>
                     </div>
                     <div class="form-group">
-                        <label for="location">Location</label>
-                        <select id="location">
+                        <label for="location">Location (City, Country)</label>
+                        <input type="text" id="location" placeholder="e.g. Worldwide, United States, Dhaka, London" value="Worldwide">
+                    </div>
+                    <div class="form-group">
+                        <label for="workplace_type">Workplace Type</label>
+                        <select id="workplace_type">
+                            <option value="all" selected>All Workplace Types</option>
+                            <option value="Remote">Remote</option>
                             <option value="On-site">On-site</option>
-                            <option value="Remote" selected>Remote</option>
                             <option value="Hybrid">Hybrid</option>
                         </select>
                     </div>
@@ -558,6 +563,7 @@
 
             const keyword = document.getElementById("keyword").value;
             const location = document.getElementById("location").value;
+            const workplaceType = document.getElementById("workplace_type").value;
             const experience = document.getElementById("experience").value;
             const pages = parseInt(document.getElementById("pages").value);
             const platform = document.getElementById("platform").value;
@@ -575,6 +581,7 @@
                     body: JSON.stringify({
                         keyword: keyword,
                         location: location,
+                        workplace_type: workplaceType,
                         experience_level: experience,
                         max_pages: pages,
                         platform: platform,
@@ -713,7 +720,8 @@
                     </div>
                 `;
 
-                const loc = `<span class="badge-loc">📍 ${escapeHtml(job.location || 'Remote')}</span>`;
+                const wpBadge = (job.workplace_type && job.workplace_type.trim() !== '') ? ` • ${escapeHtml(job.workplace_type)}` : '';
+                const loc = `<span class="badge-loc">📍 ${escapeHtml(job.location || 'Remote')}${wpBadge}</span>`;
                 const dateBadge = `<span style="display:inline-block; background:rgba(129, 140, 248, 0.12); color:var(--accent-purple); padding:4px 10px; border-radius:6px; font-size:0.82rem; font-weight:600; margin-top:4px;">🕒 ${escapeHtml(job.date_posted || 'Recently')}</span>`;
 
                 const reqText = (job.requirements && job.requirements !== 'N/A') ? job.requirements : "Click 'Apply Now' for details";

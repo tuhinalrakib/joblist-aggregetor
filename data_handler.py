@@ -55,8 +55,8 @@ class JobDataHandler:
         self.raw_jobs = raw_jobs
         self.df = pd.DataFrame(raw_jobs) if raw_jobs else pd.DataFrame()
 
-    def clean_data(self, experience_level: Optional[str] = "all") -> pd.DataFrame:
-        """Clean raw scraped data: remove empty rows, strip whitespace, deduplicate, and filter experience mismatches."""
+    def clean_data(self, experience_level: Optional[str] = "all", workplace_type: Optional[str] = "all") -> pd.DataFrame:
+        """Clean raw scraped data: remove empty rows, strip whitespace, deduplicate, and filter experience & workplace type mismatches."""
         if self.df.empty:
             print("[!] No job listings found to clean.")
             return self.df
@@ -87,6 +87,38 @@ class JobDataHandler:
                 if filtered_out > 0:
                     print(f"[+] Strict Filter: Removed {filtered_out} Senior/Lead job titles for Entry-Level selection.")
                     self.df = self.df[~mask]
+
+        # Workplace Type strict post-filtering
+        wp_str = str(workplace_type).lower().strip() if workplace_type else "all"
+        if wp_str in ["remote", "onsite", "on-site", "hybrid"]:
+            def matches_wp(row):
+                wp = str(row.get("workplace_type", "")).lower()
+                loc = str(row.get("location", "")).lower()
+                title = str(row.get("title", "")).lower()
+                req = str(row.get("requirements", "")).lower()
+                full_text = f"{wp} {loc} {title} {req}".lower()
+
+                if wp_str == "remote":
+                    if wp in ["on-site", "onsite", "hybrid"]:
+                        return False
+                    return any(k in full_text for k in ["remote", "work from home", "wfh", "anywhere", "worldwide", "distributed", "telecommute"])
+                elif wp_str in ["onsite", "on-site"]:
+                    if wp == "remote":
+                        return False
+                    if "remote" in full_text and not any(k in full_text for k in ["on-site", "onsite", "office", "in-office"]):
+                        return False
+                    return True
+                elif wp_str == "hybrid":
+                    if wp in ["remote", "on-site", "onsite"]:
+                        return wp == "hybrid"
+                    return "hybrid" in full_text
+                return True
+
+            mask = self.df.apply(matches_wp, axis=1)
+            filtered_out = len(self.df) - mask.sum()
+            if filtered_out > 0:
+                print(f"[+] Strict Filter: Removed {filtered_out} jobs that did not match workplace_type='{workplace_type}'.")
+                self.df = self.df[mask]
 
         # Sort by relative date (most recent first)
         if "date_posted" in self.df.columns:

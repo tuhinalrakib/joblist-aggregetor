@@ -58,7 +58,8 @@ EXP_LEVEL_MAP = {
 
 class ScrapeRequest(BaseModel):
     keyword: str = "React Developer"
-    location: str = "Remote"
+    location: str = "Worldwide"
+    workplace_type: Optional[str] = "all"
     experience_level: Optional[str] = "all"
     max_pages: int = 2
     platform: Optional[str] = "linkedin"
@@ -77,7 +78,7 @@ def get_dashboard():
 def trigger_scrape(req: ScrapeRequest):
     """Execute Playwright job scraper with caching and fast response time."""
     platform_name = (req.platform or "linkedin").strip().lower()
-    cache_key = f"{req.keyword.strip().lower()}|{req.location.strip().lower()}|{req.experience_level}|{req.max_pages}|{platform_name}|{req.url or ''}"
+    cache_key = f"{req.keyword.strip().lower()}|{(req.location or '').strip().lower()}|{req.workplace_type}|{req.experience_level}|{req.max_pages}|{platform_name}|{req.url or ''}"
     now = time.time()
 
     # Check TTL cache for instant return
@@ -94,8 +95,13 @@ def trigger_scrape(req: ScrapeRequest):
 
     target_url = req.url
     if not target_url or not target_url.strip():
-        encoded_kw = urllib.parse.quote(req.keyword)
-        encoded_loc = urllib.parse.quote(req.location)
+        search_kw = req.keyword
+        wp_val = str(req.workplace_type or "").strip().lower()
+        if wp_val == "remote" and "remote" not in search_kw.lower():
+            search_kw = f"{search_kw} Remote"
+
+        encoded_kw = urllib.parse.quote(search_kw)
+        encoded_loc = urllib.parse.quote(req.location or "Worldwide")
 
         if platform_name == "glassdoor":
             target_url = f"https://www.glassdoor.com/Job/jobs.htm?sc.keyword={encoded_kw}&locKeyword={encoded_loc}"
@@ -105,7 +111,7 @@ def trigger_scrape(req: ScrapeRequest):
             target_url = f"https://www.linkedin.com/jobs/search/?keywords={encoded_kw}&location={encoded_loc}&sortBy=DD"
             
             # Add Workplace Type filter (f_WT: 1=On-site, 2=Remote, 3=Hybrid)
-            wt_code = WORKPLACE_MAP.get(str(req.location).strip().lower())
+            wt_code = WORKPLACE_MAP.get(wp_val)
             if wt_code:
                 target_url += f"&f_WT={wt_code}"
 
@@ -115,7 +121,7 @@ def trigger_scrape(req: ScrapeRequest):
                 target_url += f"&f_E={exp_code}"
 
     print(f"\n[+] API Scraping Triggered:")
-    print(f"    Keyword: '{req.keyword}' | Location: '{req.location}' | Experience Level: '{req.experience_level}' | Pages: {req.max_pages}")
+    print(f"    Keyword: '{req.keyword}' | Location: '{req.location}' | Workplace Type: '{req.workplace_type}' | Experience Level: '{req.experience_level}' | Pages: {req.max_pages}")
     print(f"    Target URL: {target_url}")
 
     scraper = JobScraper(
@@ -132,7 +138,7 @@ def trigger_scrape(req: ScrapeRequest):
         return {"success": False, "message": "No jobs found.", "jobs": [], "from_cache": False}
 
     handler = JobDataHandler(raw_jobs)
-    cleaned_df = handler.clean_data(experience_level=req.experience_level)
+    cleaned_df = handler.clean_data(experience_level=req.experience_level, workplace_type=req.workplace_type)
     jobs_list = cleaned_df.to_dict(orient="records")
 
     # Export to CSV, JSON, and HTML immediately (fast)
