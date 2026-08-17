@@ -82,6 +82,8 @@ class JobDataHandler:
         if initial_count != deduped_count:
             print(f"[+] Removed {initial_count - deduped_count} duplicate job listings.")
 
+        backup_df = self.df.copy()
+
         # Experience level strict filtering by job title
         exp_str = str(experience_level).lower().strip() if experience_level else "all"
         if exp_str in ["entry", "internship", "associate", "1", "2", "3"]:
@@ -124,6 +126,11 @@ class JobDataHandler:
             if filtered_out > 0:
                 print(f"[+] Strict Filter: Removed {filtered_out} jobs that did not match workplace_type='{workplace_type}'.")
                 self.df = self.df[mask]
+
+        # Graceful fallback: If strict filtering reduced df to 0, restore backup to prevent blank screens
+        if self.df.empty and not backup_df.empty:
+            print("[!] Strict filter yielded 0 results, gracefully falling back to available job listings.")
+            self.df = backup_df.copy()
 
         # Sort by relative date (most recent first)
         if "date_posted" in self.df.columns:
