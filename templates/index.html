@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>JobFlow AI - Intelligent Job Aggregator & Market Intelligence</title>
+    <title>JobFlow - Job Listing Aggregator & Market Intelligence</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <!-- Chart.js for High-End Interactive Analytics -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -172,16 +172,6 @@
             background: rgba(255, 255, 255, 0.12);
             border-color: rgba(255, 255, 255, 0.2);
             transform: translateY(-1px);
-        }
-        .btn-ai {
-            background: linear-gradient(135deg, rgba(129, 140, 248, 0.2) 0%, rgba(56, 189, 248, 0.2) 100%);
-            border: 1px solid rgba(129, 140, 248, 0.4);
-            color: #c7d2fe;
-        }
-        .btn-ai:hover {
-            background: linear-gradient(135deg, rgba(129, 140, 248, 0.35) 0%, rgba(56, 189, 248, 0.35) 100%);
-            border-color: var(--accent-purple);
-            box-shadow: 0 0 15px rgba(129, 140, 248, 0.3);
         }
 
         /* KPI Metrics Grid */
@@ -400,14 +390,10 @@
             font-weight: 600;
         }
 
-        .ai-summary-box {
-            background: rgba(30, 41, 59, 0.5);
-            border-left: 3px solid var(--accent-purple);
-            padding: 8px 12px;
-            border-radius: 0 8px 8px 0;
-            margin-top: 8px;
-            font-size: 0.84rem;
-            color: #cbd5e1;
+        .req-snippet {
+            font-size: 0.83rem;
+            color: var(--text-muted);
+            margin-top: 6px;
             line-height: 1.45;
         }
 
@@ -450,15 +436,6 @@
             margin: 0 auto 16px;
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-        .api-key-toggle {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            cursor: pointer;
-            text-decoration: underline;
-            margin-top: 8px;
-            display: inline-block;
-        }
     </style>
 </head>
 <body>
@@ -466,11 +443,11 @@
         <!-- Header -->
         <header>
             <div class="brand-badge">
-                <span>🤖</span> AI-Powered Scraper • Gemini 1.5 Flash • Market Analytics
+                <span>⚡</span> Job Listing Aggregator • Market Analytics
             </div>
-            <h1>JobFlow AI Aggregator</h1>
+            <h1>JobFlow Aggregator</h1>
             <p class="subtitle">
-                Automated multi-portal job scraping engine with Google Gemini AI summarization, candidate skills matching, and real-time tech demand analytics.
+                Automated multi-portal job scraping engine with candidate skills matching and real-time tech demand analytics.
             </p>
         </header>
 
@@ -535,16 +512,8 @@
                     <input type="url" id="url" placeholder="https://www.linkedin.com/jobs/search/?keywords=...">
                 </div>
 
-                <!-- Optional Gemini API Key input -->
-                <div style="margin-bottom: 20px;">
-                    <span class="api-key-toggle" onclick="toggleApiKeyInput()">⚙️ Optional: Add Google Gemini API Key (for custom quota)</span>
-                    <div id="api-key-group" style="display: none; margin-top: 10px;">
-                        <input type="password" id="gemini_api_key" placeholder="Enter Gemini API Key (e.g. AIzaSy...)">
-                    </div>
-                </div>
-
                 <button type="submit" class="btn-submit" id="btn-submit">
-                    <span>⚡ Run Dual-Engine Scraper & AI Extract</span>
+                    <span>⚡ Run Dual-Engine Scraper & Extract Tech Stack</span>
                 </button>
             </form>
         </div>
@@ -552,9 +521,9 @@
         <!-- Loading Indicator -->
         <div class="loading-box" id="loading-box">
             <div class="spinner"></div>
-            <h3 style="font-weight: 700; margin-bottom: 8px;">Scraping & Analyzing Jobs...</h3>
+            <h3 style="font-weight: 700; margin-bottom: 8px;">Scraping & Extracting Tech Stack...</h3>
             <p style="color: var(--text-muted); font-size: 0.92rem;" id="loading-text">
-                Executing headless browser automation, cleaning data with Pandas, and extracting Tech Stack tags.
+                Executing browser automation, cleaning data with Pandas, and extracting Tech Stack tags.
             </p>
         </div>
 
@@ -642,7 +611,7 @@
 
                 <div style="margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
                     <input type="text" id="candidate-skills-input" placeholder="Type skills separated by comma (e.g. React, Python, FastAPI, Docker, Tailwind)...">
-                    <textarea id="resume-text-input" rows="1" placeholder="Or paste full Resume / Bio text here for deep AI extraction..."></textarea>
+                    <textarea id="resume-text-input" rows="1" placeholder="Or paste full Resume / Bio text here for keyword skills extraction..."></textarea>
                 </div>
             </div>
 
@@ -664,9 +633,6 @@
                     </div>
 
                     <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                        <button class="btn-secondary btn-ai" onclick="triggerDeepAIAnalysis()" id="btn-deep-ai">
-                            <span>✨ Deep AI Summarize (Gemini)</span>
-                        </button>
                         <a href="/api/download/csv" class="btn-secondary">📥 CSV</a>
                         <a href="/api/download/pdf" class="btn-secondary">📄 PDF</a>
                         <a href="/api/download/json" class="btn-secondary">📋 JSON</a>
@@ -678,16 +644,16 @@
                     <table>
                         <thead>
                             <tr style="user-select: none;">
-                                <th style="width: 32%; cursor: pointer;" onclick="toggleSortHeader('title')">
+                                <th style="width: 34%; cursor: pointer;" onclick="toggleSortHeader('title')">
                                     Job & Company <span id="sort-icon-title">↕</span>
                                 </th>
-                                <th style="width: 18%; cursor: pointer;" onclick="toggleSortHeader('location')">
+                                <th style="width: 20%; cursor: pointer;" onclick="toggleSortHeader('location')">
                                     Location & Type
                                 </th>
-                                <th style="width: 32%;">
-                                    Tech Stack & AI Summary
+                                <th style="width: 30%;">
+                                    Tech Stack & Details
                                 </th>
-                                <th style="width: 10%; text-align: center;">
+                                <th style="width: 8%; text-align: center;">
                                     Match
                                 </th>
                                 <th style="width: 8%; text-align: center;">Action</th>
@@ -746,11 +712,6 @@
             document.getElementById("candidate-skills-input").value = Array.from(selectedSkills).join(", ");
         }
 
-        function toggleApiKeyInput() {
-            const group = document.getElementById("api-key-group");
-            group.style.display = (group.style.display === "none" || !group.style.display) ? "block" : "none";
-        }
-
         function toggleCustomUrlGroup() {
             const platform = document.getElementById("platform").value;
             const customGroup = document.getElementById("custom-url-group");
@@ -801,7 +762,7 @@
                     currentJobs = data.jobs || [];
                     statusElem.innerHTML = data.from_cache 
                         ? `⚡ <span style="color:var(--accent-green); font-weight:600;">Instant Cache Hit</span> (${durationSec}s)`
-                        : `⚡ Scraped & AI-Enriched in <span style="color:var(--primary); font-weight:600;">${durationSec}s</span>`;
+                        : `⚡ Scraped & Processed in <span style="color:var(--primary); font-weight:600;">${durationSec}s</span>`;
 
                     dashboard.style.display = "block";
                     calculateResumeMatch(); // auto-calculates match and renders
@@ -817,42 +778,13 @@
             }
         }
 
-        async function triggerDeepAIAnalysis() {
-            const btn = document.getElementById("btn-deep-ai");
-            const apiKey = document.getElementById("gemini_api_key").value;
-            btn.disabled = true;
-            btn.innerHTML = "<span>🤖 Analyzing with Gemini API...</span>";
-
-            try {
-                const resp = await fetch("/api/ai/analyze", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        jobs: currentJobs,
-                        api_key: apiKey || null
-                    })
-                });
-                const data = await resp.json();
-                if (data.success) {
-                    currentJobs = data.jobs;
-                    calculateResumeMatch();
-                    fetchAndRenderAnalytics();
-                }
-            } catch (e) {
-                console.error("AI deep analysis error:", e);
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = "<span>✨ Deep AI Summarize (Gemini)</span>";
-            }
-        }
-
         async function calculateResumeMatch() {
             const skillsInput = document.getElementById("candidate-skills-input").value;
             const resumeText = document.getElementById("resume-text-input").value;
             const candidateSkills = skillsInput.split(",").map(s => s.trim()).filter(Boolean);
 
             try {
-                const resp = await fetch("/api/ai/match", {
+                const resp = await fetch("/api/match", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
@@ -1058,14 +990,14 @@
                     ? job.tech_stack.map(s => `<span class="tech-pill ${matchedSet.has(s.toLowerCase()) ? 'matched' : ''}">${escapeHtml(s)}</span>`).join("")
                     : `<span style="color:var(--text-muted); font-size:0.8rem;">General Stack</span>`;
 
-                const summaryHtml = job.ai_summary 
-                    ? `<div class="ai-summary-box">🤖 <strong>AI Summary:</strong> ${escapeHtml(job.ai_summary)}</div>`
+                const reqSnippet = (job.requirements && job.requirements.trim() && !job.requirements.toLowerCase().includes("click 'apply'"))
+                    ? `<div class="req-snippet">${escapeHtml(job.requirements.slice(0, 140))}${job.requirements.length > 140 ? '...' : ''}</div>`
                     : '';
 
                 const detailsCol = `
                     <div>
-                        <div style="margin-bottom: 6px;">${techBadges}</div>
-                        ${summaryHtml}
+                        <div>${techBadges}</div>
+                        ${reqSnippet}
                     </div>
                 `;
 

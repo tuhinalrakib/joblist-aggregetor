@@ -1,10 +1,10 @@
 """
 FastAPI Backend Application (app.py)
 -----------------------------------
-Full-stack backend server for AI-Powered Job Listing Aggregator & Intelligence Platform.
+Backend server for Job Listing Aggregator & Market Analytics Platform.
 Serves the web dashboard UI, provides REST API endpoints for:
-- Playwright / BeautifulSoup scraping
-- Google Gemini AI Summarization & Tech Stack Extraction
+- Playwright / BeautifulSoup job scraping
+- Tech Stack Extraction & Experience Level Classification
 - Resume & Candidate Skills Matcher (Match Score %)
 - Market Analytics & Tech Demand Insights (Chart.js)
 - Multi-format file exports (CSV, PDF, JSON)
@@ -27,15 +27,15 @@ from pydantic import BaseModel
 
 from scraper import JobScraper
 from data_handler import JobDataHandler
-from ai_handler import AIJobHandler
+from analytics_handler import AnalyticsHandler
 
-app = FastAPI(title="AI Job Listing Aggregator & Intelligence API", version="3.0.0")
+app = FastAPI(title="Job Listing Aggregator & Analytics API", version="3.0.0")
 
 BASE_DIR = Path(__file__).resolve().parent
 TEMPLATE_PATH = BASE_DIR / "templates" / "index.html"
 
-# Initialize AI Handler
-ai_engine = AIJobHandler()
+# Initialize Analytics & Extraction Engine
+analytics_engine = AnalyticsHandler()
 
 # Use system temp directory on Serverless (e.g. Vercel) where root filesystem is read-only
 if os.environ.get("VERCEL") or os.environ.get("AWS_LAMBDA_FUNCTION_NAME"):
@@ -85,11 +85,7 @@ class ScrapeRequest(BaseModel):
     url: Optional[str] = None
     auth_file: Optional[str] = "auth.json"
 
-class AIAnalyzeRequest(BaseModel):
-    jobs: Optional[List[Dict[str, Any]]] = None
-    api_key: Optional[str] = None
-
-class AIMatchRequest(BaseModel):
+class MatchRequest(BaseModel):
     candidate_skills: Optional[List[str]] = []
     resume_text: Optional[str] = None
     jobs: Optional[List[Dict[str, Any]]] = None
@@ -104,7 +100,7 @@ def get_dashboard():
 
 @app.post("/api/scrape")
 def trigger_scrape(req: ScrapeRequest):
-    """Execute Playwright job scraper with caching, AI tech stack enrichment and fast response time."""
+    """Execute job scraper with caching, tech stack extraction and fast response time."""
     global LATEST_JOBS_CACHE
     platform_name = (req.platform or "linkedin").strip().lower()
     cache_key = f"{req.keyword.strip().lower()}|{(req.location or '').strip().lower()}|{req.workplace_type}|{req.experience_level}|{req.max_pages}|{platform_name}|{req.url or ''}"
@@ -171,17 +167,15 @@ def trigger_scrape(req: ScrapeRequest):
     cleaned_df = handler.clean_data(experience_level=req.experience_level, workplace_type=req.workplace_type)
     jobs_list = cleaned_df.to_dict(orient="records")
 
-    # Fast initial enrichment: Extract tech stack, experience level and heuristic summary
+    # Extract tech stack & experience level tags
     for job in jobs_list:
         title = job.get("title", "")
         req_text = job.get("requirements", "")
-        company = job.get("company", "")
-        skills = ai_engine.extract_tech_stack_offline(f"{title} {req_text}")
+        skills = analytics_engine.extract_tech_stack(f"{title} {req_text}")
         job["tech_stack"] = skills
-        job["experience_level"] = ai_engine.detect_experience_level_offline(title, req_text)
-        job["ai_summary"] = ai_engine.generate_heuristic_summary(title, company, skills, req_text)
+        job["experience_level"] = analytics_engine.detect_experience_level(title, req_text)
 
-    # Export to CSV, JSON, and HTML immediately (fast)
+    # Export to CSV, JSON, and HTML immediately
     handler.save_to_csv(str(OUTPUT_CSV))
     handler.save_to_json(str(OUTPUT_JSON))
     handler.save_to_html(str(OUTPUT_HTML))
@@ -202,47 +196,11 @@ def trigger_scrape(req: ScrapeRequest):
         "from_cache": False
     }
 
-@app.post("/api/ai/analyze")
-def ai_analyze_jobs(req: AIAnalyzeRequest):
+@app.post("/api/match")
+@app.post("/api/ai/match")  # Alias for backward compatibility
+def match_candidate_skills(req: MatchRequest):
     """
-    Analyzes jobs using Google Gemini API (or hybrid NLP).
-    Extracts tech stack, experience level, and 2-line AI summary.
-    """
-    global LATEST_JOBS_CACHE
-    jobs_to_analyze = req.jobs or LATEST_JOBS_CACHE
-
-    if not jobs_to_analyze:
-        # Try to load from OUTPUT_JSON if memory cache is empty
-        if OUTPUT_JSON.exists():
-            try:
-                with open(OUTPUT_JSON, "r", encoding="utf-8") as f:
-                    jobs_to_analyze = json.load(f)
-            except Exception:
-                jobs_to_analyze = []
-
-    if not jobs_to_analyze:
-        raise HTTPException(status_code=400, detail="No jobs available to analyze. Please scrape jobs first.")
-
-    enriched = ai_engine.batch_enrich_jobs(jobs_to_analyze, custom_api_key=req.api_key)
-    LATEST_JOBS_CACHE = enriched
-
-    # Update stored files with enriched data
-    try:
-        with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
-            json.dump(enriched, f, indent=2, ensure_ascii=False)
-    except Exception as e:
-        print(f"[!] Warning updating JSON cache: {e}")
-
-    return {
-        "success": True,
-        "count": len(enriched),
-        "jobs": enriched
-    }
-
-@app.post("/api/ai/match")
-def match_candidate_skills(req: AIMatchRequest):
-    """
-    Calculates candidate match score (%) for each job based on input skills or resume text.
+    Calculates candidate skills match score (%) for each job based on input skills or resume text.
     """
     jobs_to_match = req.jobs or LATEST_JOBS_CACHE
 
@@ -261,7 +219,7 @@ def match_candidate_skills(req: AIMatchRequest):
 
     for job in jobs_to_match:
         job_copy = dict(job)
-        match_info = ai_engine.calculate_match_score(
+        match_info = analytics_engine.calculate_match_score(
             job=job_copy,
             candidate_skills=req.candidate_skills or [],
             resume_text=req.resume_text
@@ -295,7 +253,7 @@ def get_analytics(jobs: Optional[List[Dict[str, Any]]] = Body(None)):
         except Exception:
             target_jobs = []
 
-    analytics = ai_engine.generate_market_analytics(target_jobs or [])
+    analytics = analytics_engine.generate_market_analytics(target_jobs or [])
     return {
         "success": True,
         "analytics": analytics
