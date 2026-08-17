@@ -9,6 +9,8 @@ Run Server:
 uvicorn app:app --reload --port 8000
 """
 
+import os
+import tempfile
 import time
 import json
 import urllib.parse
@@ -23,12 +25,19 @@ from data_handler import JobDataHandler
 
 app = FastAPI(title="Job Listing Aggregator API", version="2.0.0")
 
-BASE_DIR = Path(__file__).parent
+BASE_DIR = Path(__file__).resolve().parent
 TEMPLATE_PATH = BASE_DIR / "templates" / "index.html"
-OUTPUT_CSV = BASE_DIR / "jobs_output.csv"
-OUTPUT_JSON = BASE_DIR / "jobs_output.json"
-OUTPUT_HTML = BASE_DIR / "jobs_output.html"
-OUTPUT_PDF = BASE_DIR / "jobs_output.pdf"
+
+# Use system temp directory on Serverless (e.g. Vercel) where root filesystem is read-only
+if os.environ.get("VERCEL") or os.environ.get("AWS_LAMBDA_FUNCTION_NAME"):
+    STORAGE_DIR = Path(tempfile.gettempdir())
+else:
+    STORAGE_DIR = BASE_DIR
+
+OUTPUT_CSV = STORAGE_DIR / "jobs_output.csv"
+OUTPUT_JSON = STORAGE_DIR / "jobs_output.json"
+OUTPUT_HTML = STORAGE_DIR / "jobs_output.html"
+OUTPUT_PDF = STORAGE_DIR / "jobs_output.pdf"
 
 # Search Query Cache with TTL (10 minutes)
 CACHE_TTL_SECONDS = 600
@@ -170,19 +179,24 @@ def download_csv():
 
 @app.get("/api/download/pdf")
 def download_pdf():
-    """Download scraped jobs as PDF (rendered on-demand if required)."""
+    """Download scraped jobs as PDF (or HTML report if headless PDF engine is unavailable)."""
     if not OUTPUT_JSON.exists():
         raise HTTPException(status_code=404, detail="No search data found. Run a job search first.")
     
     # If PDF is missing or stale compared to JSON, generate it on demand
-    if not OUTPUT_PDF.exists() or OUTPUT_PDF.stat().st_mtime < OUTPUT_JSON.stat().st_mtime:
+    if not OUTPUT_PDF.exists() or (OUTPUT_JSON.exists() and OUTPUT_PDF.stat().st_mtime < OUTPUT_JSON.stat().st_mtime):
         print("[+] Generating PDF report on-demand...")
         with open(OUTPUT_JSON, "r", encoding="utf-8") as f:
             jobs_data = json.load(f)
         handler = JobDataHandler(jobs_data)
         handler.save_to_pdf(str(OUTPUT_PDF), str(OUTPUT_HTML))
 
-    return FileResponse(path=str(OUTPUT_PDF), media_type="application/pdf", filename="scraped_jobs.pdf")
+    if OUTPUT_PDF.exists():
+        return FileResponse(path=str(OUTPUT_PDF), media_type="application/pdf", filename="scraped_jobs.pdf")
+    elif OUTPUT_HTML.exists():
+        return FileResponse(path=str(OUTPUT_HTML), media_type="text/html", filename="scraped_jobs_report.html")
+    else:
+        raise HTTPException(status_code=404, detail="Report file not found.")
 
 @app.get("/api/download/json")
 def download_json():

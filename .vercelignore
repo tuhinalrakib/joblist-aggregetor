@@ -1,0 +1,18 @@
+# Vercel Deployment Ignore List
+job_env/
+.venv/
+env/
+__pycache__/
+*.pyc
+.git/
+.github/
+.dockerignore
+Dockerfile
+render.yaml
+*.csv
+*.json
+!auth.json
+!vercel.json
+*.pdf
+*.html
+!templates/**

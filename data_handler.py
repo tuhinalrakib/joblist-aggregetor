@@ -12,7 +12,12 @@ from typing import List, Dict, Any, Optional
 from pathlib import Path
 import json
 import pandas as pd
-from playwright.sync_api import sync_playwright
+
+try:
+    from playwright.sync_api import sync_playwright
+    PLAYWRIGHT_SYNC_AVAILABLE = True
+except ImportError:
+    PLAYWRIGHT_SYNC_AVAILABLE = False
 
 import re
 
@@ -365,25 +370,33 @@ class JobDataHandler:
         return out_path
 
     def save_to_pdf(self, pdf_file: str = "jobs_report.pdf", html_file: str = "jobs_report.html") -> Path:
-        """Render the HTML report into a beautiful PDF using Playwright."""
+        """Render the HTML report into a beautiful PDF using Playwright when available."""
         html_path = self.save_to_html(html_file)
         pdf_path = Path(pdf_file)
 
-        print(f"[+] Rendering PDF report via Playwright...")
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
-            page = browser.new_page()
-            page.goto(html_path.resolve().as_uri())
-            page.wait_for_selector("table")
+        if not PLAYWRIGHT_SYNC_AVAILABLE:
+            print("[!] Playwright is not installed for PDF rendering. Using HTML report.")
+            return html_path
 
-            # Render A4 PDF
-            page.pdf(
-                path=str(pdf_path),
-                format="A4",
-                print_background=True,
-                margin={"top": "15mm", "bottom": "15mm", "left": "10mm", "right": "10mm"}
-            )
-            browser.close()
+        try:
+            print(f"[+] Rendering PDF report via Playwright...")
+            with sync_playwright() as p:
+                browser = p.chromium.launch(headless=True)
+                page = browser.new_page()
+                page.goto(html_path.resolve().as_uri())
+                page.wait_for_selector("table")
 
-        print(f"[✔] Successfully generated PDF document: {pdf_path.resolve()}")
-        return pdf_path
+                # Render A4 PDF
+                page.pdf(
+                    path=str(pdf_path),
+                    format="A4",
+                    print_background=True,
+                    margin={"top": "15mm", "bottom": "15mm", "left": "10mm", "right": "10mm"}
+                )
+                browser.close()
+
+            print(f"[✔] Successfully generated PDF document: {pdf_path.resolve()}")
+            return pdf_path
+        except Exception as e:
+            print(f"[!] PDF generation warning ({e}). Fallback to HTML report.")
+            return html_path
