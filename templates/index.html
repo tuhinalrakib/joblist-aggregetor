@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>JobFlow - Professional Job Listing Aggregator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>JobFlow AI - Intelligent Job Aggregator & Market Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Chart.js for High-End Interactive Analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
             --bg-dark: #090d16;
-            --card-bg: rgba(30, 41, 59, 0.7);
+            --bg-surface: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.72);
             --card-border: rgba(255, 255, 255, 0.08);
             --primary: #38bdf8;
             --primary-glow: rgba(56, 189, 248, 0.3);
             --accent-purple: #818cf8;
             --accent-green: #34d399;
+            --accent-amber: #fbbf24;
+            --accent-rose: #f43f5e;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --input-bg: rgba(15, 23, 42, 0.8);
+            --input-bg: rgba(15, 23, 42, 0.85);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
@@ -25,63 +30,72 @@
             background-color: var(--bg-dark);
             background-image: 
                 radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(129, 140, 248, 0.12) 0px, transparent 50%);
+                radial-gradient(at 100% 100%, rgba(129, 140, 248, 0.12) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(52, 211, 153, 0.05) 0px, transparent 60%);
             color: var(--text-main);
             min-height: 100vh;
             padding: 40px 20px;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; }
+        .container { max-width: 1280px; margin: 0 auto; }
 
         /* Header Styling */
         header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 36px;
         }
         .brand-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(56, 189, 248, 0.1);
-            border: 1px solid rgba(56, 189, 248, 0.3);
+            background: rgba(56, 189, 248, 0.12);
+            border: 1px solid rgba(56, 189, 248, 0.35);
             color: var(--primary);
-            padding: 6px 16px;
+            padding: 6px 18px;
             border-radius: 30px;
             font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
         }
         h1 {
-            font-size: 2.8rem;
+            font-size: 2.7rem;
             font-weight: 800;
             letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 60%, #38bdf8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         p.subtitle {
             color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 650px;
+            font-size: 1.08rem;
+            max-width: 720px;
             margin: 0 auto;
+            line-height: 1.5;
         }
 
-        /* Glassmorphism Form Box */
-        .search-card {
+        /* Glassmorphism Card Boxes */
+        .glass-card {
             background: var(--card-bg);
             backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--card-border);
             border-radius: 20px;
-            padding: 32px;
+            padding: 28px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
         }
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.14);
+        }
+
         .form-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-bottom: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 18px;
+            margin-bottom: 20px;
         }
         .form-group {
             display: flex;
@@ -89,34 +103,34 @@
             gap: 8px;
         }
         label {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 600;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-        input, select {
+        input, select, textarea {
             background: var(--input-bg);
             border: 1px solid var(--card-border);
             color: var(--text-main);
-            padding: 14px 16px;
+            padding: 13px 15px;
             border-radius: 12px;
-            font-size: 0.98rem;
+            font-size: 0.95rem;
             outline: none;
             transition: all 0.2s ease;
             width: 100%;
         }
-        input:focus, select:focus {
+        input:focus, select:focus, textarea:focus {
             border-color: var(--primary);
             box-shadow: 0 0 0 3px var(--primary-glow);
         }
+
         .btn-submit {
-            grid-column: 1 / -1;
             background: linear-gradient(135deg, var(--primary) 0%, #0284c7 100%);
             color: #090d16;
             font-size: 1.05rem;
             font-weight: 700;
-            padding: 16px;
+            padding: 15px;
             border: none;
             border-radius: 14px;
             cursor: pointer;
@@ -138,11 +152,289 @@
             transform: none;
         }
 
-        /* Loading Status */
+        /* Secondary Action Buttons */
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--card-border);
+            color: var(--text-main);
+            padding: 9px 16px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+        .btn-ai {
+            background: linear-gradient(135deg, rgba(129, 140, 248, 0.2) 0%, rgba(56, 189, 248, 0.2) 100%);
+            border: 1px solid rgba(129, 140, 248, 0.4);
+            color: #c7d2fe;
+        }
+        .btn-ai:hover {
+            background: linear-gradient(135deg, rgba(129, 140, 248, 0.35) 0%, rgba(56, 189, 248, 0.35) 100%);
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 15px rgba(129, 140, 248, 0.3);
+        }
+
+        /* KPI Metrics Grid */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .kpi-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .kpi-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+        .kpi-info h4 {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 4px;
+        }
+        .kpi-info .kpi-val {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        /* Charts Layout */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+        @media (max-width: 900px) {
+            .charts-grid { grid-template-columns: 1fr; }
+        }
+        .chart-box {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 20px;
+            min-height: 280px;
+        }
+        .chart-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Match Resume & Skills Box */
+        .skills-match-box {
+            background: linear-gradient(135deg, rgba(129, 140, 248, 0.08) 0%, rgba(56, 189, 248, 0.05) 100%);
+            border: 1px dashed rgba(129, 140, 248, 0.35);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+        .skills-quick-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .skill-chip {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #cbd5e1;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+        .skill-chip.active {
+            background: rgba(56, 189, 248, 0.2);
+            border-color: var(--primary);
+            color: var(--primary);
+            font-weight: 600;
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+        }
+
+        /* Table & Controls */
+        .controls-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .filter-input-wrap {
+            flex: 1;
+            min-width: 260px;
+        }
+        .sort-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 14px;
+            border: 1px solid var(--card-border);
+            background: rgba(15, 23, 42, 0.5);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        th {
+            background: rgba(30, 41, 59, 0.8);
+            padding: 16px 18px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--card-border);
+        }
+        td {
+            padding: 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 0.92rem;
+            vertical-align: top;
+        }
+        tr:hover td {
+            background: rgba(56, 189, 248, 0.03);
+        }
+
+        /* Badges & Tags */
+        .job-title-text {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+        .company-text {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .badge-loc {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+        .badge-level {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(129, 140, 248, 0.12);
+            color: var(--accent-purple);
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            margin-left: 6px;
+        }
+        .badge-match {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(52, 211, 153, 0.15);
+            border: 1px solid rgba(52, 211, 153, 0.4);
+            color: var(--accent-green);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .tech-pill {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #cbd5e1;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+        .tech-pill.matched {
+            background: rgba(52, 211, 153, 0.18);
+            border-color: rgba(52, 211, 153, 0.4);
+            color: #6ee7b7;
+            font-weight: 600;
+        }
+
+        .ai-summary-box {
+            background: rgba(30, 41, 59, 0.5);
+            border-left: 3px solid var(--accent-purple);
+            padding: 8px 12px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 8px;
+            font-size: 0.84rem;
+            color: #cbd5e1;
+            line-height: 1.45;
+        }
+
+        .btn-apply {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, var(--primary) 0%, #0284c7 100%);
+            color: #090d16;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 0.86rem;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .btn-apply:hover {
+            transform: scale(1.04);
+            box-shadow: 0 4px 15px var(--primary-glow);
+        }
+
+        /* Loading Status Box */
         .loading-box {
             display: none;
             text-align: center;
-            padding: 30px;
+            padding: 36px;
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 16px;
@@ -151,259 +443,21 @@
         .spinner {
             width: 48px;
             height: 48px;
-            border: 4px solid rgba(56, 189, 248, 0.1);
-            border-left-color: var(--primary);
+            border: 4px solid rgba(56, 189, 248, 0.15);
+            border-top: 4px solid var(--primary);
             border-radius: 50%;
-            animation: spin 1s linear infinite;
+            animation: spin 0.9s linear infinite;
             margin: 0 auto 16px;
         }
-        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        /* Dashboard Results Section */
-        .dashboard {
-            display: none;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        .dashboard-header {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 24px;
-        }
-        .results-count {
-            font-size: 1.4rem;
-            font-weight: 700;
-        }
-        .export-actions {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .btn-export {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--card-border);
-            color: var(--text-main);
-            padding: 10px 18px;
-            border-radius: 10px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .btn-export:hover {
-            background: rgba(56, 189, 248, 0.15);
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-        .btn-pdf {
-            background: rgba(129, 140, 248, 0.15);
-            border-color: rgba(129, 140, 248, 0.4);
-            color: var(--accent-purple);
-        }
-        .btn-pdf:hover {
-            background: var(--accent-purple);
-            color: #ffffff;
-        }
-
-        /* Filter Controls */
-        .controls-row {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .filter-input {
-            flex: 1;
-            min-width: 260px;
-        }
-
-        .sort-group {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* Table Styling Desktop */
-        .table-wrapper {
-            background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-        }
-        th {
-            background: rgba(15, 23, 42, 0.9);
-            padding: 18px 24px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            border-bottom: 1px solid var(--card-border);
-        }
-        td {
-            padding: 20px 24px;
-            border-bottom: 1px solid var(--card-border);
-            vertical-align: middle;
-        }
-        tr:hover {
-            background: rgba(255, 255, 255, 0.02);
-        }
-        .job-title-text {
-            font-weight: 700;
-            font-size: 1.05rem;
-            color: #ffffff;
-            margin-bottom: 6px;
-        }
-        .company-text {
-            color: var(--text-muted);
-            font-size: 0.88rem;
-        }
-        .badge-loc {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.12);
-            color: var(--primary);
-            padding: 4px 12px;
-            border-radius: 8px;
+        .api-key-toggle {
             font-size: 0.82rem;
-            font-weight: 600;
-        }
-        .btn-apply {
+            color: var(--text-muted);
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 8px;
             display: inline-block;
-            background: var(--primary);
-            color: #090d16;
-            padding: 8px 18px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 0.88rem;
-            text-decoration: none;
-            transition: all 0.2s;
-            text-align: center;
-        }
-        .btn-apply:hover {
-            background: #0284c7;
-            color: #ffffff;
-            transform: translateY(-1px);
-        }
-
-        /* ==========================================
-           MOBILE & TABLET RESPONSIVE MEDIA QUERIES 
-           ========================================== */
-        @media (max-width: 768px) {
-            body {
-                padding: 20px 12px;
-            }
-            h1 {
-                font-size: 2rem;
-            }
-            p.subtitle {
-                font-size: 0.95rem;
-            }
-            .search-card {
-                padding: 20px 16px;
-                border-radius: 16px;
-                margin-bottom: 24px;
-            }
-            .form-grid {
-                grid-template-columns: 1fr;
-                gap: 14px;
-            }
-            .dashboard-header {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 14px;
-            }
-            .export-actions {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
-                width: 100%;
-            }
-            .export-actions .btn-pdf {
-                grid-column: 1 / -1;
-            }
-            .btn-export {
-                width: 100%;
-                padding: 12px;
-                font-size: 0.88rem;
-            }
-            .controls-row {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 12px;
-            }
-            .filter-input {
-                width: 100%;
-                min-width: 100%;
-            }
-            .sort-group {
-                width: 100%;
-                justify-content: space-between;
-            }
-            .sort-group select {
-                flex: 1;
-            }
-
-            /* Responsive Mobile Card View for Tables */
-            .table-wrapper {
-                background: transparent;
-                border: none;
-                box-shadow: none;
-                overflow: visible;
-            }
-            table, thead, tbody, th, td, tr {
-                display: block;
-                width: 100%;
-            }
-            thead tr {
-                position: absolute;
-                top: -9999px;
-                left: -9999px;
-            }
-            tbody tr {
-                background: var(--card-bg);
-                backdrop-filter: blur(12px);
-                border: 1px solid var(--card-border);
-                border-radius: 16px;
-                margin-bottom: 16px;
-                padding: 18px 16px;
-                box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            }
-            td {
-                padding: 8px 0;
-                border-bottom: none;
-                text-align: left !important;
-            }
-            td:last-child {
-                padding-top: 14px;
-            }
-            .job-title-text {
-                font-size: 1.1rem;
-            }
-            .btn-apply {
-                display: block;
-                width: 100%;
-                padding: 12px;
-                font-size: 0.95rem;
-                margin-top: 4px;
-            }
         }
     </style>
 </head>
@@ -411,70 +465,86 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <div class="brand-badge">⚡ JobFlow Mobile & Desktop Ready</div>
-            <h1>Job Listing Aggregator</h1>
-            <p class="subtitle">Fast concurrent search, instant filtering, and mobile-friendly job aggregation.</p>
+            <div class="brand-badge">
+                <span>🤖</span> AI-Powered Scraper • Gemini 1.5 Flash • Market Analytics
+            </div>
+            <h1>JobFlow AI Aggregator</h1>
+            <p class="subtitle">
+                Automated multi-portal job scraping engine with Google Gemini AI summarization, candidate skills matching, and real-time tech demand analytics.
+            </p>
         </header>
 
-        <!-- Search Form Card -->
-        <div class="search-card">
+        <!-- Search / Scraper Form -->
+        <div class="glass-card">
             <form id="scrape-form" onsubmit="handleScrape(event)">
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="keyword">Job Keyword</label>
-                        <input type="text" id="keyword" placeholder="e.g. React Developer, Python Developer, Data Engineer" required>
+                        <input type="text" id="keyword" value="React Developer" placeholder="e.g. Python, Full Stack, React" required>
                     </div>
+
                     <div class="form-group">
-                        <label for="location">Location (City, Country)</label>
-                        <input type="text" id="location" placeholder="e.g. Worldwide, United States, Dhaka, London" value="Worldwide">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" value="Remote" placeholder="e.g. Remote, USA, Worldwide">
                     </div>
+
                     <div class="form-group">
                         <label for="workplace_type">Workplace Type</label>
                         <select id="workplace_type">
-                            <option value="all" selected>All Workplace Types</option>
-                            <option value="Remote">Remote</option>
-                            <option value="On-site">On-site</option>
-                            <option value="Hybrid">Hybrid</option>
+                            <option value="all">🌐 All Workplaces</option>
+                            <option value="remote" selected>🏠 Remote</option>
+                            <option value="hybrid">🏢 Hybrid</option>
+                            <option value="onsite">📍 On-site</option>
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label for="experience">Experience Level</label>
                         <select id="experience">
-                            <option value="all" selected>All Experience Levels</option>
-                            <option value="entry">Entry-level</option>
-                            <option value="associate">Associate</option>
-                            <option value="mid_senior">Mid-Senior level</option>
-                            <option value="internship">Internship</option>
-                            <option value="director">Director</option>
-                            <option value="executive">Executive</option>
+                            <option value="all" selected>🎯 All Levels</option>
+                            <option value="entry">🌱 Entry Level / Junior</option>
+                            <option value="associate">🚀 Associate</option>
+                            <option value="mid_senior">💼 Mid-Senior Level</option>
+                            <option value="director">👑 Director / Lead</option>
                         </select>
                     </div>
+
                     <div class="form-group">
-                        <label for="pages">Max Pages</label>
+                        <label for="pages">Search Depth (Pages)</label>
                         <select id="pages">
-                            <option value="1">1 Page (Fastest ~2s)</option>
-                            <option value="2" selected>2 Pages (Parallel ~3s)</option>
-                            <option value="3">3 Pages (Parallel ~4s)</option>
-                            <option value="5">5 Pages (Parallel ~5s)</option>
+                            <option value="1">1 Page (~25 Jobs - Instant)</option>
+                            <option value="2" selected>2 Pages (~50 Jobs)</option>
+                            <option value="3">3 Pages (~75 Jobs)</option>
                         </select>
                     </div>
+
                     <div class="form-group">
-                        <label for="platform">Target Job Site / Platform</label>
+                        <label for="platform">Scraping Engine</label>
                         <select id="platform" onchange="toggleCustomUrlGroup()">
-                            <option value="linkedin" selected>LinkedIn Jobs (Default)</option>
-                            <option value="glassdoor">Glassdoor Jobs</option>
+                            <option value="linkedin" selected>LinkedIn Jobs (Playwright / BS4)</option>
                             <option value="indeed">Indeed Jobs</option>
-                            <option value="custom">Custom Search URL (Paste Link)</option>
+                            <option value="glassdoor">Glassdoor Jobs</option>
+                            <option value="custom">Custom Job URL</option>
                         </select>
                     </div>
-                    <div class="form-group" id="custom-url-group" style="display: none;">
-                        <label for="url">Custom Search URL</label>
-                        <input type="text" id="url" placeholder="https://example.com/jobs?q=python">
+                </div>
+
+                <!-- Custom URL input -->
+                <div class="form-group" id="custom-url-group" style="display: none; margin-bottom: 20px;">
+                    <label for="url">Custom Search URL</label>
+                    <input type="url" id="url" placeholder="https://www.linkedin.com/jobs/search/?keywords=...">
+                </div>
+
+                <!-- Optional Gemini API Key input -->
+                <div style="margin-bottom: 20px;">
+                    <span class="api-key-toggle" onclick="toggleApiKeyInput()">⚙️ Optional: Add Google Gemini API Key (for custom quota)</span>
+                    <div id="api-key-group" style="display: none; margin-top: 10px;">
+                        <input type="password" id="gemini_api_key" placeholder="Enter Gemini API Key (e.g. AIzaSy...)">
                     </div>
                 </div>
 
                 <button type="submit" class="btn-submit" id="btn-submit">
-                    <span>⚡ Search Jobs Now</span>
+                    <span>⚡ Run Dual-Engine Scraper & AI Extract</span>
                 </button>
             </form>
         </div>
@@ -482,75 +552,210 @@
         <!-- Loading Indicator -->
         <div class="loading-box" id="loading-box">
             <div class="spinner"></div>
-            <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 6px;">Concurrent Scraping Active...</h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem;" id="loading-status">Parallel tabs running, fetching job cards instantly...</p>
+            <h3 style="font-weight: 700; margin-bottom: 8px;">Scraping & Analyzing Jobs...</h3>
+            <p style="color: var(--text-muted); font-size: 0.92rem;" id="loading-text">
+                Executing headless browser automation, cleaning data with Pandas, and extracting Tech Stack tags.
+            </p>
         </div>
 
-        <!-- Live Dashboard Results -->
-        <div class="dashboard" id="dashboard">
-            <div class="dashboard-header">
-                <div>
-                    <div class="results-count" id="results-count">0 Jobs Found</div>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;" id="results-status">Cleaned & Deduplicated Results</p>
+        <!-- Dashboard / Results Section -->
+        <div id="dashboard" style="display: none;">
+            
+            <!-- KPI Overview Cards -->
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-icon" style="background: rgba(56, 189, 248, 0.15); color: var(--primary);">📁</div>
+                    <div class="kpi-info">
+                        <h4>Total Jobs</h4>
+                        <div class="kpi-val" id="kpi-total">0</div>
+                    </div>
                 </div>
-                <div class="export-actions">
-                    <a href="/api/download/csv" class="btn-export">📥 CSV</a>
-                    <a href="/api/download/json" class="btn-export">📁 JSON</a>
-                    <a href="/api/download/pdf" class="btn-export btn-pdf">📄 Download PDF</a>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon" style="background: rgba(52, 211, 153, 0.15); color: var(--accent-green);">🌐</div>
+                    <div class="kpi-info">
+                        <h4>Remote Ratio</h4>
+                        <div class="kpi-val" id="kpi-remote">0%</div>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon" style="background: rgba(129, 140, 248, 0.15); color: var(--accent-purple);">🔥</div>
+                    <div class="kpi-info">
+                        <h4>Top Skill In Demand</h4>
+                        <div class="kpi-val" id="kpi-top-skill" style="font-size: 1.2rem;">-</div>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon" style="background: rgba(251, 191, 36, 0.15); color: var(--accent-amber);">🎯</div>
+                    <div class="kpi-info">
+                        <h4>Avg Candidate Match</h4>
+                        <div class="kpi-val" id="kpi-match-avg">-</div>
+                    </div>
                 </div>
             </div>
 
-            <div class="controls-row">
-                <input type="text" class="filter-input" id="filter-input" placeholder="🔍 Search by title, company, or location..." onkeyup="filterResults()">
-                
-                <div class="sort-group">
-                    <label for="sort-select" style="font-weight: 600; font-size: 0.88rem; color: var(--text-muted); white-space: nowrap;">Sort By:</label>
-                    <select id="sort-select" onchange="applySortingAndRender()">
-                        <option value="newest" selected>⏱️ Most Recent</option>
-                        <option value="title_asc">🔤 Title (A → Z)</option>
-                        <option value="title_desc">🔤 Title (Z → A)</option>
-                        <option value="company_asc">🏢 Company (A → Z)</option>
-                        <option value="location_asc">📍 Location (A → Z)</option>
-                    </select>
+            <!-- Interactive Market Insights & Analytics Charts -->
+            <div class="glass-card" id="analytics-section">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 800; display: flex; align-items: center; gap: 8px;">
+                        <span>📊</span> Market Analytics & Tech Demand Insights
+                    </h3>
+                    <span id="results-status" style="font-size: 0.85rem; color: var(--text-muted);"></span>
+                </div>
+
+                <div class="charts-grid">
+                    <div class="chart-box">
+                        <div class="chart-title">🔥 Top 10 In-Demand Tech Stacks in Current Results</div>
+                        <div style="height: 220px; position: relative;">
+                            <canvas id="skillsChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-box">
+                        <div class="chart-title">🌐 Workplace Distribution</div>
+                        <div style="height: 220px; position: relative;">
+                            <canvas id="workplaceChart"></canvas>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr style="user-select: none;">
-                            <th style="width: 32%; cursor: pointer;" onclick="toggleSortHeader('title')">
-                                Job Title & Company <span id="sort-icon-title">↕</span>
-                            </th>
-                            <th style="width: 18%; cursor: pointer;" onclick="toggleSortHeader('location')">
-                                Location <span id="sort-icon-loc">↕</span>
-                            </th>
-                            <th style="width: 15%; cursor: pointer;" onclick="toggleSortHeader('date')">
-                                Date Posted <span id="sort-icon-date">↕</span>
-                            </th>
-                            <th style="width: 23%;">Requirements</th>
-                            <th style="width: 12%; text-align: center;">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="jobs-table-body">
-                    </tbody>
-                </table>
+            <!-- "Match My Resume / Skills" Interactive Engine -->
+            <div class="skills-match-box glass-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                    <h3 style="font-size: 1.1rem; font-weight: 800; color: #e0e7ff; display: flex; align-items: center; gap: 8px;">
+                        <span>🎯</span> Match My Resume / Skills Against Jobs
+                    </h3>
+                    <button class="btn-secondary" onclick="calculateResumeMatch()" style="background: var(--primary); color: #090d16; font-weight: 700;">
+                        <span>⚡ Calculate Match Score</span>
+                    </button>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 12px;">
+                    Click skills below to toggle or type your custom tech stack / paste resume text:
+                </p>
+
+                <div class="skills-quick-chips" id="quick-chips">
+                    <!-- Populated via JS -->
+                </div>
+
+                <div style="margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                    <input type="text" id="candidate-skills-input" placeholder="Type skills separated by comma (e.g. React, Python, FastAPI, Docker, Tailwind)...">
+                    <textarea id="resume-text-input" rows="1" placeholder="Or paste full Resume / Bio text here for deep AI extraction..."></textarea>
+                </div>
             </div>
+
+            <!-- Results Toolbar & Actions -->
+            <div class="glass-card" style="padding: 24px;">
+                <div class="controls-row">
+                    <div class="filter-input-wrap">
+                        <input type="text" id="filter-input" placeholder="🔍 Search by title, company, tech stack, or location..." onkeyup="filterResults()">
+                    </div>
+
+                    <div class="sort-group">
+                        <label for="sort-select" style="font-weight: 600; font-size: 0.85rem; color: var(--text-muted); white-space: nowrap;">Sort:</label>
+                        <select id="sort-select" onchange="applySortingAndRender()">
+                            <option value="match_desc" selected>🎯 Highest Match Score</option>
+                            <option value="newest">⏱️ Most Recent</option>
+                            <option value="title_asc">🔤 Title (A → Z)</option>
+                            <option value="company_asc">🏢 Company (A → Z)</option>
+                        </select>
+                    </div>
+
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <button class="btn-secondary btn-ai" onclick="triggerDeepAIAnalysis()" id="btn-deep-ai">
+                            <span>✨ Deep AI Summarize (Gemini)</span>
+                        </button>
+                        <a href="/api/download/csv" class="btn-secondary">📥 CSV</a>
+                        <a href="/api/download/pdf" class="btn-secondary">📄 PDF</a>
+                        <a href="/api/download/json" class="btn-secondary">📋 JSON</a>
+                    </div>
+                </div>
+
+                <!-- Jobs Table -->
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr style="user-select: none;">
+                                <th style="width: 32%; cursor: pointer;" onclick="toggleSortHeader('title')">
+                                    Job & Company <span id="sort-icon-title">↕</span>
+                                </th>
+                                <th style="width: 18%; cursor: pointer;" onclick="toggleSortHeader('location')">
+                                    Location & Type
+                                </th>
+                                <th style="width: 32%;">
+                                    Tech Stack & AI Summary
+                                </th>
+                                <th style="width: 10%; text-align: center;">
+                                    Match
+                                </th>
+                                <th style="width: 8%; text-align: center;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="jobs-table-body">
+                            <!-- Injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div>
     </div>
 
+    <!-- Interactive JavaScript -->
     <script>
         let currentJobs = [];
+        let selectedSkills = new Set(["React", "Python", "FastAPI", "TypeScript", "Tailwind CSS"]);
+        let skillsChartInstance = null;
+        let workplaceChartInstance = null;
+
+        const POPULAR_SKILLS = [
+            "React", "Python", "FastAPI", "Django", "TypeScript", "JavaScript", 
+            "Next.js", "Node.js", "Docker", "PostgreSQL", "MongoDB", "AWS", 
+            "Tailwind CSS", "Playwright", "GraphQL", "Redis"
+        ];
+
+        // Init Quick Skill Chips
+        function initSkillChips() {
+            const container = document.getElementById("quick-chips");
+            container.innerHTML = "";
+            POPULAR_SKILLS.forEach(skill => {
+                const chip = document.createElement("div");
+                chip.className = `skill-chip ${selectedSkills.has(skill) ? 'active' : ''}`;
+                chip.innerText = skill;
+                chip.onclick = () => toggleSkill(skill, chip);
+                container.appendChild(chip);
+            });
+            updateSkillsInput();
+        }
+
+        function toggleSkill(skill, elem) {
+            if (selectedSkills.has(skill)) {
+                selectedSkills.delete(skill);
+                elem.classList.remove("active");
+            } else {
+                selectedSkills.add(skill);
+                elem.classList.add("active");
+            }
+            updateSkillsInput();
+            calculateResumeMatch();
+        }
+
+        function updateSkillsInput() {
+            document.getElementById("candidate-skills-input").value = Array.from(selectedSkills).join(", ");
+        }
+
+        function toggleApiKeyInput() {
+            const group = document.getElementById("api-key-group");
+            group.style.display = (group.style.display === "none" || !group.style.display) ? "block" : "none";
+        }
 
         function toggleCustomUrlGroup() {
             const platform = document.getElementById("platform").value;
             const customGroup = document.getElementById("custom-url-group");
-            if (platform === "custom") {
-                customGroup.style.display = "block";
-            } else {
-                customGroup.style.display = "none";
-                document.getElementById("url").value = "";
-            }
+            customGroup.style.display = (platform === "custom") ? "block" : "none";
+            if (platform !== "custom") document.getElementById("url").value = "";
         }
 
         async function handleScrape(e) {
@@ -594,17 +799,15 @@
 
                 if (data.success) {
                     currentJobs = data.jobs || [];
-                    applySortingAndRender();
-                    
-                    if (data.from_cache) {
-                        statusElem.innerHTML = `⚡ <span style="color:var(--accent-green); font-weight:600;">Instant Cache Hit</span> (${durationSec}s)`;
-                    } else {
-                        statusElem.innerHTML = `⚡ Scraped & Cleaned in <span style="color:var(--primary); font-weight:600;">${durationSec}s</span>`;
-                    }
+                    statusElem.innerHTML = data.from_cache 
+                        ? `⚡ <span style="color:var(--accent-green); font-weight:600;">Instant Cache Hit</span> (${durationSec}s)`
+                        : `⚡ Scraped & AI-Enriched in <span style="color:var(--primary); font-weight:600;">${durationSec}s</span>`;
 
                     dashboard.style.display = "block";
+                    calculateResumeMatch(); // auto-calculates match and renders
+                    fetchAndRenderAnalytics();
                 } else {
-                    alert("Scraping Warning: " + (data.message || "No jobs found."));
+                    alert("Scraping Notice: " + (data.message || "No jobs found."));
                 }
             } catch (err) {
                 alert("Error connecting to server: " + err.message);
@@ -614,12 +817,151 @@
             }
         }
 
+        async function triggerDeepAIAnalysis() {
+            const btn = document.getElementById("btn-deep-ai");
+            const apiKey = document.getElementById("gemini_api_key").value;
+            btn.disabled = true;
+            btn.innerHTML = "<span>🤖 Analyzing with Gemini API...</span>";
+
+            try {
+                const resp = await fetch("/api/ai/analyze", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        jobs: currentJobs,
+                        api_key: apiKey || null
+                    })
+                });
+                const data = await resp.json();
+                if (data.success) {
+                    currentJobs = data.jobs;
+                    calculateResumeMatch();
+                    fetchAndRenderAnalytics();
+                }
+            } catch (e) {
+                console.error("AI deep analysis error:", e);
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = "<span>✨ Deep AI Summarize (Gemini)</span>";
+            }
+        }
+
+        async function calculateResumeMatch() {
+            const skillsInput = document.getElementById("candidate-skills-input").value;
+            const resumeText = document.getElementById("resume-text-input").value;
+            const candidateSkills = skillsInput.split(",").map(s => s.trim()).filter(Boolean);
+
+            try {
+                const resp = await fetch("/api/ai/match", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        candidate_skills: candidateSkills,
+                        resume_text: resumeText || null,
+                        jobs: currentJobs
+                    })
+                });
+                const data = await resp.json();
+                if (data.success) {
+                    currentJobs = data.jobs;
+                    document.getElementById("kpi-match-avg").innerText = `${data.average_match_score}%`;
+                    applySortingAndRender();
+                }
+            } catch (e) {
+                console.error("Match error:", e);
+                applySortingAndRender();
+            }
+        }
+
+        async function fetchAndRenderAnalytics() {
+            try {
+                const resp = await fetch("/api/analytics", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(currentJobs)
+                });
+                const data = await resp.json();
+                if (data.success && data.analytics) {
+                    renderAnalytics(data.analytics);
+                }
+            } catch (e) {
+                console.error("Analytics fetch error:", e);
+            }
+        }
+
+        function renderAnalytics(analytics) {
+            // Update KPIs
+            document.getElementById("kpi-total").innerText = analytics.total_jobs;
+            document.getElementById("kpi-remote").innerText = `${analytics.remote_ratio}%`;
+            document.getElementById("kpi-top-skill").innerText = analytics.top_skill_name || "N/A";
+
+            // Render Skills Bar Chart
+            const ctxSkills = document.getElementById("skillsChart").getContext("2d");
+            const skillLabels = analytics.top_skills.map(s => s.name);
+            const skillData = analytics.top_skills.map(s => s.count);
+
+            if (skillsChartInstance) skillsChartInstance.destroy();
+
+            skillsChartInstance = new Chart(ctxSkills, {
+                type: "bar",
+                data: {
+                    labels: skillLabels,
+                    datasets: [{
+                        label: "Job Mentions",
+                        data: skillData,
+                        backgroundColor: "rgba(56, 189, 248, 0.65)",
+                        borderColor: "#38bdf8",
+                        borderWidth: 1.5,
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { grid: { display: false }, ticks: { color: "#94a3b8", font: { size: 11 } } },
+                        y: { grid: { color: "rgba(255, 255, 255, 0.06)" }, ticks: { color: "#94a3b8", precision: 0 } }
+                    }
+                }
+            });
+
+            // Render Workplace Doughnut Chart
+            const ctxWp = document.getElementById("workplaceChart").getContext("2d");
+            const wpLabels = Object.keys(analytics.workplace_distribution);
+            const wpData = Object.values(analytics.workplace_distribution);
+
+            if (workplaceChartInstance) workplaceChartInstance.destroy();
+
+            workplaceChartInstance = new Chart(ctxWp, {
+                type: "doughnut",
+                data: {
+                    labels: wpLabels,
+                    datasets: [{
+                        data: wpData,
+                        backgroundColor: [
+                            "rgba(52, 211, 153, 0.75)",
+                            "rgba(56, 189, 248, 0.75)",
+                            "rgba(129, 140, 248, 0.75)"
+                        ],
+                        borderColor: "#0f172a",
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: "bottom", labels: { color: "#94a3b8", font: { size: 11 }, boxWidth: 12 } }
+                    }
+                }
+            });
+        }
+
         function parseRelativeHours(dateStr) {
             if (!dateStr || typeof dateStr !== 'string') return 999999;
             const str = dateStr.toLowerCase().trim();
-            if (str.includes('just now') || str.includes('recently') || str.includes('moment') || str.includes('second')) {
-                return 0;
-            }
+            if (str.includes('just now') || str.includes('recently') || str.includes('moment')) return 0;
             const match = str.match(/(\d+)\s*(minute|min|hour|hr|day|week|month|year)/);
             if (match) {
                 const val = parseInt(match[1], 10);
@@ -631,26 +973,19 @@
                 if (unit.startsWith('month')) return val * 24 * 30;
                 if (unit.startsWith('year')) return val * 24 * 365;
             }
-            if (str.includes('hour') || str.includes('hr')) return 1;
-            if (str.includes('day')) return 24;
-            if (str.includes('week')) return 168;
-            if (str.includes('month')) return 720;
-            if (str.includes('year')) return 8760;
             return 999999;
         }
 
         function sortJobList(jobsList, sortOption) {
             let sorted = [...jobsList];
-            if (sortOption === "newest") {
+            if (sortOption === "match_desc") {
+                sorted.sort((a, b) => (b.match_score || 0) - (a.match_score || 0));
+            } else if (sortOption === "newest") {
                 sorted.sort((a, b) => parseRelativeHours(a.date_posted) - parseRelativeHours(b.date_posted));
             } else if (sortOption === "title_asc") {
                 sorted.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
-            } else if (sortOption === "title_desc") {
-                sorted.sort((a, b) => (b.title || "").localeCompare(a.title || ""));
             } else if (sortOption === "company_asc") {
                 sorted.sort((a, b) => (a.company || "").localeCompare(b.company || ""));
-            } else if (sortOption === "location_asc") {
-                sorted.sort((a, b) => (a.location || "").localeCompare(b.location || ""));
             }
             return sorted;
         }
@@ -658,11 +993,7 @@
         function toggleSortHeader(field) {
             const selectElem = document.getElementById("sort-select");
             if (field === 'title') {
-                selectElem.value = (selectElem.value === 'title_asc') ? 'title_desc' : 'title_asc';
-            } else if (field === 'location') {
-                selectElem.value = 'location_asc';
-            } else if (field === 'date') {
-                selectElem.value = 'newest';
+                selectElem.value = 'title_asc';
             }
             applySortingAndRender();
         }
@@ -676,19 +1007,13 @@
 
         function getFilteredJobs() {
             const query = document.getElementById("filter-input").value.toLowerCase();
-            const expLevel = document.getElementById("experience").value;
-            const isEntryOrIntern = ['entry', 'internship', 'associate', '1', '2', '3'].includes(expLevel);
-            const seniorRegex = /\b(senior|sr|lead|staff|principal|architect|manager|director|head|vp)\b/i;
-
             return currentJobs.filter(j => {
-                if (isEntryOrIntern && j.title && seniorRegex.test(j.title)) {
-                    return false;
-                }
+                const skillsStr = (j.tech_stack || []).join(" ").toLowerCase();
                 return (
                     (j.title && j.title.toLowerCase().includes(query)) ||
                     (j.company && j.company.toLowerCase().includes(query)) ||
                     (j.location && j.location.toLowerCase().includes(query)) ||
-                    (j.date_posted && j.date_posted.toLowerCase().includes(query))
+                    skillsStr.includes(query)
                 );
             });
         }
@@ -699,10 +1024,7 @@
 
         function renderJobs(jobs) {
             const tbody = document.getElementById("jobs-table-body");
-            const countElem = document.getElementById("results-count");
             tbody.innerHTML = "";
-
-            countElem.innerText = `${jobs.length} Jobs Collected`;
 
             if (jobs.length === 0) {
                 tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:40px; color:var(--text-muted);">No job listings matching your criteria.</td></tr>`;
@@ -713,33 +1035,54 @@
                 const tr = document.createElement("tr");
 
                 const compName = (job.company && job.company !== 'N/A') ? job.company : 'Featured Employer';
+                const levelBadge = job.experience_level ? `<span class="badge-level">${escapeHtml(job.experience_level)}</span>` : '';
+                
                 const titleCompany = `
                     <div>
-                        <div class="job-title-text">${escapeHtml(job.title || 'N/A')}</div>
+                        <div class="job-title-text">${escapeHtml(job.title || 'N/A')} ${levelBadge}</div>
                         <div class="company-text">🏢 ${escapeHtml(compName)}</div>
                     </div>
                 `;
 
                 const wpBadge = (job.workplace_type && job.workplace_type.trim() !== '') ? ` • ${escapeHtml(job.workplace_type)}` : '';
-                const loc = `<span class="badge-loc">📍 ${escapeHtml(job.location || 'Remote')}${wpBadge}</span>`;
-                const dateBadge = `<span style="display:inline-block; background:rgba(129, 140, 248, 0.12); color:var(--accent-purple); padding:4px 10px; border-radius:6px; font-size:0.82rem; font-weight:600; margin-top:4px;">🕒 ${escapeHtml(job.date_posted || 'Recently')}</span>`;
-
-                const reqText = (job.requirements && job.requirements !== 'N/A') ? job.requirements : "Click 'Apply Now' for details";
-                const reqs = `
-                    <div style="color:var(--text-muted); font-size:0.88rem; margin-top:4px;">
-                        ${escapeHtml(reqText)}
+                const loc = `
+                    <div>
+                        <span class="badge-loc">📍 ${escapeHtml(job.location || 'Remote')}${wpBadge}</span>
+                        <div style="font-size:0.78rem; color:var(--text-muted); margin-top:5px;">🕒 ${escapeHtml(job.date_posted || 'Recently')}</div>
                     </div>
                 `;
 
+                // Tech stack pills
+                const matchedSet = new Set((job.matched_skills || []).map(s => s.toLowerCase()));
+                const techBadges = (job.tech_stack && job.tech_stack.length > 0)
+                    ? job.tech_stack.map(s => `<span class="tech-pill ${matchedSet.has(s.toLowerCase()) ? 'matched' : ''}">${escapeHtml(s)}</span>`).join("")
+                    : `<span style="color:var(--text-muted); font-size:0.8rem;">General Stack</span>`;
+
+                const summaryHtml = job.ai_summary 
+                    ? `<div class="ai-summary-box">🤖 <strong>AI Summary:</strong> ${escapeHtml(job.ai_summary)}</div>`
+                    : '';
+
+                const detailsCol = `
+                    <div>
+                        <div style="margin-bottom: 6px;">${techBadges}</div>
+                        ${summaryHtml}
+                    </div>
+                `;
+
+                const matchScore = typeof job.match_score === 'number' ? job.match_score : null;
+                const matchBadge = matchScore !== null
+                    ? `<span class="badge-match" title="Matched: ${(job.matched_skills || []).join(', ')}">🎯 ${matchScore}%</span>`
+                    : `<span style="color:var(--text-muted); font-size:0.8rem;">-</span>`;
+
                 const apply = job.link && job.link !== 'N/A'
-                    ? `<a href="${job.link}" target="_blank" class="btn-apply">Apply Now ↗</a>`
+                    ? `<a href="${job.link}" target="_blank" class="btn-apply">Apply ↗</a>`
                     : `<span style="color:var(--text-muted);">N/A</span>`;
 
                 tr.innerHTML = `
                     <td>${titleCompany}</td>
                     <td>${loc}</td>
-                    <td>${dateBadge}</td>
-                    <td>${reqs}</td>
+                    <td>${detailsCol}</td>
+                    <td style="text-align:center;">${matchBadge}</td>
                     <td style="text-align:center;">${apply}</td>
                 `;
                 tbody.appendChild(tr);
@@ -753,6 +1096,13 @@
                 .replace(/>/g, "&gt;")
                 .replace(/"/g, "&quot;");
         }
+
+        // Initialize on load
+        window.addEventListener("DOMContentLoaded", () => {
+            initSkillChips();
+            // Load initial analytics if cached output already exists
+            fetchAndRenderAnalytics();
+        });
     </script>
 </body>
 </html>
