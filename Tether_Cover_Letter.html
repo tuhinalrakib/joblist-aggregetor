@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Letter - Backend Engineer at Tether</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page-container {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 24mm 24mm 20mm 24mm;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Top Accent Bar */
+        .top-stripe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #009393 0%, #26A17B 50%, #0284c7 100%);
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1.5px solid #e2e8f0;
+            padding-bottom: 18px;
+            margin-bottom: 22px;
+        }
+
+        .candidate-info h1 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #0f172a;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+
+        .candidate-info .subtitle {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #009393;
+            letter-spacing: 0.02em;
+        }
+
+        .contact-details {
+            text-align: right;
+            font-size: 0.82rem;
+            color: #64748b;
+            line-height: 1.55;
+        }
+
+        .contact-details span {
+            color: #0f172a;
+            font-weight: 500;
+        }
+
+        /* Letter Meta */
+        .letter-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 0.88rem;
+        }
+
+        .recipient-info {
+            color: #334155;
+            line-height: 1.45;
+        }
+
+        .recipient-info strong {
+            color: #0f172a;
+            font-size: 0.92rem;
+        }
+
+        .letter-date {
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        /* Subject */
+        .subject-line {
+            background: #f0fdfa;
+            border-left: 4px solid #009393;
+            padding: 10px 14px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 20px;
+        }
+
+        /* Body Content */
+        .content {
+            font-size: 0.89rem;
+            color: #334155;
+            line-height: 1.62;
+        }
+
+        .content p {
+            margin-bottom: 14px;
+            text-align: justify;
+        }
+
+        /* Highlights List */
+        .highlights-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin: 16px 0;
+        }
+
+        .highlights-box h3 {
+            font-size: 0.86rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #009393;
+            margin-bottom: 10px;
+        }
+
+        .highlights-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .highlights-list li {
+            position: relative;
+            padding-left: 20px;
+            font-size: 0.86rem;
+            color: #334155;
+            line-height: 1.5;
+        }
+
+        .highlights-list li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #009393;
+            font-size: 0.85rem;
+        }
+
+        .highlights-list li strong {
+            color: #0f172a;
+        }
+
+        /* Signoff */
+        .signoff {
+            margin-top: 24px;
+            font-size: 0.89rem;
+        }
+
+        .signoff .closing {
+            margin-bottom: 22px;
+        }
+
+        .signoff .name {
+            font-weight: 700;
+            color: #0f172a;
+            font-size: 1rem;
+        }
+
+        .signoff .title {
+            color: #64748b;
+            font-size: 0.84rem;
+        }
+
+        /* Footer */
+        footer {
+            position: absolute;
+            bottom: 14mm;
+            left: 24mm;
+            right: 24mm;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.76rem;
+            color: #94a3b8;
+        }
+
+        @media print {
+            body {
+                background: none;
+            }
+            .page-container {
+                box-shadow: none;
+                margin: 0;
+                padding: 20mm 20mm 15mm 20mm;
+                width: 100%;
+                min-height: auto;
+            }
+            footer {
+                bottom: 10mm;
+                left: 20mm;
+                right: 20mm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="top-stripe"></div>
+
+    <header>
+        <div class="candidate-info">
+            <h1>Tuhin Al Rakib</h1>
+            <div class="subtitle">Senior Backend & Full Stack Engineer</div>
+        </div>
+        <div class="contact-details">
+            <div>Email: <span>tuhinalrakib@gmail.com</span></div>
+            <div>Location: <span>Remote (Worldwide)</span></div>
+            <div>GitHub: <span>github.com/tuhinalrakib</span></div>
+            <div>LinkedIn: <span>linkedin.com/in/tuhinalrakib</span></div>
+        </div>
+    </header>
+
+    <div class="letter-meta">
+        <div class="recipient-info">
+            <strong>Hiring Team & Technical Leadership</strong><br>
+            Tether Operations Limited<br>
+            Digital Finance & Infrastructure Division<br>
+            <em>Application via Official Portal: tether.recruitee.com</em>
+        </div>
+        <div class="letter-date">
+            August 18, 2026
+        </div>
+    </div>
+
+    <div class="subject-line">
+        APPLICATION FOR BACKEND / SOFTWARE ENGINEER — TETHER DIGITAL FINANCE & PLATFORM
+    </div>
+
+    <div class="content">
+        <p>
+            Dear Hiring Team,
+        </p>
+
+        <p>
+            I am writing to express my enthusiastic interest in joining <strong>Tether</strong> as a Backend Engineer. Having closely followed Tether’s evolution from powering the world's most trusted stablecoin (<strong>USDT</strong>) to spearheading revolutionary initiatives across <strong>Tether Power, Tether Data (Keet), and peer-to-peer communications</strong>, I am deeply inspired by your mission to build a decentralized, resilient, and transparent global financial ecosystem.
+        </p>
+
+        <p>
+            With extensive hands-on experience engineering high-throughput, fault-tolerant backend architectures using <strong>Node.js, JavaScript/TypeScript, and microservices</strong>, I thrive in tackling complex challenges where performance, real-time scalability, and rigorous security are paramount.
+        </p>
+
+        <div class="highlights-box">
+            <h3>Key Value & Technical Alignment</h3>
+            <ul class="highlights-list">
+                <li>
+                    <strong>Scalable Node.js & Microservices Architecture:</strong> Proven record in designing modular, event-driven REST and WebSocket services capable of handling demanding traffic with sub-second latencies and high availability.
+                </li>
+                <li>
+                    <strong>Peer-to-Peer & Distributed Technologies:</strong> In-depth comprehension of distributed networking, asynchronous state synchronization, and peer-to-peer data flow—aligning directly with Tether Data and decentralized application paradigms.
+                </li>
+                <li>
+                    <strong>Database Optimization (MySQL & MongoDB):</strong> Experienced in crafting robust data schemas, query optimization, indexing strategies, and transactional integrity across relational and NoSQL data stores.
+                </li>
+                <li>
+                    <strong>Zero-Trust Security & Asset Safeguarding:</strong> Committed to rigorous security practices, defensive programming, cryptographic integrity, and secure API gateways to protect mission-critical user assets and confidential data.
+                </li>
+                <li>
+                    <strong>Agile Problem Solver & Rapid Learner:</strong> Fast adaptation to cutting-edge technologies, cross-functional collaboration in fully distributed global teams, and proactive English communication.
+                </li>
+            </ul>
+        </div>
+
+        <p>
+            Tether’s vision of combining financial sovereignty, sustainable infrastructure, and decentralized peer-to-peer technology represents the defining frontier of fintech. I am eager to bring my backend engineering discipline, deep dedication to code quality, and enthusiasm for decentralized systems to contribute immediately to Tether’s high-impact roadmap.
+        </p>
+
+        <p>
+            Thank you for your time, consideration, and leadership in advancing the future of digital finance. I welcome the opportunity to discuss how my skill set and passion can support Tether’s continuous innovation.
+        </p>
+    </div>
+
+    <div class="signoff">
+        <div class="closing">Sincerely,</div>
+        <div class="name">Tuhin Al Rakib</div>
+        <div class="title">Backend & Full Stack Engineer</div>
+    </div>
+
+    <footer>
+        <div>Tether Application • Backend Software Engineer</div>
+        <div>Confidential & Professional Submission</div>
+    </footer>
+</div>
+
+</body>
+</html>

@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>JobFlow - Job Listing Aggregator & Market Intelligence</title>
+    <title>JobFlow - Job Listing Aggregator</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Chart.js for High-End Interactive Analytics -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
             --bg-dark: #090d16;
@@ -212,66 +210,6 @@
             color: var(--text-main);
         }
 
-        /* Charts Layout */
-        .charts-grid {
-            display: grid;
-            grid-template-columns: 3fr 2fr;
-            gap: 20px;
-            margin-bottom: 24px;
-        }
-        @media (max-width: 900px) {
-            .charts-grid { grid-template-columns: 1fr; }
-        }
-        .chart-box {
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid var(--card-border);
-            border-radius: 14px;
-            padding: 20px;
-            min-height: 280px;
-        }
-        .chart-title {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* Match Resume & Skills Box */
-        .skills-match-box {
-            background: linear-gradient(135deg, rgba(129, 140, 248, 0.08) 0%, rgba(56, 189, 248, 0.05) 100%);
-            border: 1px dashed rgba(129, 140, 248, 0.35);
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 24px;
-        }
-        .skills-quick-chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-        }
-        .skill-chip {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: #cbd5e1;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.82rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            user-select: none;
-        }
-        .skill-chip.active {
-            background: rgba(56, 189, 248, 0.2);
-            border-color: var(--primary);
-            color: var(--primary);
-            font-weight: 600;
-            box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
-        }
-
         /* Table & Controls */
         .controls-row {
             display: flex;
@@ -358,18 +296,6 @@
             font-weight: 600;
             margin-left: 6px;
         }
-        .badge-match {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            background: rgba(52, 211, 153, 0.15);
-            border: 1px solid rgba(52, 211, 153, 0.4);
-            color: var(--accent-green);
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.82rem;
-            font-weight: 700;
-        }
 
         .tech-pill {
             display: inline-block;
@@ -382,12 +308,6 @@
             font-family: 'JetBrains Mono', monospace;
             margin-right: 4px;
             margin-bottom: 4px;
-        }
-        .tech-pill.matched {
-            background: rgba(52, 211, 153, 0.18);
-            border-color: rgba(52, 211, 153, 0.4);
-            color: #6ee7b7;
-            font-weight: 600;
         }
 
         .req-snippet {
@@ -443,11 +363,11 @@
         <!-- Header -->
         <header>
             <div class="brand-badge">
-                <span>⚡</span> Job Listing Aggregator • Market Analytics
+                <span>⚡</span> Job Listing Aggregator
             </div>
             <h1>JobFlow Aggregator</h1>
             <p class="subtitle">
-                Automated multi-portal job scraping engine with candidate skills matching and real-time tech demand analytics.
+                Automated multi-portal job scraping engine with tech stack extraction and real-time listings aggregation.
             </p>
         </header>
 
@@ -555,68 +475,17 @@
                         <div class="kpi-val" id="kpi-top-skill" style="font-size: 1.2rem;">-</div>
                     </div>
                 </div>
-
-                <div class="kpi-card">
-                    <div class="kpi-icon" style="background: rgba(251, 191, 36, 0.15); color: var(--accent-amber);">🎯</div>
-                    <div class="kpi-info">
-                        <h4>Avg Candidate Match</h4>
-                        <div class="kpi-val" id="kpi-match-avg">-</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Interactive Market Insights & Analytics Charts -->
-            <div class="glass-card" id="analytics-section">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-                    <h3 style="font-size: 1.15rem; font-weight: 800; display: flex; align-items: center; gap: 8px;">
-                        <span>📊</span> Market Analytics & Tech Demand Insights
-                    </h3>
-                    <span id="results-status" style="font-size: 0.85rem; color: var(--text-muted);"></span>
-                </div>
-
-                <div class="charts-grid">
-                    <div class="chart-box">
-                        <div class="chart-title">🔥 Top 10 In-Demand Tech Stacks in Current Results</div>
-                        <div style="height: 220px; position: relative;">
-                            <canvas id="skillsChart"></canvas>
-                        </div>
-                    </div>
-
-                    <div class="chart-box">
-                        <div class="chart-title">🌐 Workplace Distribution</div>
-                        <div style="height: 220px; position: relative;">
-                            <canvas id="workplaceChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- "Match My Resume / Skills" Interactive Engine -->
-            <div class="skills-match-box glass-card">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                    <h3 style="font-size: 1.1rem; font-weight: 800; color: #e0e7ff; display: flex; align-items: center; gap: 8px;">
-                        <span>🎯</span> Match My Resume / Skills Against Jobs
-                    </h3>
-                    <button class="btn-secondary" onclick="calculateResumeMatch()" style="background: var(--primary); color: #090d16; font-weight: 700;">
-                        <span>⚡ Calculate Match Score</span>
-                    </button>
-                </div>
-                <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 12px;">
-                    Click skills below to toggle or type your custom tech stack / paste resume text:
-                </p>
-
-                <div class="skills-quick-chips" id="quick-chips">
-                    <!-- Populated via JS -->
-                </div>
-
-                <div style="margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-                    <input type="text" id="candidate-skills-input" placeholder="Type skills separated by comma (e.g. React, Python, FastAPI, Docker, Tailwind)...">
-                    <textarea id="resume-text-input" rows="1" placeholder="Or paste full Resume / Bio text here for keyword skills extraction..."></textarea>
-                </div>
             </div>
 
             <!-- Results Toolbar & Actions -->
             <div class="glass-card" style="padding: 24px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 800; display: flex; align-items: center; gap: 8px;">
+                        <span>📋</span> Job Listings
+                    </h3>
+                    <span id="results-status" style="font-size: 0.85rem; color: var(--text-muted);"></span>
+                </div>
+
                 <div class="controls-row">
                     <div class="filter-input-wrap">
                         <input type="text" id="filter-input" placeholder="🔍 Search by title, company, tech stack, or location..." onkeyup="filterResults()">
@@ -625,8 +494,7 @@
                     <div class="sort-group">
                         <label for="sort-select" style="font-weight: 600; font-size: 0.85rem; color: var(--text-muted); white-space: nowrap;">Sort:</label>
                         <select id="sort-select" onchange="applySortingAndRender()">
-                            <option value="match_desc" selected>🎯 Highest Match Score</option>
-                            <option value="newest">⏱️ Most Recent</option>
+                            <option value="newest" selected>⏱️ Most Recent</option>
                             <option value="title_asc">🔤 Title (A → Z)</option>
                             <option value="company_asc">🏢 Company (A → Z)</option>
                         </select>
@@ -644,19 +512,16 @@
                     <table>
                         <thead>
                             <tr style="user-select: none;">
-                                <th style="width: 34%; cursor: pointer;" onclick="toggleSortHeader('title')">
+                                <th style="width: 36%; cursor: pointer;" onclick="toggleSortHeader('title')">
                                     Job & Company <span id="sort-icon-title">↕</span>
                                 </th>
-                                <th style="width: 20%; cursor: pointer;" onclick="toggleSortHeader('location')">
+                                <th style="width: 22%; cursor: pointer;" onclick="toggleSortHeader('location')">
                                     Location & Type
                                 </th>
-                                <th style="width: 30%;">
+                                <th style="width: 32%;">
                                     Tech Stack & Details
                                 </th>
-                                <th style="width: 8%; text-align: center;">
-                                    Match
-                                </th>
-                                <th style="width: 8%; text-align: center;">Action</th>
+                                <th style="width: 10%; text-align: center;">Action</th>
                             </tr>
                         </thead>
                         <tbody id="jobs-table-body">
@@ -672,45 +537,6 @@
     <!-- Interactive JavaScript -->
     <script>
         let currentJobs = [];
-        let selectedSkills = new Set(["React", "Python", "FastAPI", "TypeScript", "Tailwind CSS"]);
-        let skillsChartInstance = null;
-        let workplaceChartInstance = null;
-
-        const POPULAR_SKILLS = [
-            "React", "Python", "FastAPI", "Django", "TypeScript", "JavaScript", 
-            "Next.js", "Node.js", "Docker", "PostgreSQL", "MongoDB", "AWS", 
-            "Tailwind CSS", "Playwright", "GraphQL", "Redis"
-        ];
-
-        // Init Quick Skill Chips
-        function initSkillChips() {
-            const container = document.getElementById("quick-chips");
-            container.innerHTML = "";
-            POPULAR_SKILLS.forEach(skill => {
-                const chip = document.createElement("div");
-                chip.className = `skill-chip ${selectedSkills.has(skill) ? 'active' : ''}`;
-                chip.innerText = skill;
-                chip.onclick = () => toggleSkill(skill, chip);
-                container.appendChild(chip);
-            });
-            updateSkillsInput();
-        }
-
-        function toggleSkill(skill, elem) {
-            if (selectedSkills.has(skill)) {
-                selectedSkills.delete(skill);
-                elem.classList.remove("active");
-            } else {
-                selectedSkills.add(skill);
-                elem.classList.add("active");
-            }
-            updateSkillsInput();
-            calculateResumeMatch();
-        }
-
-        function updateSkillsInput() {
-            document.getElementById("candidate-skills-input").value = Array.from(selectedSkills).join(", ");
-        }
 
         function toggleCustomUrlGroup() {
             const platform = document.getElementById("platform").value;
@@ -764,9 +590,9 @@
                         ? `⚡ <span style="color:var(--accent-green); font-weight:600;">Instant Cache Hit</span> (${durationSec}s)`
                         : `⚡ Scraped & Processed in <span style="color:var(--primary); font-weight:600;">${durationSec}s</span>`;
 
+                    updateKPIs(currentJobs);
                     dashboard.style.display = "block";
-                    calculateResumeMatch(); // auto-calculates match and renders
-                    fetchAndRenderAnalytics();
+                    applySortingAndRender();
                 } else {
                     alert("Scraping Notice: " + (data.message || "No jobs found."));
                 }
@@ -778,116 +604,40 @@
             }
         }
 
-        async function calculateResumeMatch() {
-            const skillsInput = document.getElementById("candidate-skills-input").value;
-            const resumeText = document.getElementById("resume-text-input").value;
-            const candidateSkills = skillsInput.split(",").map(s => s.trim()).filter(Boolean);
+        function updateKPIs(jobs) {
+            const total = jobs.length;
+            document.getElementById("kpi-total").innerText = total;
 
-            try {
-                const resp = await fetch("/api/match", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        candidate_skills: candidateSkills,
-                        resume_text: resumeText || null,
-                        jobs: currentJobs
-                    })
-                });
-                const data = await resp.json();
-                if (data.success) {
-                    currentJobs = data.jobs;
-                    document.getElementById("kpi-match-avg").innerText = `${data.average_match_score}%`;
-                    applySortingAndRender();
-                }
-            } catch (e) {
-                console.error("Match error:", e);
-                applySortingAndRender();
+            if (total === 0) {
+                document.getElementById("kpi-remote").innerText = "0%";
+                document.getElementById("kpi-top-skill").innerText = "-";
+                return;
             }
-        }
 
-        async function fetchAndRenderAnalytics() {
-            try {
-                const resp = await fetch("/api/analytics", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(currentJobs)
+            const remoteCount = jobs.filter(j => 
+                (j.workplace_type && j.workplace_type.toLowerCase().includes("remote")) ||
+                (j.location && j.location.toLowerCase().includes("remote"))
+            ).length;
+            const remoteRatio = Math.round((remoteCount / total) * 100);
+            document.getElementById("kpi-remote").innerText = `${remoteRatio}%`;
+
+            // Calculate Top Skill
+            const skillCounts = {};
+            jobs.forEach(j => {
+                (j.tech_stack || []).forEach(skill => {
+                    skillCounts[skill] = (skillCounts[skill] || 0) + 1;
                 });
-                const data = await resp.json();
-                if (data.success && data.analytics) {
-                    renderAnalytics(data.analytics);
-                }
-            } catch (e) {
-                console.error("Analytics fetch error:", e);
-            }
-        }
-
-        function renderAnalytics(analytics) {
-            // Update KPIs
-            document.getElementById("kpi-total").innerText = analytics.total_jobs;
-            document.getElementById("kpi-remote").innerText = `${analytics.remote_ratio}%`;
-            document.getElementById("kpi-top-skill").innerText = analytics.top_skill_name || "N/A";
-
-            // Render Skills Bar Chart
-            const ctxSkills = document.getElementById("skillsChart").getContext("2d");
-            const skillLabels = analytics.top_skills.map(s => s.name);
-            const skillData = analytics.top_skills.map(s => s.count);
-
-            if (skillsChartInstance) skillsChartInstance.destroy();
-
-            skillsChartInstance = new Chart(ctxSkills, {
-                type: "bar",
-                data: {
-                    labels: skillLabels,
-                    datasets: [{
-                        label: "Job Mentions",
-                        data: skillData,
-                        backgroundColor: "rgba(56, 189, 248, 0.65)",
-                        borderColor: "#38bdf8",
-                        borderWidth: 1.5,
-                        borderRadius: 6
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        x: { grid: { display: false }, ticks: { color: "#94a3b8", font: { size: 11 } } },
-                        y: { grid: { color: "rgba(255, 255, 255, 0.06)" }, ticks: { color: "#94a3b8", precision: 0 } }
-                    }
-                }
             });
 
-            // Render Workplace Doughnut Chart
-            const ctxWp = document.getElementById("workplaceChart").getContext("2d");
-            const wpLabels = Object.keys(analytics.workplace_distribution);
-            const wpData = Object.values(analytics.workplace_distribution);
-
-            if (workplaceChartInstance) workplaceChartInstance.destroy();
-
-            workplaceChartInstance = new Chart(ctxWp, {
-                type: "doughnut",
-                data: {
-                    labels: wpLabels,
-                    datasets: [{
-                        data: wpData,
-                        backgroundColor: [
-                            "rgba(52, 211, 153, 0.75)",
-                            "rgba(56, 189, 248, 0.75)",
-                            "rgba(129, 140, 248, 0.75)"
-                        ],
-                        borderColor: "#0f172a",
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { position: "bottom", labels: { color: "#94a3b8", font: { size: 11 }, boxWidth: 12 } }
-                    }
+            let topSkill = "-";
+            let maxCount = 0;
+            for (const [skill, count] of Object.entries(skillCounts)) {
+                if (count > maxCount) {
+                    maxCount = count;
+                    topSkill = skill;
                 }
-            });
+            }
+            document.getElementById("kpi-top-skill").innerText = topSkill;
         }
 
         function parseRelativeHours(dateStr) {
@@ -910,9 +660,7 @@
 
         function sortJobList(jobsList, sortOption) {
             let sorted = [...jobsList];
-            if (sortOption === "match_desc") {
-                sorted.sort((a, b) => (b.match_score || 0) - (a.match_score || 0));
-            } else if (sortOption === "newest") {
+            if (sortOption === "newest") {
                 sorted.sort((a, b) => parseRelativeHours(a.date_posted) - parseRelativeHours(b.date_posted));
             } else if (sortOption === "title_asc") {
                 sorted.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
@@ -959,7 +707,7 @@
             tbody.innerHTML = "";
 
             if (jobs.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:40px; color:var(--text-muted);">No job listings matching your criteria.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; padding:40px; color:var(--text-muted);">No job listings matching your criteria.</td></tr>`;
                 return;
             }
 
@@ -985,9 +733,8 @@
                 `;
 
                 // Tech stack pills
-                const matchedSet = new Set((job.matched_skills || []).map(s => s.toLowerCase()));
                 const techBadges = (job.tech_stack && job.tech_stack.length > 0)
-                    ? job.tech_stack.map(s => `<span class="tech-pill ${matchedSet.has(s.toLowerCase()) ? 'matched' : ''}">${escapeHtml(s)}</span>`).join("")
+                    ? job.tech_stack.map(s => `<span class="tech-pill">${escapeHtml(s)}</span>`).join("")
                     : `<span style="color:var(--text-muted); font-size:0.8rem;">General Stack</span>`;
 
                 const reqSnippet = (job.requirements && job.requirements.trim() && !job.requirements.toLowerCase().includes("click 'apply'"))
@@ -1001,11 +748,6 @@
                     </div>
                 `;
 
-                const matchScore = typeof job.match_score === 'number' ? job.match_score : null;
-                const matchBadge = matchScore !== null
-                    ? `<span class="badge-match" title="Matched: ${(job.matched_skills || []).join(', ')}">🎯 ${matchScore}%</span>`
-                    : `<span style="color:var(--text-muted); font-size:0.8rem;">-</span>`;
-
                 const apply = job.link && job.link !== 'N/A'
                     ? `<a href="${job.link}" target="_blank" class="btn-apply">Apply ↗</a>`
                     : `<span style="color:var(--text-muted);">N/A</span>`;
@@ -1014,7 +756,6 @@
                     <td>${titleCompany}</td>
                     <td>${loc}</td>
                     <td>${detailsCol}</td>
-                    <td style="text-align:center;">${matchBadge}</td>
                     <td style="text-align:center;">${apply}</td>
                 `;
                 tbody.appendChild(tr);
@@ -1028,13 +769,6 @@
                 .replace(/>/g, "&gt;")
                 .replace(/"/g, "&quot;");
         }
-
-        // Initialize on load
-        window.addEventListener("DOMContentLoaded", () => {
-            initSkillChips();
-            // Load initial analytics if cached output already exists
-            fetchAndRenderAnalytics();
-        });
     </script>
 </body>
 </html>
