@@ -88,7 +88,7 @@ class JobDataHandler:
         exp_str = str(experience_level).lower().strip() if experience_level else "all"
         if exp_str in ["entry", "internship", "associate", "1", "2", "3"]:
             if "title" in self.df.columns:
-                senior_pattern = r"\b(senior|sr|lead|staff|principal|architect|manager|director|head|vp)\b"
+                senior_pattern = r"\b(?:senior|sr|lead|staff|principal|architect|manager|director|head|vp)\b"
                 mask = self.df["title"].astype(str).str.lower().str.contains(senior_pattern, regex=True)
                 filtered_out = mask.sum()
                 if filtered_out > 0:

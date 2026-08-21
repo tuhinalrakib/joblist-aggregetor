@@ -33,9 +33,20 @@ COMMON_TECH_SKILLS = [
 ]
 
 EXPERIENCE_KEYWORDS = {
-    "Junior": ["junior", "entry", "intern", "internship", "graduate", "0-1 year", "0-2 years", "associate"],
-    "Mid-Level": ["mid", "intermediate", "2-4 years", "2-5 years", "3+ years", "3-5 years"],
-    "Senior": ["senior", "sr", "lead", "principal", "architect", "staff", "head of", "director", "5+ years", "7+ years", "10+ years"]
+    "Junior": [
+        "junior", "entry", "entry-level", "entry level", "intern", "internship",
+        "graduate", "fresher", "trainee", "associate", "early career", "new grad",
+        "0-1 year", "0-2 years", "1-2 years", "0 to 1 year", "0 to 2 years",
+        "0-1", "0-2", "1-2", "junior software", "junior developer", "junior engineer"
+    ],
+    "Senior": [
+        "senior", "sr", "sr.", "lead", "principal", "architect", "staff",
+        "head of", "director", "manager", "vp", "5+ years", "6+ years",
+        "7+ years", "8+ years", "10+ years"
+    ],
+    "Mid-Level": [
+        "mid", "mid-level", "intermediate", "2-4 years", "2-5 years", "3+ years", "3-5 years", "4+ years"
+    ]
 }
 
 class AnalyticsHandler:
@@ -58,17 +69,35 @@ class AnalyticsHandler:
 
         return sorted(list(found_skills))
 
-    def detect_experience_level(self, title: str, requirements: str) -> str:
-        """Determines experience level from job title and requirement snippets."""
+    def detect_experience_level(self, title: str, requirements: str, requested_level: Optional[str] = None) -> str:
+        """Determines experience level from job title, requirements, and requested search context."""
         combined = f"{title} {requirements}".lower()
+        title_lower = title.lower()
 
-        for level, keywords in EXPERIENCE_KEYWORDS.items():
-            for kw in keywords:
-                if re.search(rf"\b{re.escape(kw)}\b", combined):
-                    if level == "Senior" and any(j in title.lower() for j in ["junior", "intern"]):
-                        continue
-                    return level
-        
+        # 1. Direct keyword check
+        for kw in EXPERIENCE_KEYWORDS["Junior"]:
+            if re.search(rf"\b{re.escape(kw)}\b", combined):
+                return "Junior"
+
+        for kw in EXPERIENCE_KEYWORDS["Senior"]:
+            if re.search(rf"\b{re.escape(kw)}\b", combined):
+                if not any(j in title_lower for j in ["junior", "intern", "assistant"]):
+                    return "Senior"
+
+        for kw in EXPERIENCE_KEYWORDS["Mid-Level"]:
+            if re.search(rf"\b{re.escape(kw)}\b", combined):
+                return "Mid-Level"
+
+        # 2. If no explicit keywords found in text, infer from user's search filter
+        if requested_level:
+            req_l = str(requested_level).lower().strip()
+            if req_l in ["entry", "internship", "associate", "junior", "1", "2", "3"]:
+                return "Junior"
+            elif req_l in ["mid_senior", "mid", "4"]:
+                return "Mid-Level"
+            elif req_l in ["director", "executive", "senior", "5", "6"]:
+                return "Senior"
+
         return "Mid-Level"
 
     def calculate_match_score(self, job: Dict[str, Any], candidate_skills: List[str], resume_text: Optional[str] = None) -> Dict[str, Any]:

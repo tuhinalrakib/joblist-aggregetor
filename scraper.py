@@ -32,6 +32,8 @@ try:
     PLAYWRIGHT_AVAILABLE = True
 except ImportError:
     PLAYWRIGHT_AVAILABLE = False
+    Page = Any
+    BrowserContext = Any
 
 
 class JobScraper:
@@ -39,12 +41,16 @@ class JobScraper:
         self,
         keyword: str = "Python Developer",
         location: str = "Remote",
+        workplace_type: Optional[str] = "all",
+        experience_level: Optional[str] = "all",
         max_pages: int = 2,
         auth_file: Optional[str] = "auth.json",
         headless: bool = True
     ):
         self.keyword = keyword.strip() if keyword else "Software Engineer"
         self.location = location.strip() if location else "Remote"
+        self.workplace_type = workplace_type or "all"
+        self.experience_level = experience_level or "all"
         self.max_pages = max(1, min(max_pages, 5))
         self.auth_file = Path(auth_file) if auth_file else None
         self.headless = headless
@@ -284,6 +290,17 @@ class JobScraper:
             "Sec-Fetch-User": "?1"
         }
 
+        # Extract extra params from target_url (e.g. f_E, f_WT)
+        extra_query_parts = []
+        if target_url and "?" in target_url:
+            parsed = urllib.parse.urlparse(target_url)
+            params = urllib.parse.parse_qs(parsed.query)
+            for k in ["f_E", "f_WT", "f_TPR"]:
+                if k in params:
+                    extra_query_parts.append(f"{k}={urllib.parse.quote(params[k][0])}")
+        
+        extra_query = ("&" + "&".join(extra_query_parts)) if extra_query_parts else ""
+
         encoded_kw = urllib.parse.quote(self.keyword)
         encoded_loc = urllib.parse.quote(self.location)
         all_jobs: List[Dict[str, Any]] = []
@@ -291,7 +308,7 @@ class JobScraper:
         for page in range(self.max_pages):
             start = page * 25
             req_urls = [
-                f"https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords={encoded_kw}&location={encoded_loc}&start={start}",
+                f"https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords={encoded_kw}&location={encoded_loc}{extra_query}&start={start}",
                 target_url
             ]
 
@@ -357,22 +374,34 @@ class JobScraper:
         encoded_kw = urllib.parse.quote(self.keyword)
         search_link = f"https://www.linkedin.com/jobs/search/?keywords={encoded_kw}&location={urllib.parse.quote(self.location)}"
 
-        # Varied tech companies
+        exp_filter = str(self.experience_level).lower().strip()
+        if exp_filter in ["entry", "internship", "associate", "junior", "1", "2", "3"]:
+            prefixes = ["Junior ", "Associate ", "Entry-Level ", ""]
+            exp_desc = "Great opportunity for entry-level and junior engineers. Mentorship and modern engineering practices provided."
+        elif exp_filter in ["director", "executive", "5", "6"]:
+            prefixes = ["Lead ", "Principal ", "Staff ", "Director of "]
+            exp_desc = "Leadership role guiding architectural direction and engineering best practices."
+        elif exp_filter in ["mid_senior", "mid", "4"]:
+            prefixes = ["", "Mid-Level ", "Senior "]
+            exp_desc = "Requires solid hands-on experience designing and delivering scalable systems."
+        else:
+            prefixes = ["Junior ", "", "Senior ", "Lead "]
+            exp_desc = "Seeking motivated engineers passionate about building high quality systems."
+
         companies = [
-            ("Apex Systems", "Remote", "1 hour ago", f"Looking for {kw} to build robust cloud infrastructure, microservices, and APIs."),
-            ("CloudWave Labs", "Remote", "2 hours ago", f"Seeking {kw} to scale core services with modern frameworks and database optimization."),
-            ("NextGen Tech", "Remote", "4 hours ago", f"Key responsibilities include designing scalable systems, CI/CD pipelines, and collaborating with cross-functional teams."),
-            ("Quik Hire Solutions", "Remote", "6 hours ago", f"Hiring {kw} to develop high-performance web applications and backend architectures."),
-            ("DataFlow Corp", loc, "10 hours ago", f"Deliver reliable solutions with {kw}, Docker, REST APIs, and automated test coverage."),
-            ("Nova Digital", "Remote", "1 day ago", f"Join our agile product engineering team to build scalable features using {kw}."),
-            ("Starlight Interactive", loc, "1 day ago", f"Engineering role focused on {kw}, database design, performance tuning, and agile workflows."),
-            ("Global Logic Hub", "Remote", "2 days ago", f"Fast-growing platform looking for talented {kw} to innovate and build customer-facing features.")
+            ("Apex Systems", "Remote", "1 hour ago", f"Looking for {kw} to build robust cloud infrastructure, microservices, and APIs. {exp_desc}"),
+            ("CloudWave Labs", "Remote", "2 hours ago", f"Seeking {kw} to scale core services with modern frameworks and database optimization. {exp_desc}"),
+            ("NextGen Tech", "Remote", "4 hours ago", f"Key responsibilities include designing scalable systems, CI/CD pipelines, and collaborating with cross-functional teams. {exp_desc}"),
+            ("Quik Hire Solutions", "Remote", "6 hours ago", f"Hiring {kw} to develop high-performance web applications and backend architectures. {exp_desc}"),
+            ("DataFlow Corp", loc, "10 hours ago", f"Deliver reliable solutions with {kw}, Docker, REST APIs, and automated test coverage. {exp_desc}"),
+            ("Nova Digital", "Remote", "1 day ago", f"Join our agile product engineering team to build scalable features using {kw}. {exp_desc}"),
+            ("Starlight Interactive", loc, "1 day ago", f"Engineering role focused on {kw}, database design, performance tuning, and agile workflows. {exp_desc}"),
+            ("Global Logic Hub", "Remote", "2 days ago", f"Fast-growing platform looking for talented {kw} to innovate and build customer-facing features. {exp_desc}")
         ]
 
         results = []
         for comp, default_wp, time_str, req_text in companies:
-            # Generate Entry / Mid / Senior variations
-            for prefix in ["", "Junior ", "Senior ", "Lead "]:
+            for prefix in prefixes:
                 title = f"{prefix}{kw}".strip()
                 results.append({
                     "title": title,

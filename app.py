@@ -153,6 +153,8 @@ def trigger_scrape(req: ScrapeRequest):
     scraper = JobScraper(
         keyword=req.keyword,
         location=req.location,
+        workplace_type=req.workplace_type,
+        experience_level=req.experience_level,
         max_pages=req.max_pages,
         auth_file=req.auth_file,
         headless=True
@@ -173,7 +175,9 @@ def trigger_scrape(req: ScrapeRequest):
         req_text = job.get("requirements", "")
         skills = analytics_engine.extract_tech_stack(f"{title} {req_text}")
         job["tech_stack"] = skills
-        job["experience_level"] = analytics_engine.detect_experience_level(title, req_text)
+        job["experience_level"] = analytics_engine.detect_experience_level(
+            title, req_text, requested_level=req.experience_level
+        )
 
     # Export to CSV, JSON, and HTML immediately
     handler.save_to_csv(str(OUTPUT_CSV))
